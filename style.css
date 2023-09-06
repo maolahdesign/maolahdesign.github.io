@@ -1,6 +1,7 @@
 .container{
     font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
     width: 80vw;
+    max-width:640px;
     margin: 0 auto;
     color: #242424;
 }
