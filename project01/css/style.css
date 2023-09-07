@@ -196,20 +196,10 @@ body {
 }
 
 a{text-decoration: none;color: #242424;}
+
 .container{
     width: 1440px;
     margin: 0 auto;
-}
-.container button{
-    border-radius: 5px;
-    border: 1px solid #000;
-    color: #000;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 134.766%; /* 24.258px */
 }
 
 
