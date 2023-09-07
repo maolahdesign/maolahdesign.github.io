@@ -63,6 +63,7 @@ header{
 }
 .portfolio div img{
     width:100%;
+    height: 183px;
 }
 .portfolio div a{
     display: inline-block;
