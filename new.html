@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <dl>
+        <div itemscope itemtype="http://schema.org/Product">
+            <dt itemprop="name">Café ou Chocolat Liégeois
+            <dd itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <span itemprop="price">3.50</span>
+                <data itemprop="priceCurrency" value="EUR">€</data>
+            <dd itemprop="description">
+                2 boules Café ou Chocolat, 1 boule Vanille, sause café ou chocolat, chantilly
+        </div>
+
+        <div itemscope itemtype="http://schema.org/Product">
+            <dt itemprop="name">Américaine
+            <dd itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <span itemprop="price">3.50</span>
+                <data itemprop="priceCurrency" value="EUR">€</data>
+            <dd itemprop="description">
+                1 boule Crème brûlée, 1 boule Vanille, 1 boule Caramel, chantilly
+        </div>
+    </dl>
+    <hr />
+    <article>
+        <h1>FAQ</h1>
+        <dl>
+            <dt>What do we want?</dt>
+            <dd>Our data.</dd>
+            <dt>When do we want it?</dt>
+            <dd>Now.</dd>
+            <dt>Where is it?</dt>
+            <dd>We are not sure.</dd>
+        </dl>
+
+        <ul>
+            <li>What do we want?</li>
+            <li>Our data.</li>
+            <li>When do we want it?</li>
+            <li>Now.</li>
+            <li>Where is it?</li>
+            <li>We are not sure.</li>
+        </ul>
+    </article>
+    <hr />
+    <dl>
+        <dt><dfn>happiness</dfn></dt>
+        <dd class="pronunciation">/'hæ p. nes/</dd>
+        <dd class="part-of-speech"><i><abbr>n.</abbr></i></dd>
+        <dd>The state of being happy.</dd>
+        <dd>Good fortune; success. <q>Oh <b>happiness</b>! It worked!</q></dd>
+        <dt><dfn>rejoice</dfn></dt>
+        <dd class="pronunciation">/ri jois'/</dd>
+        <dd><i class="part-of-speech"><abbr>v.intr.</abbr></i> To be delighted oneself.</dd>
+        <dd><i class="part-of-speech"><abbr>v.tr.</abbr></i> To cause one to be delighted.</dd>
+    </dl>
+
+    <ul class="ultodl">
+        <li>
+            <dfn>happiness</dfn>
+            <ul>
+                <li>/'hæ p. nes/</li>
+                <li><i><abbr>n.</abbr></i></li>
+                <li>The state of being happy.</li>
+                <li>Good fortune; success. <q>Oh <b>happiness</b>! It worked!</q></li>
+            </ul>
+        </li>
+        <li>
+            <dfn>rejoice</dfn>
+            <ul>
+                <li>/ri jois'/</li>
+                <li><i class="part-of-speech"><abbr>v.intr.</abbr></i> To be delighted oneself.</li>
+                <li><i class="part-of-speech"><abbr>v.tr.</abbr></i> To cause one to be delighted.</li>
+            </ul>
+        </li>
+    </ul>
+</body></html>
