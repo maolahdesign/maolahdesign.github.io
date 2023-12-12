@@ -1,1 +1,10 @@
-._poison{outline:1px dashed #f00 !important;background: #FFF2F2 !important;}
+._poison{
+    outline:1px dashed #f00 !important;
+    background: #FFF2F2 !important;
+}
+
+
+left：將元素浮動到其容器的左側。
+right：將元素浮動到其容器的右側。
+none：這是預設值，元素保持在文件流程中的正常位置。
+
