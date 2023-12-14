@@ -1,0 +1,26 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap');
+._poison{
+    outline:1px dashed #f00 !important;
+    background: #FFF2F2 !important;
+}
+.quote{
+    padding: 20px;
+    color: #242424;
+        font-family: 'Noto Sans TC', sans-serif;
+}
+p{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+p{color: #666;}
+
+
