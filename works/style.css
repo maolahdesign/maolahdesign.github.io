@@ -1,0 +1,5 @@
+.container{width: 800px;height: 960px;margin: 0 auto;font-family: 'Inconsolata', monospace;}
+h1{font-size: 48px;font-family: 'Roboto Mono', monospace;}
+.introduce{color:cornflowerblue;padding: 10px}
+p{color: brown;padding: 10px;font-family: 'Noto Sans TC', sans-serif;}
+ul{color:coral}
