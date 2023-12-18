@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container myform">
+        <form action="register.php">
+            <label for="username">username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">email</label>
+            <input type="text" id="email" name="email" required>
+            <label for="phone">phone</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="email">password</label>
+            <input type="text" id="password" name="password" required>
+            <label for="repassword">confirm password</label>
+            <input type="text" id="repassword" name="repassword" required>
+            
+            <label>favorite language</label>
+            <input class="select" type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">HTML</label><br>
+            <input class="select" type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">CSS</label><br>
+            <input class="select" type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label>
+            
+            <label>language</label>
+            <input class="select" type="checkbox" id="lang1" name="language" value="HTML">
+            <label for="lang1">HTML</label><br>
+            <input class="select" type="checkbox" id="lang2" name="language" value="CSS">
+            <label for="lang2">CSS</label><br>
+            <input class="select" type="checkbox" id="lang3" name="language" value="JavaScript">
+            <label for="lang3">JavaScript</label>
+            <input type="hidden" id="custId" name="custId" value="3487">
+            <input type="submit" name="subscribe" class="button" value="Register">
+        </form>
+        <a href="/">back to home</a>
+    </div>
+</body></html>
