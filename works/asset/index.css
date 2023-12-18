@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz@0,8..144;1,8..144&display=swap');
 body {
     margin: 0;
 }
@@ -9,7 +10,7 @@ body {
     font-size: 25px;
     line-height: 150%;
     word-spacing: 3px;
-
+    padding-top: 60px;
 
 }
 
@@ -43,7 +44,7 @@ li a:hover {
 }
 .Info-me{
     height: 500px;
-    background-image: url("20180716-59.jpg");
+    background-image: url("https://wrj0716.github.io/20180716-59.jpg");
     position: relative; /* <------------- 少了這一行差很多，記得要先設定參考點 -------------------- */
 }
 .myphoto{
@@ -69,6 +70,11 @@ li a:hover {
 
 
 /* 這裡是新增的 */
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
 .Info-me-word3{
     position: absolute;
     left: 400px;;
@@ -77,10 +83,18 @@ li a:hover {
 }
 .Info-me-word3 p{
     font-style: italic;
+    color: #fff;
+    
+    
 }
+.Info-me-word3 p+p{
+    font-family: 'Roboto Serif', serif;
+}
+
 .Info-me-word3 .quotes{
-    border-left: 3px solid #222;
+    border-left: 3px solid #fff;
     padding-left: 15px;
+    font-weight: 100;
 }
 
 .form{
