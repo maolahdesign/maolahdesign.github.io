@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>A Dated Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+<script type="text/javascript">
+//<![CDATA[
+
+var timeNow = new Date();
+
+// set day, month, year
+/**/
+timeNow.setDate(16);
+timeNow.setMonth(10);
+timeNow.setYear(1972);
+timeNow.setHours(7);
+timeNow.setMinutes(7);
+
+// output formatted 
+document.writeln("toString:"+timeNow.toString() + "<br />");
+document.writeln("toLocaleString:"+timeNow.toLocaleString() + "<br />");
+document.writeln("toLocaleDateString:"+timeNow.toLocaleDateString() + "<br />");
+document.writeln("toLocaleTimeString:"+timeNow.toLocaleTimeString() + "<br />");
+document.writeln("toGMTString:"+timeNow.toGMTString() + "<br />");
+document.writeln("toUTCString:"+timeNow.toUTCString()+ "<br />");
+document.writeln("getHours:"+timeNow.getHours());
+  
+//]]>
+</script>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Build a Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+
+	var a=0,b=0;
+	var mode="";
+	function calc(a,b,mode){
+		switch(mode){
+			case "minus":
+				document.writeln(minus(a,b));
+				break;
+			case "multiplication":
+				document.writeln(multiplication(a,b));
+				break;
+			case "division":
+				document.writeln(division(a,b));
+				break;
+			default:			
+				document.writeln(add(a,b));
+		}
+	}
+
+	function add(x,y){
+		return x+y;
+	}
+	function minus(x,y){
+		return x-y;
+	}
+	function multiplication(x,y){
+		return x*y;
+	}
+	function division(x,y){
+		return x/y;
+	}
+
+</script>
+</body>
+</html>

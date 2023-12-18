@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>images</title>
+	
+<script type="text/javascript">
+//<![CDATA[
+var count = 0,
+	setup = function(){
+		var b=document.getElementById("clickme");
+	
+		if(b.addEventListener){
+			b.addEventListener("click",changeSize,false);
+		}else if(b.attachEvent){
+			b.attachEvent("onclick",changeSize);
+		}else if(b.onclick){
+			b.onclick = myFunction;
+		}
+	},
+	myFunction = function(){
+			var x = document.getElementById("myImg").src;
+			document.getElementById("demo").innerHTML=x;
+	},
+	changeSize =function(){
+		document.getElementById("myImg").height="300"
+		document.getElementById("myImg").width="180"
+	},
+	imgs = new Array("img/DSC_201312-5.jpg","img/DSC_201312-6.jpg","img/DSC_201312-9.jpg");
+
+window.onload = setup;
+
+function alertComplete(){
+  alert("Image loaded=" + document.getElementById("myImg").complete)
+}
+
+
+setTimeout("progress()",1000);
+
+var progress = function progress(){
+   if (count < 3) {	
+      document.images[0].src=imgs[count];
+      count++;
+      setTimeout("progress()",1000);
+      //if(count == 3) count=0;
+   }
+}
+
+
+//]]>
+</script>	
+</head>
+<body>
+<img id="myImg" src="img/DSC_201312-15.jpg" width="400" height="650"/>
+<button id="clickme">點我</button>
+<p id="demo"></p>	
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>The Number Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+
+
+function add(x, y) {
+    var total = x + y;
+    return total;
+}
+
+function avg() {
+    var sum = 0;
+    for (var i = 0, j = arguments.length; i < j; i++) {
+        sum += arguments[i];
+    }
+    return sum / arguments.length;
+}
+
+
+/*
+function avgArray(arr) {
+    var sum = 0;
+    for (var i = 0, j = arr.length; i < j; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+function square(x) {
+  return x *= x ;
+}
+*/
+//]]>
+</script>
+</body>
+</html>

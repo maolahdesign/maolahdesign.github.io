@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	var timeArray=[];
+	function nowTime(str){
+		var d = new Date();
+		//document.write(str + d.getTime());
+		timeArray[timeArray.length] = str + d.getTime();
+	}
+	nowTime("start : ");
+	
+	function printArray(){
+		for(var i=0;i<timeArray.length;i++){document.write(timeArray[i]+"<br>");}
+	}
+</script>
+<body onload="nowTime('onloadTime=');printArray()">
+<script type="text/javascript">
+ 	nowTime("end : ");
+ 	//for(var i=0;i<timeArray.length;i++){document.write(timeArray[2]+"<br>");}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register form</title>
+<script>
+	function validateForm(){
+		if(document.getElementById("username").value) alert(1);
+		else {
+			alert("empty!!");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="test" method="post" action="form.php">
+		<input type="text" name="username" id="username" />	
+		<button onclick="validateForm();">Submit</button>	
+	</form>
+</body>
+</html>
+

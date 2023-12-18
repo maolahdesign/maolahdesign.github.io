@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Capture/Bubble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<button id="mybutton">點我</button>
+<script type="text/javascript">
+//<![CDATA[
+
+var b=document.getElementById("mybutton");
+b.onclick = function(){ alert("onClick!!!");}
+b.addEventListener("click",function(){ alert("addEventListener!!!");},false);
+/*
+var handler = function(){alert("handler!!!");}
+if(b.addEventListener){
+	b.addEventListener("click",handler,false);
+}else if(b.attachEvent){
+	b.attachEvent("onclick",handler);
+}
+*/
+//]]>
+</script>
+</body>
+</html>

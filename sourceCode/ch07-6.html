@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Modifying Elements after Page loads</title>
+<script type="text/javascript">
+//<![CDATA[
+var setup = function(){
+		var b=document.getElementById("mybutton");
+	
+		if(b.addEventListener){
+			b.addEventListener("click",changeDiv,false);
+		}else if(b.attachEvent){
+			b.attachEvent("onclick",changeDiv);
+		}else if(b.onclick){
+			b.onclick = changeDiv;
+		}
+	},
+	changeDiv = function() {
+	   	var elm = document.getElementById("mybutton"),
+	   	   elem1 = document.getElementById("elem1"),
+	   	   elem2  = document.getElementById("elem2"),
+	   	   elem3 = document.getElementById("elem3");
+		elm.innerHTML = "只能點一次啊";
+		elem1.innerHTML = "<h1>哈囉 世界</h1>";
+		elem2.innerHTML = "<ol><li>選項一</li><li>選項二</li></ol>";
+		elem3.innerHTML = "<img src='img/NY-Times.gif' alt='dotty' />"; 
+	};// ; 忘記這個分號麻煩就大了
+window.onload = setup
+//]]>
+</script>
+</head>
+<body>
+<div id="elem1">
+	<p>Paragraph text.</p>
+</div>
+
+<div>
+	<ul id="elem2">
+		<li>option 1</li>
+		<li>option 2</li>
+	</ul>
+</div>
+<button id="mybutton">點我</button>
+<div>
+	<a href="ch07-5.html" id="elem3">Example 7-5</a>
+</div>
+</body>
+</html>

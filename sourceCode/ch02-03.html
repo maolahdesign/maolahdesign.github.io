@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Convert String to Number</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+
+var sNum = "1.23e-2";
+document.writeln(parseFloat(sNum));
+
+var fValue = parseFloat("1.45inch");
+document.writeln("<p>" + fValue + "</p>");
+
+var iValue = parseInt("33.00");
+document.writeln("<p>" + iValue + "</p>");
+
+var sValue = true;
+document.writeln("<p>" + sValue.toString() + "</p>");
+
+var bType = false;
+var iNum1 = 10;
+var iNum2 = 10.0;
+document.writeln("[ toString() ]");
+document.writeln("<p>" + bType.toString() + "</p>");
+document.writeln("<p>" + iNum1.toString() + "</p>");
+document.writeln("<p>" + iNum2.toString() + "</p>");
+document.writeln("<p>" + iNum1.toString(2) + "</p>");
+document.writeln("<p>" + iNum1.toString(8) + "</p>");
+document.writeln("<p>" + iNum1.toString(16) + "</p>");
+
+document.writeln("[ parseInt() ]");
+var iNum1 = parseInt("12345red");	
+document.writeln("<p>" + iNum1 + "</p>");
+var iNum1 = parseInt("0xA");	
+document.writeln("<p>" + iNum1 + "</p>");
+var iNum1 = parseInt("56.9");	
+document.writeln("<p>" + iNum1 + "</p>");
+var iNum1 = parseInt("red");
+document.writeln("<p>" + iNum1 + "</p>");
+
+/*
+var fNum1 = parseFloat("12345red");	
+var fNum2 = parseFloat("0xA");	
+var fNum3 = parseFloat("11.2");	
+var fNum4 = parseFloat("11.22.33");	
+var fNum5 = parseFloat("0102");	
+var fNum1 = parseFloat("red");
+
+var b1 = Boolean("");		
+var b1 = Boolean("hello");		
+var b1 = Boolean(50);		
+var b1 = Boolean(null);		
+var b1 = Boolean(0);
+*/
+
+//]]>
+</script>
+</p>
+</body>
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Conditional statements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+var prefChoice = 1;
+var stateChoice = 'OR';
+var genderChoice = 'F';
+
+if (prefChoice == 1) {
+   alert("通過第一關...");
+   
+   if (stateChoice == 'OR') {
+      alert ("通過第二關...");
+      
+      if (genderChoice == 'M') {
+         alert("你看不到我...");
+
+      } // 第三層
+
+   } // 第二層
+
+} // 第一層
+
+
+//]]>
+</script>
+</head>
+<body>
+<p>Imagine a form with five fields and a button here...</p>
+</body>
+</html>

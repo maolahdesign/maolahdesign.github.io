@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+<head>
+<title>Convert Object to String</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+
+	var sOne = escape("http://maolah.fun");
+	document.writeln("<p>" + sOne + "</p>");
+	var url="http://maolah.fun/index.php?pagename=$1&page=$2&name=troie pan";
+	var sTwo = escape(url);
+	var sThree = encodeURI(url);
+	var sFour = decodeURI(sThree);
+
+	document.writeln("<p>url : " + url + "</p>");
+	document.writeln("<p>escape url : " + sTwo + "</p>");
+	document.writeln("<p>encodeURI url : " + sThree + "</p>");
+	document.writeln("<p>decodeURI url : " + sFour + "</p>");
+    console.log("usr : "+typeof(sOne));
+
+//]]>
+</script>
+</body>
+</html>
+

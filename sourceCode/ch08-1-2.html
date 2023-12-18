@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Accessing/Modifying HTML Elementss</title>
+	<script type="text/javascript">
+	//<![CDATA[
+	
+	function procImage() {
+	
+	   var img = document.images[0];
+	   
+	   // get existing image attributes
+	   var imgAttr = img.align + " " + img.alt + " " + img.src 
+					 + "\n\t width=" + img.width + "\n\t height=" + img.height;
+	   alert(imgAttr);
+	
+	   // modify
+	   img.src="img/Compare-Design-Thinking.png";
+	   img.width="955";
+	   img.height="411";
+	   img.alt="Alternative";
+	   img.align="left";
+	   img.title="Upright";
+	   document.close();
+	};
+	window.onload = procImage;
+	
+	//]]>
+	</script>
+</head>
+<body>
+	<img src="img/NY-Times.gif" alt="Dotty" />
+	<img src="img/NY-Times.gif" alt="Dotty" />
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button id="mybutton">點我</button>
+<p id="hello"></p>
+<script type="text/javascript">
+//<![CDATA[
+
+var propt = function(){
+	var optionString = prompt("你叫啥？","給我管！！！");
+	optionString = optionString ? optionString : "";
+	if (navigator.cookieEnabled) {
+		var loginTime = new Date();
+		setCookie("_username",optionString);
+		setCookie("_lastLoginTime",loginTime.toGMTString());
+	}else{
+		alert("誰說你可以關掉cookie的啊");
+	}
+}
+
+function setCookie(key,value) {
+   var cookieDate = new Date(2015,11,10,19,30,30);
+   document.cookie=key + "=" + decodeURIComponent(value) ;expires="+cookieDate.toGMTString()+"; path=/";
+   //decodeURIComponent() 函數可對 decodeURIComponent() 函數編碼的 URI 進行解碼
+}
+
+function readCookie(key) {
+	var cookie = document.cookie;
+	
+	var first = cookie.indexOf(key+"=");//返回指定字串在字串中首次出現的位置。
+	//alert(first);
+	//alert(cookie);
+	
+	if (first >= 0) {
+		//.substring(start,stop) 提取字串中介於兩個指定下標之間的文字。
+		var str = cookie.substring(first,cookie.length);
+		
+		var last = str.indexOf(";");
+		
+		if (last < 0) last = str.length;
+		//.split(separator,howmany) 把一個字串分割成字串陣列。
+		str = str.substring(0,last).split("=");
+		//alert(str);
+		//decodeURIComponent() 函數可對 encodeURIComponent() 函數編碼的 URI 進行解碼
+		return decodeURIComponent(str[1]);
+		//return str[1];
+		
+	} else {
+		return null;
+	}
+}
+
+function eraseCookie (key) {
+   var cookieDate = new Date(1972,11,10,19,30,30);
+   document.cookie=key + "= ; expires="+cookieDate.toGMTString()+"; path=/";
+}
+
+setup = function(){
+	var b=document.getElementById("mybutton");
+
+	if(b.addEventListener){
+		b.addEventListener("click",propt,false);
+	}else if(b.attachEvent){
+		b.attachEvent("onclick",propt);
+	}else if(b.onclick){
+		b.onclick = propt;
+	}
+
+}
+window.onload = setup;
+
+if(readCookie("_username")) {
+	var hello = document.getElementById("hello")
+	hello.innerHTML="Username:"+readCookie("_username")+"<br/>Last Login Time:"+readCookie("_lastLoginTime");
+}
+//]]>
+</script>
+</body>
+</html>

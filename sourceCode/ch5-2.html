@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Pass Me</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+
+function myFunc(theObject) {
+  theObject.username="阿呆"; // 值改變了
+}
+var member = {username:"特洛伊", job:"none", year:1998};
+var x=member.username;     
+myFunc(member);
+var y=member.username; //阿呆
+
+
+function myFunc(theObject) {
+  theObject = {username:"Ford", job:"teacher", year:2006}; //new object
+}
+var member = {username:"特洛伊", job:"none", year:1998};
+var x=member.username;     // return 特洛伊
+myFunc(member);
+var y=member.username;     // 仍然返回 特洛伊
+
+//==============================================================================
+
+function alterArgs(strLiteral, aryObject) {
+   strLiteral += "少騙人了";
+   aryObject[aryObject.length] = "three";
+   
+   return strLiteral;
+}
+
+var str = "我也會javascript";
+var ary = new Array("hello","javascript");
+
+//先呼叫函式
+alterArgs(str,ary);
+
+var str2 = alterArgs(str,ary);
+document.writeln("跟你說：" + str + "<br /> ");
+document.writeln(str2 + "<br /> ");
+document.writeln("Array object is " + ary);
+
+</script>
+</body>
+</html>

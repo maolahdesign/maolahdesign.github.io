@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>捕捉/冒泡</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function writeX(evnt) {
+   alert("捕捉" + evnt.target + " " + evnt.currentTarget);
+   return true;
+}
+
+function writeY(evnt) {
+   alert("冒泡: " + evnt.target + " " + evnt.currentTarget);
+   return true;
+}
+
+window.onload=setup;
+
+function setup(evnt) {
+
+   // capturing
+   document.addEventListener('click',writeX,true);
+   document.forms[0].addEventListener('click',writeX,true);
+   document.forms[0].elements[0].addEventListener('click',writeX,true);
+
+   // bubble up events
+   document.addEventListener("click",writeY,false);
+   document.forms[0].addEventListener("click",writeY,false);
+   document.forms[0].elements[0].addEventListener("click",writeY,false);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<form style="background-color: #f00; width: 100px; height: 100px; padding: 10px">
+         <input type="submit" value="Submit" /><br>
+
+</form>
+</body>
+</html>

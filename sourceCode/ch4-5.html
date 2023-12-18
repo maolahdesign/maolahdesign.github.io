@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>array</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+
+var fruitArray = new Array();
+fruitArray.push("Apple");
+fruitArray.push("Banana");
+var ln = fruitArray.push("Cherry");
+
+document.writeln("length is " + ln + " and array is " + fruitArray + "<br />");
+
+for (var i = 0; i < ln; i++) {
+   document.writeln(fruitArray.shift() + "<br />");
+}
+
+document.writeln("length now is " + fruitArray.length + "<br /><br />");
+
+
+
+var testArray = new Array();
+
+testArray.unshift("我也會");
+testArray.unshift("Java");
+ln = testArray.unshift("Script");
+
+document.writeln("length is " + ln + " and array is " + testArray + "<br />");
+
+for (i = 0; i < ln; i++) {
+  document.writeln(testArray.pop() + "<br />");
+}
+document.writeln("new length is " + testArray.length );i
+//]]>
+</script>
+</body>
+</html>

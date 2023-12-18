@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>The Number Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+
+// Number properties
+document.writeln("MAX_VALUE = "+Number.MAX_VALUE + "<br />");
+document.writeln("MIN_VALUE = "+Number.MIN_VALUE + "<br />");
+document.writeln("NEGATIVE_INFINITY = "+Number.NEGATIVE_INFINITY + "<br />");
+document.writeln("POSITIVE_INFINITY = "+Number.POSITIVE_INFINITY + "<br />");
+document.writeln("NaN = "+Number.NaN + "<br />");
+document.writeln("prototype = "+Number.prototype + "<br />");
+document.writeln("constructor = "+Number.constructor + "<br /><br />");
+
+// Number specific methods
+var newValue = new Number("34.8896");
+
+document.writeln("newValue = "+ newValue + "<br />");
+document.write("newValue.toExponential(3) = "+newValue.toExponential(3) + "<br />");
+document.writeln("newValue.toPrecision(3) = "+newValue.toPrecision(3) + "<br />");
+document.writeln("newValue.toFixed(6) = "+newValue.toFixed(6) + "<br />");
+document.writeln("newValue.toString(8) = "+newValue.toString(8) + "<br />");
+document.writeln("newValue.valueOf() = "+newValue.valueOf() + "<br /><br />");
+
+var x = 123;
+var y = new Number(123);
+document.writeln(typeof(x)+ "<br />")
+document.writeln(typeof(y)+ "<br />")
+document.writeln("x = "+x+ "<br />")
+document.writeln("y = "+y+ "<br />")
+if(x == y) document.writeln("x == y<br />")
+if(x !== y) document.writeln("x !== y<br />")
+if(x === y) document.writeln("x === y<br />")
+
+function add(x, y) {
+    var total = x + y;
+    return total;
+}
+
+//]]>
+</script>
+</body>
+</html>

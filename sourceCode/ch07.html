@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+var b=document.getElementById("mybutton");
+
+var cfm = function(){
+	var result = confirm("確定要刪除？");
+	if(result) alert("已刪除！");
+	else alert("已取消！");
+}
+
+var propt = function(){
+	var optionString = prompt("打幾個字來看看？","給我打！！！");
+	optionString = optionString ? optionString : "";
+	
+	document.writeln("Options are: " + optionString);
+	window.open("http://d-practice.com","test",optionString,false);
+}
+
+var gotoDP = function(){setTimeout("window.location='http://d-practice.com'",5000);}
+
+if(b.addEventListener){
+	b.addEventListener("click",propt,false);
+}else if(b.attachEvent){
+	b.attachEvent("onclick",propt);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<button id="mybutton">點我</button>
+
+
+</body>
+</html>

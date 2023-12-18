@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+<script>
+
+function findName(){
+
+	var typeStr = "";
+	
+	for (var i = 1; i <= 7; i++) { 
+		var nmStr = "elem" + i,
+			nmList = document.getElementsByName(nmStr);
+
+		for (var j = 0; j < nmList.length; j++) {
+			typeStr += nmList[j].tagName + " ";
+		}
+	
+	}
+	alert(typeStr);
+}
+
+window.onload = findName;
+</script>
+</head>
+<body>
+<div name="elem1">
+	<ul name="elem2">
+		<li>option 1</li>
+		<li name="elem3">option 2</li>
+	</ul>
+</div>
+
+<a href="ch10-02.htm" name="elem4">Example 1</a>
+
+<p name="elem5">Paragraph</p>
+
+<form name="elem6">
+	<input type="text" name="elem7" />
+</form>
+</body>
+</html>

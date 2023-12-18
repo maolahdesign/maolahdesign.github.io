@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+	body{font-size: 1.5em;line-height: 1.5em;color: #666;padding-left: 2em;margin-top: 2em;}
+	button{color:#666;background: transparent;display: block;width: 4em;font-size: 1em;line-height: 1.5em;border:2px solid #666;text-align: center;margin: 2em;text-shadow: 2px 2px 0 #ddd;box-shadow: 2px 2px 0 #ddd,inset 2px 2px 0 #ddd;cursor: pointer;}
+</style>
+</head>
+<body>
+<button id="mybutton">點我</button>
+<div id="hello"></div>
+<script type="text/javascript">
+//<![CDATA[
+var b=document.getElementById("mybutton");
+
+var cfm = function(){
+	var result = confirm("確定要刪除？");
+	if(result){
+		alert("已刪除！");
+	}else{
+		alert("已取消！");
+	}
+}
+
+// prompt()
+var propt = function(){
+	var optionString = prompt("打幾個字來看看？","給我打！！！");
+	optionString = optionString ? optionString : "";
+	
+	document.writeln("Options are: " + optionString);
+//	window.open:http://www.w3schools.com/jsref/met_win_open.asp
+	window.open("http://d-practice.com","test",optionString,false);
+//	toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400
+	
+}
+
+// history()
+var historyF = function(){history.forward();}
+
+// setTimeout()
+var addText = function(){setTimeout('alert(1)',5000);}//不可省略雙引號
+function addtext(){
+	document.getElementById('hello').innerHTML = "Hello Monkey!";
+}
+
+//window.location:http://www.w3schools.com/jsref/obj_location.asp
+var gotoDP = function(){setTimeout("window.location='http://d-practice.com/courses/javascript.html'",1000);}
+
+if(b.addEventListener){
+	b.addEventListener("click",gotoDP,false);
+}else if(b.attachEvent){
+	b.attachEvent("onclick",gotoDP);
+}
+
+//]]>
+</script>
+
+</body>
+</html>
