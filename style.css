@@ -2,3 +2,8 @@
     outline:1px dashed #f00 !important;
     background: #FFF2F2 !important;
 }
+header{
+    background-color: aqua;
+/*    background-image: url(image/cover-html.png);*/
+    background: url(image/cover-html.png) 400px 300px no-repeat;;
+}
