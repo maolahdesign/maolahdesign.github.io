@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>loop</title>
+</head>
+<script type="text/javascript">
+    //<![CDATA[
+
+    function validateEven() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) document.write(i+"<br>");
+        }
+    }
+    
+    function validateEven2() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) {
+                if((i%3) != 0)document.write(i+"<br>");
+            }
+        }
+    }
+    function validateEven3() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) {
+                if((num%i) == 0)document.write(i+"<br>");
+            }
+        }
+    }
+
+    //]]>
+
+</script>
+
+<body>
+    <form action="">
+        輸入一個整數
+        <input id="number" type="text">
+        <button onclick="validateEven2()">送出</button>
+    </form>
+</body>
+
+</html>

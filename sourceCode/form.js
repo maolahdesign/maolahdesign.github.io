@@ -11,12 +11,11 @@ function validateForm(){
 	if(username && pwd && pwd2 && email && phone){
 		chkFunc("uid",username);
 		chkFunc("email",email);
-		
-		
-	}else{
+	}
+    else{
 		errorMsg = "請檢查所有必填項目是否都已填寫完成";
 		alert(errorMsg);
-		cancelHandler();
+		cancelEvent();
 	}
 
 }
@@ -24,11 +23,11 @@ function validateForm(){
 function chkUsername(str){
 	if(str.length < 3){
 		errorMsg = "小於三個字元";
-		cancelHandler();
+		cancelEvent();
 	}else{
 		var patt1 = new RegExp("^[a-z0-9_-]{3,16}$");
 		var result = patt1.test(str);
-		cancelHandler();
+		cancelEvent();
 	}
 }
 
@@ -40,28 +39,19 @@ function chkFunc(validateType,str){
 			var result = patt.test(str);
 			if(result) return true;
 			else alert("請檢查輸入帳號格式是否正確!!!");
-			cancelHandler();
+			cancelEvent();
 			break;
 		
 		default:
-			alert("hello");
+			toastify("hello");
 	}
 }
 
-function cancelHandler(event){
-	var event = event || window.event;
-	if(event.preventDefault) event.preventDefault();
-	if(event.returnValue) event.returnValue = false;
-	return false;
+function cancelEvent(event) {
+  event.preventDefault(); 
 }
 
-function stopEvent(event){
-	var event = event || window.event;
-	if(event.stopPropagation) {
-		event.stopPropagation();
-		event.preventDefault();
-	}else{
-		event.cancelBubble = true;
-	}
-}
+//function stopPropagation(event) {
+//  event.stopPropagation(); 
+//}
 

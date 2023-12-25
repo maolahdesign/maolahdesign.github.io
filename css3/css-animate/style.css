@@ -1,0 +1,77 @@
+section {
+    position: relative;
+    left: calc(50% - 300px);
+    top: calc(50% - 300px);
+    width: 500px;
+    height: 500px;
+    border: 1px solid #242424;
+}
+
+b{
+    display: block;
+    background: #fe4a49;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+}
+section:hover b{
+  animation: hello-multi-percentage 3s 3 linear both;
+/* /*   animation-name:hello-multi-percentage; */ */
+/*   animation-duration:3s; */
+/*   animation-timing-function:cubic-bezier(.86,-0.01,.2,.99); */
+/*   animation-delay:5s; */
+/*   animation-iteration-count:3; */
+/*   animation-fill-mode:forwards; */
+/*   animation-fill-mode:backwards; */
+/*   animation-fill-mode:both; */
+}
+/* keyframes & animation-name */
+@keyframes hello-from-to{
+  from{
+    left: 0;
+  }to{
+    left: calc(100% - 100px);
+  }
+}
+@keyframes hello-percentage{
+  0%{
+    left: 0;
+  }100%{
+    left: calc(100% - 100px);
+  }
+}
+@keyframes hello-multi-percentage{
+  0%,100%{
+    left: 0;
+  }50%{
+    left: calc(100% - 100px);
+  }
+}
+/* animation property */
+@keyframes property{
+  0%,100%{
+    background: #fe4a49;
+    left: 0;
+  }50%{
+    background: #009fb7;
+    left: calc(100% - 100px);
+  }
+}
+
+@keyframes property2{
+  0%,100%{
+    background: #fe4a49;
+    left: 0;
+  }25%,75%{
+    background: #fed766;
+  }
+  50%{
+    background: #009fb7;
+    left: calc(100% - 100px);
+  }
+}
+
+/* animation duration */

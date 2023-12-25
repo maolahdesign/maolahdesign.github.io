@@ -1,0 +1,38 @@
+div{
+  background: #009fb7;
+  color: #fff;
+  padding: 1.5em;
+  position: absolute;
+  left:calc( 50% - 100px);
+  top:calc( 50% - 50px);
+  display: inline-block;
+  transition-delay:.5s;
+}
+
+/* transition-duration */
+div:hover{
+  padding:2em;
+  border-radius:10px;
+  background: #fe4a49;
+  left:calc( 50% - 110px);
+  top:calc( 50% - 60px);
+}
+
+/* duration 經過時間*/
+.duration{
+  transition-duration: .3s;
+}
+
+/* transition-timing-function 移動速度 */
+.timing{
+  transition-timing-function: cubic-bezier(.05,.7,.77,1.54);
+}
+
+/* transition-delay 延遲執行時間 */
+.delay{
+  transition-delay:3s;
+}
+
+.all{
+  transition: padding,border-radius,background .3s cubic-bezier(.05,.7,.77,1.54);
+}
