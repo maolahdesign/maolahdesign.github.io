@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>loop</title>
+</head>
+<script type="text/javascript">
+    //<![CDATA[
+
+    function validateFor() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) document.write(i+"<br>");
+        }
+    }  
+    
+    function validateFor2() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) {
+                if((i%3) != 0)document.write(i+"<br>");
+            }
+        }
+    }
+    
+    function validateFor3() {
+        var num = document.getElementById('number').value;
+        for (var i = 0; i <= num; i++) {
+            if ((i % 2) == 0) {
+                if((num%i) == 0)document.write(i+"<br>");
+            }
+        }
+    }
+    
+    function validateWhile() {    
+        var num = document.getElementById('number').value;
+        var i = 0;
+        while ( i <= num) {
+            if ((i % 2) == 0) document.write(i+"<br>");
+            i++;
+        }
+    } 
+
+    //]]>
+</script>
+
+<body>
+    <form action="">
+        輸入一個整數
+        <input id="number" type="text">
+        <button onclick="validateFor()">送出</button>
+    </form>
+</body>
+
+</html>
