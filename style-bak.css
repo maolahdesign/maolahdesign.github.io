@@ -8,19 +8,19 @@ body {
     font-weight: 500;
     line-height: normal;
 }
-
+div.container{margin: 24px auto;}
 .container,
 .myform {
     background: #fff;
     width: 900px;
-    margin: 0 auto;
-    padding: 80px 50px;
+/*    margin: 0 auto;*/
+    padding: 80px 48px;
     border-radius: 50px;
 }
 
 header {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 48px;
     ;
 }
 
@@ -44,13 +44,13 @@ iframe {
 }
 
 dt {
-    line-height: 0px;
+    line-height: 20px;
 }
 
 dd {
     position: relative;
-    left: 170px;
-    top: -24px;
+    left: 104px;
+    top: -20px;
 }
 
 video {
@@ -61,9 +61,10 @@ section {
     width: 80%;
     margin: 0 auto;
 }
-
+p, li, dt, dd{
+   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif; 
+}
 p {
-
     padding-top: 2em;
     line-height: 1.6;
 }
@@ -121,28 +122,25 @@ nav {
 nav ul {
     position: absolute;
     right: 0;
+    z-index: 5;
 }
 
 a {
     text-decoration: none;
     color: #242424;
     line-height: 32px;
-/*    padding: ;*/
+}
+nav a{
+    padding: 0 2em;
 }
 
 nav li {
     float: left;
 }
 
-.experience {
-    width: 80%;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.experience li,
 .list {
     list-style: disc inside;
+    line-height: 32px;
 }
 
 
