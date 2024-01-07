@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>text</title>
+    <link rel="stylesheet" href="reset.css">    
+    <style>
+        .main{
+            position: relative;
+        }
+        .header{
+            background-color: black;
+            display: flex;
+            position: fixed;
+            width: 100%;
+            z-index:10px;
+            top: 0;
+        }
+        .header img{
+
+            width: 70px;
+        }
+        .header li{
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav{
+            width: 100%;
+            line-height: 50px;
+        }
+        
+       
+        li a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+/*
+        .nav_right{
+            !!!!!!!!!!!!!!!!!
+        }
+*/
+        li a:hover{
+            background-color: crimson;
+        }
+        .warp{
+            background-image: url("https://picsum.photos/1400/400?random=2");
+            margin-top:50px;
+
+        }
+
+        .title-text{
+            width: 500px;
+            height: 400px;
+            background-color: black;
+            color: white;
+            opacity: .8;
+            box-sizing: border-box;
+            line-height: 30px;
+            padding-top: 50px;
+        }
+        .title-text header,article{
+            width: 95%;
+            margin: auto;
+        }
+        .title-text h1{
+            font-size: 30px;
+        }
+        .title-text h3{
+            font-size: 13px;
+            color:forestgreen;
+        }
+        .text{
+            background: black;
+            display: flex;
+            padding: 5px 0 25px;
+            position: relative;
+        }
+        .text header{
+            color:aliceblue;
+            position: absolute;
+            top:-12px;
+        }
+        .text .text_item{
+            width: 100%;
+            margin: 1px;
+            text-align: center;
+          
+        }
+        .text img{
+            width: 100%;
+        }
+        .text a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+      <div class="header">
+        <img src="https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5.fit_scale.size_760x427.v1582751026.png" >
+        <nav>
+           <ul>
+               <li><a href="#">首頁</a></li>
+               <li><a href="#">節目</a></li>
+               <li><a href="#">電影</a></li>
+               <li><a href="#">最新上線</a></li>
+               <li><a href="#">我的片單</a></li>
+               <li class="nav_right"><a href="#">搜尋</a></li>
+               <li class="nav_right"><a href="#">通知</a></li>
+               <li class="nav_right"><a href="#">個人設定</a></li>
+               
+           </ul>
+        </nav>
+       </div>
+        
+        <div class="warp">
+          
+          
+           <div class="title-text">
+               <header>
+                  <img src="https://miro.medium.com/v2/resize:fit:25/1*T0mzhD9sNVEP-4FWIOHxQg.png"> Netflex
+                   <h1>MONEY HEIST</h1>
+               </header>
+               <article>
+                   <h3>97% people likes!</h3>
+                   <strong>Watch Part 4 Now</strong>
+                   <p>Netflix 是什麼？ Netflix 是串流服務，透過數千種可連結網路的行動裝置，提供各種獲獎肯定的節目、電影、動畫、紀錄片等精彩內容。 只要支付一筆經濟實惠的月費，就能隨時 ...</p>
+               </article>
+           </div>
+        </div>
+
+        
+    
+        <div class="text">
+           <header>Popular on Netflix</header>
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=1">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=11">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=2">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=3">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=14">
+                   <p>movie title</p>
+              </a>
+            </div>
+             
+             <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=5">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=6">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=7">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=18">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=8">
+                   <p>movie title</p>
+              </a>
+            </div>
+        </div>
+    
+        <div class="text">
+           <header>Recently Watched</header>
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=6">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=19">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=61">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=13">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=51">
+                   <p>movie title</p>
+              </a>
+            </div>
+             
+             <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=91">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=18">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=17">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=100">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=71">
+                   <p>movie title</p>
+              </a>
+            </div>
+        </div>
+        <div class="text">
+           <header>Science Fiction</header>
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=1">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=11">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=2">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=3">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=14">
+                   <p>movie title</p>
+              </a>
+            </div>
+             
+             <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=5">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=6">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=7">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=18">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=8">
+                   <p>movie title</p>
+              </a>
+            </div>
+        </div>
+    
+        <div class="text">
+           <header>Funny Movies</header>
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=6">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=19">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=61">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=13">
+                   <p>movie title</p>
+              </a>
+            </div>
+             <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=6">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=19">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=61">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div class="text_item">
+              <a href="#">
+                  <img src="https://picsum.photos/150/200?random=13">
+                   <p>movie title</p>
+              </a>
+            </div>
+            
+            <div>
+                <footer></footer>
+                
+            </div>
+    </div>
+    
+    
+    
+    
+    
+    
+</body>
