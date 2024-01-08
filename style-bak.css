@@ -8,7 +8,7 @@ body {
     font-weight: 500;
     line-height: normal;
 }
-div.container{margin: 24px auto;}
+div.container{margin: 24px auto 0;}
 .container,
 .myform {
     background: #fff;
@@ -138,6 +138,8 @@ nav li {
     float: left;
 }
 
+footer{font-weight: 400;font-size: 12px;width: 900px;margin: 0 auto;}
+footer a{font-weight: 800;}
 .list {
     list-style: disc inside;
     line-height: 32px;
