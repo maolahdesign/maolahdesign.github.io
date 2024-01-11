@@ -1,0 +1,34 @@
+<?php
+function page_header($title) {
+  echo'<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="https://maolah.fun/wp-content/uploads/2023/11/cropped-favicon-32x32.png" href="favicon.ico" type="image/x-icon" />
+    <title>'.$title.'</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+  <nav class="clearfix">
+      <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/hello.php">醫學中心</a></li>
+          <li><a href="https://medium.com/maolah" target="_blank">blog</a></li>
+          <li><a href="form.php">contact</a></li>
+      </ul>
+  </nav>
+    <header>
+        <img src="https://maolahdesign.github.io/image/avarta.png" alt="">
+        <h1>Troie Pan</h1>
+    </header>';
+}
+
+function page_footer(){
+  echo'</div><footer>&copy; 2023 design by <a href="https://maolah.fun" target="_blank">maolah design</a></footer></body></html>';
+}
+
+function get_csv(){
+
+}
+?>
