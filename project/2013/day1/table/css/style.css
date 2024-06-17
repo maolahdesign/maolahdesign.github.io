@@ -1,0 +1,24 @@
+/*  
+stylesheet information for awoo Corp
+File created date: 06.29.2013
+Last modified date: 06.29.2013
+By: [You]
+*/
+#container{margin:2em auto;width: 60em;}
+
+table{
+  margin:2em auto;
+  width:50%;
+  border-bottom: 1px solid #999;
+}
+th{background: #999;color: #333;}
+th,td{line-height:2em;}
+td{
+  border-top:1px solid #999;
+  border-left: 1px dotted #888;
+  color: #1b1b1b;
+  text-align:center;
+}
+td:first-child{border-left:none;}
+tr:hover td{background: #ccc;color:#666;}
+

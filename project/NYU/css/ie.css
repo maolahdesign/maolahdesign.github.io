@@ -1,0 +1,18 @@
+/*#dot_map li>a,.nav li a,header ul+ul+a,section:nth-child(2) ul li>a,header li em,section:nth-child(1) h1,#countdown h1,.signup_area p,strong+h2+p,#defaultCountdown span.countdown_amount,#defaultCountdown+p>strong,#dot_map span>p{font-family: helvetica;font-weight: 400;}
+section:nth-child(2) h2 span,section:nth-child(3) h2,section:nth-child(4) h2,section:nth-child(5) h2,section:nth-child(6) h2{text-indent: -999em;display: block;width: 525px;margin-top: 17px; background: url(../img/section2_h2.png) 0 0 no-repeat;}
+section:nth-child(3) h2{background: url(../img/section3_h2.png) 0 0 no-repeat;}
+section:nth-child(4) h2{background: url(../img/section4_h2.png) 0 0 no-repeat;}
+section:nth-child(5) h2{background: url(../img/section5_h2.png) 0 0 no-repeat;}
+section:nth-child(6) h2{background: url(../img/section6_h2.png) 0 0 no-repeat;}
+blockquote h3{background: url(../img/takeon_bg.png) 0 0 no-repeat;display: block;text-indent: -999em;margin-top: 35px;}
+*/
+#dot_map li.dot1{ left: 714px; padding: 30px; top: 123px;}
+#dot_map li.dot2{ left: 525px;padding: 10px 30px 30px; top: 170px;}
+#dot_map li.dot3{  left: 185px;padding: 30px 30px 30px 0;top: 80px;}
+footer{background-color: #fff; 
+/* this works in IE6, IE7, and IE8 */ 
+filter: progid: DXImageTransform.Microsoft.Alpha(opacity=70); 
+/* this works in IE8 only */ 
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)"; }
+
+aside .fb-like {position: absolute; left: -170px; top: 110px; z-index: 5; } 

@@ -1,0 +1,149 @@
+<?php
+
+?>
+<!doctype html>
+<html class="no-js" lang="en"> 
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>The Countdown</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="SHORTCUT ICON" href="favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="css/ie.css" />
+<![endif]-->
+<script src="js/libs/modernizr-2.5.3.min.js"></script>
+
+</head>
+<body>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<header>
+  <a href="http://www.nyu.edu/" target="_blank"><img src="img/logo.png" alt="" /></a>
+  <ul class="l_grid nav">
+    <li><a href="index.php">The Countdown</a></li>    
+    <li><a href="works.html">How It Works</a></li>
+    <li><a href="blog/">Our Blog</a></li>
+    <li><a href="social.html">#ideasneversleep</a></li>
+    <li><a href="about.html">About the Exchange</a></li>
+  </ul>
+  <ul class="area l_grid">
+    <li><a href="http://www.nyu.edu/" target="_blank">New York<em class="new_york"></em></a></li>
+    <li><a href="http://nyuad.nyu.edu/" target="_blank">Abu Dhabi<em class="abu_dhabi"></em></a></li>
+    <li><a href="http://shanghai.nyu.edu/" target="_blank">Shanghai<em class="shanghai"></em></a></li>
+  </ul>
+  <!--<a href="http://ideas.nyu.edu/login">NYU LOG IN</a>-->
+</header>
+<div id="countdown" role="main">
+  <h1><span class="countdown_logo"></span><a href="http://twitter.com/nyuideaexchange" target="_blank">#ideasneversleep</a><br/>in the global network.</h1>
+  <div id="defaultCountdown"></div>
+  <p>TO THE LAUNCH OF THE <strong>GLOBAL IDEA EXCHANGE</strong></p>
+    <button class="signup"></button>
+    <div  class="signup_area">
+      <form method="post" id="signup" name="signup" action="https://app.e2ma.net/app2/audience/signup/1719585/1714407/?v=a">
+        <input type="hidden" name="prev_member_email" id="id_prev_member_email" />
+        <input type="hidden" name="source" id="id_source" />
+        <input type="hidden" name="group_611559" value="611559" id="id_group_611559" />
+        <input type="hidden" name="prev_member_email" value="" />
+        <input type="hidden" name="source" value="m" />
+        <p>Sign up for email updates.<em></em></p>
+        <input type="text" name="email" id="id_email" placeholder="email" />
+        <span>Send</span>
+      </form>
+    </div>
+    <ul class="socil_icon l_grid">
+      <li><a class="tumblr" href="http://nyuideaexchange.tumblr.com/" target="_blank">Tumblr</a></li>
+      <li><a class="googleplus" href="https://plus.google.com/u/2/b/105625900281219199412/105625900281219199412/posts" target="_blank">google+</a></li>
+      <li><a class="twitter" href="https://twitter.com/NYUIdeaExchange" target="_blank">twitter</a></li>
+      <li><a class="weibo" href="http://www.weibo.com/nyushanghai" target="_blank">weibo</a></li>
+    </ul>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+
+  <div id="dot_map">
+    <img src="img/map.png" />
+    <span id="dot_1" class="dot dot_1 transparent"></span>
+    <span class="dot dot_2 transparent"></span>
+    <span class="dot dot_3 transparent"></span>
+    <ul>
+      <li class="dot1"><a href="http://shanghai.nyu.edu/" target="_blank">SHANGHAI</a></li>
+      <li class="dot2"><a href="http://nyuad.nyu.edu/" target="_blank">ABU DHABI</a></li>
+      <li class="dot3"><a href="http://www.nyu.edu/" target="_blank">NEW YORK</a></li>
+    </ul>
+    <label class="lbl_1">DC</label>
+    <label class="lbl_2">LONDON</label>
+    <label class="lbl_3">PARIS</label>
+    <label class="lbl_4">MADRID</label>
+    <label class="lbl_5">ACCRA</label>
+    <label class="lbl_6">BUENOS AIRES</label>
+    <label class="lbl_7">BERLIN</label>
+    <label class="lbl_8">PRAGUE</label>
+    <label class="lbl_9">FLORENCE</label>
+    <label class="lbl_10">TEL AVIV</label>
+    <label class="lbl_11">SINGAPORE</label>
+    <label class="lbl_12">SYDNEY</label>
+    <p>Unless otherwise noted, all content copyright New York University. All rights reserved.</p> 
+  </div>
+  <ul  id="about">
+    <li>The NYU Global Idea Exchange connects NYU students around the world to collaborate on an unprecedented scale, resulting in a tangible manifestation of NYU’s global network. Over the course of the academic year, students will be engaged by a big challenge question about cities—a question that encourages an interdisciplinary approach and activates the NYU collective, working across time and distance, proving that ideas never sleep in the global network.</li> 
+    <li>As NYU is “In and of the city” and “in and of the world”, it is only appropriate that we begin with a challenge about cities: home and habitat to half of the world’s population. From idea capitals such as New York, Abu Dhabi, Shanghai, London, and Paris to the high–growth centers of Guangzhou, Karachi, Delhi, and Lagos, cities are the present and the future of humanity. Cities are the challenge and the opportunity.</li>
+    <li>From October 1st–November 20th, students, guided by faculty and seminal thinkers, will form teams to explore the challenge question from diverse angles—sharing inspirations, thoughts, and responses via a custom social collaboration network powered by OpenIDEO's OI Engine. Selected teams will be invited to spend spring break in Shanghai, home to NYU’s newest campus, to continue to explore the challenge and bring their ideas to life.</li>
+  </ul>
+  <span>
+    <a href="http://www.nyu.edu/" target="_blank"><img src="img/logo.png" alt="" /></a>
+    <p>Unless otherwise noted,all content copyright New York University.All rights reserved.</p> 
+  </span>
+</div>
+
+<footer>
+  
+  <ul class="campus l_grid">
+    <li><a class="campus1" href="http://shanghai.nyu.edu/" target="_blank">上海纽约大学筹建中心网站</a></li>
+    <li><a class="campus2" href="http://nyuad.nyu.edu/" target="_blank">NYU Abu Dhabi</a></li>
+    <li><a class="campus3" href="http://cas.nyu.edu/page/home" target="_blank">New York University, Arts and Science</a></li>
+    <li><a class="campus4" href="http://www.poly.edu/" target="_blank">Polytechnic Institute of New York University</a></li>
+    <li><a class="campus5" href="http://www.stern.nyu.edu/" target="_blank">Leonard N. Stern School of Business</a></li>
+    <li><a class="campus6" href="http://www.tisch.nyu.edu/" target="_blank">Tisch School of the Arts</a></li>
+    <li><a class="campus7" href="http://wagner.nyu.edu/" target="_blank">NYU Wagner</a></li>
+  </ul>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script type="text/javascript" src="js/jquery.jclock.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/countdown.js"></script>
+
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34010201 -1 ']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

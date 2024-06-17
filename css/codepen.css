@@ -1,0 +1,55 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Roboto+Slab:wght@100..900&display=swap');
+:root {
+  --navy: #102C57;
+  --blue: #1679AB; 
+  --peach: #FFB1B1;
+  --pink: #FFCBCB;    
+}
+body {
+    background: #FFFFFF url(https://iam.troie.fun/image/codepen-bg.jpg) no-repeat  ;
+    background-size: cover;
+    background-position:0 right;
+    height: 100vh;
+    color: #011b49;
+    font-family: "Roboto Slab", "LXGW WenKai Mono TC", monospace, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+section{padding: 10px;margin: 0 auto;}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: 1px solid #242424;
+  border-left: 1px solid #242424;
+}
+caption, th, td{
+  font-size: 18px;
+  line-height: 32px;
+}
+th, td{
+  padding-left: 8px;
+  border-right: 1px solid #242424;
+  border-bottom: 1px solid #242424;
+}
+a {
+    text-decoration: none;
+    color: #011b49;
+}
+a:hover{color: #999;font-weight: 500;}
+
+footer{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+footer, footer a{font-size: 12px;color: #999;padding:0;}
+footer a{text-decoration: underline;}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+

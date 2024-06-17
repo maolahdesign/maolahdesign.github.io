@@ -1,0 +1,30 @@
+header{
+  background:#999;
+  line-height:2em;
+}
+
+a{color:#333;display: block; text-decoration:none;line-height:2em;padding:0 2em;}
+a:hover,.active{color:#fff;background: #666;}
+
+.menu > li{
+  display:inline-block;
+  float:left;
+  color:#ccc;
+  cursor:pointer;
+  position:relative;
+}
+.menu li ul{
+  background:#bbb;
+  position:absolute;
+  left:-999em;
+  color:#666;
+  width:300px;
+}
+.menu > li:hover ul{
+  left:0;
+  x-position: static;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Css Lint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/normalize.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+<link href="css/csslint.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+<h1>Rules</h1>
+<h2>修復解析錯誤</h2>
+
+<h2>可能發生的錯誤</h2>
+    <ul>
+        <li>
+            <h3>小心盒模式錯誤</h3>
+<pre>.box {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+}
+</pre>
+        </li>
+        <li>
+            <h3>適合用於display的屬性</h3>
+            <ul>
+                <li>display: inline, width, height, * margin-top, * margin-bottom 沒有作用, float可用於修正ie6 bug</li>
+                <li>display: inline-block 不該使用 float</li>
+                <li>display: block 不該使用 vertical-align.</li>
+                <li>display: table-* 不該使用 margin (and all variants) or float(table-cell).</li>
+            </ul>
+        </li>
+        <li>
+            <h3>禁止重複定義屬性</h3>
+<pre>a{
+    border:1px solid red;
+    border:1px solid green;
+}
+</pre>
+        </li>
+        <li>
+            <h3>不允許空的選擇器設定</h3>
+            <pre>.foo {}</pre>
+        </li>
+        <li>
+            <h3>使用正確的屬性及設定值</h3>
+<pre>a {
+    clr: red;
+}
+
+a {
+    color: foo;
+}</pre>            
+        </li>
+        <li>
+            <h3>避免在連結以外的選擇器設定hover屬性</h3>
+<pre>.test :hover{
+    top: 10px;
+}
+
+li:hover {
+    left: 10px;
+}</pre>
+        </li>
+    </ul>
+<h2>相容性</h2>
+    <ul>
+        <li>
+            <h3>避免使用相鄰選擇器</h3>
+<pre>bad
+
+.foo {
+    font-weight: bold;
+}
+
+.bar {
+    padding: 10px;
+}
+
+.foo.bar {
+    color: red;
+}
+
+good
+
+.baz {
+    color: red;
+}</pre>            
+        </li>
+        <li>
+            <h3>不要使用box-sizing</h3>
+            <pre>.mybox {
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+}</pre>
+        </li>
+        <li>
+            <h3>需要相容不同瀏覽器的前綴</h3>
+            <pre>.mybox {
+    -webkit-transform: translate(50px, 100px);
+}
+
+/* Missing -webkit */
+.mybox {
+    -moz-border-radius: 5px;
+}</pre>
+        </li>
+        <li>
+            <h3>需要為不同瀏覽器單獨定義漸層屬性</h3>
+            <pre>.mybox {
+    background: -moz-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-   stop(100%,#7db9e8));
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#7db9e8 100%);
+    background: -o-linear-gradient(top,  #1e5799 0%,#7db9e8 100%);
+    background: -ms-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); 
+}</pre>
+        </li>
+        <li>
+            <h3>不允許負文本縮排</h3>
+            <pre>.mybox {
+    background: url(bg.png) no-repeat;
+    direction: ltr; <em>/* 文本的方向/ 書寫方向 */</em>
+    text-indent: -9999px;
+}</pre>
+        </li>
+        <li>
+            <h3>除了已確認屬性外還需加上前綴屬性</h3>
+            <pre>.mybox {
+    -moz-border-radius: 5px;
+    border-radius: 5px;<em>/* 標準屬性須放在所有前綴屬性後面 */</em>
+}</pre>
+        </li>
+        <li>
+            <h3>顏色屬性需提供向下相容性</h3>
+            <pre>.mybox {
+    color: red;<em>/* 舊屬性須放在前面 */</em>
+    color: rgba(255, 0, 0, 0.5);
+}</pre>
+        </li>
+        <li>
+            <h3>不要使用 * hack(< ie8)</h3>
+            <pre>.mybox {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+    *width: 200px;
+}</pre>
+        </li>
+        <li>
+            <h3>不要使用 _ hack(< ie7)</h3>
+            <pre>.mybox {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+    _width: 200px;
+}</pre>
+        </li>
+    </ul>
+<h2>效能 Performance</h2>
+    <ul>
+        <li><h3>不要過度使用線上字體</h3></li>
+        <li>
+            <h3>不要使用@import載入css文件(影響平行載入) Disallow @import</h3>
+            <pre>@import url(more.css);<em>/* 鎖住直到下載完成 */</em>
+@import url(andmore.css);
+
+a {
+    </pre>
+        </li>
+        <li>
+            <h3>不要讓選擇器看起來像正則表達式</h3>
+            <pre>bad
+
+.mybox[class~=xxx]{
+    color: red;
+}
+
+.mybox[class^=xxx]{
+    color: red;
+}
+
+good
+
+.mybox[class=xxx]{
+    color: red;
+}
+
+.mybox[class]{
+    color: red;
+}</pre>
+        </li>
+        <li>
+            <h3>避免使用通用選擇器為主要選擇器</h3>
+            <pre>bad
+
+* {
+    color: red;
+}
+.selected * {
+    color: red;
+}
+
+good
+
+.selected * a {
+    color: red;
+}</pre>
+        </li>
+        <li>
+            <h3>不允許不合格的屬性選擇器</h3>
+            <pre>[type=text] {
+    color: red;
+}
+
+.selected [type=text] {
+    color: red;
+}</pre>
+        </li>
+        <li>
+            <h3>屬性值為0不需要單位</h3>
+            <pre>.mybox {
+    margin: 0px;
+}
+
+.mybox {
+    width: 0%;
+}</pre>
+        </li>
+        <li>
+            <h3>不要畫蛇添足</h3>
+            <pre>bad
+
+div.mybox {
+    color: red;   
+}
+
+.mybox li.active {
+    background: red;
+}
+
+good
+
+li.active {
+    color: red;
+}
+
+p.active {
+    color: green;
+}</pre>
+        </li>
+        <li>
+            <h3>盡可能使用縮寫</h3>
+            <pre>.mybox {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}</pre>
+        </li>
+        <li>
+            <h3>不允許重複的背景</h3>
+            <pre>bad
+
+.heart-icon {
+    background: url(sprite.png) -16px 0 no-repeat;
+}
+
+.task-icon {
+    background: url(sprite.png) -32px 0 no-repeat;
+}
+
+good
+
+.icons {
+    background: url(sprite.png) no-repeat;
+}
+
+.heart-icon {
+    background-position: -16px 0;
+}
+
+.task-icon {
+    background-position: -32px 0;
+}
+</pre>
+        </li>
+    </ul>
+<h2>可維護性和複用性</h2>
+    <ul>
+        <li><h3>不要過度使用float</h3></li>
+        <li><h3>不使用過多的font-size</h3></li>
+        <li><h3>不要使用ID選擇器</h3></li>
+        <li><h3>不要使用!important</h3></li>
+    </ul>
+<h2>Accessibility
+    <ul>
+        <li>Disallow outline:none</li>
+    </ul>
+<h2>OOCSS</h2>
+<strong>These rules are based on the principles of OOCSS.</strong>
+
+    Disallow qualified headings
+    Headings should only be defined once
+</div>
+</body>
+</html>
