@@ -11,11 +11,7 @@
     <div class="portfolio-template">
         <div class="navigation">
             <div class="logo">Logo</div>
-            <div class="menu-items">
-                <a href="" class="about">About</a>
-                <a href="" class="about">Work</a>
-                <a href="" class="about">Contact</a>
-            </div>
+            <div class="menu-items"> <a href="" class="about">About</a> <a href="#" id="work" class="about">Work</a> <a id="contact" href="#" class="about">Contact</a> </div>
         </div>
         <div class="header-section">
             <div class="header-content">
@@ -103,6 +99,28 @@
         </div>
     </div>
     <script>
+        var buttonContact = document.getElementById("contact");
+        if (buttonContact) {
+            buttonContact.addEventListener("click", function () {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 1500
+                    , left: 0
+                    , behavior: 'smooth'
+                });
+            });
+        }
+        var buttonWork = document.getElementById("work");
+        if (buttonWork) {
+            buttonWork.addEventListener("click", function () {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 1160
+                    , left: 0
+                    , behavior: 'smooth'
+                });
+            });
+        }
         var buttonContainer = document.getElementById("buttonContainer");
         if (buttonContainer) {
             buttonContainer.addEventListener("click", function () {
