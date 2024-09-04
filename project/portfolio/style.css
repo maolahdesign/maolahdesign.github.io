@@ -1,0 +1,374 @@
+
+body {
+margin: 0;
+line-height: normal;
+}
+
+.logo {
+  	position: relative;
+  	line-height: 30px;
+  	font-weight: 600;
+}
+.menu-items {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-end;
+  	gap: 24px;
+  	font-size: 17px;
+}
+.navigation {
+  	align-self: stretch;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	padding: 24px 42px;
+}
+.navigation a{
+    position: relative;
+  	line-height: 27px;
+    text-decoration: none;
+    color: #2d2d2d;
+}
+.branding-image {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 30px;
+  	font-weight: 600;
+}
+.visual-designer {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 68px;
+  	font-weight: 600;
+}
+.this-is-a {
+  	margin: 0;
+}
+.this-is-a-container {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 17px;
+  	line-height: 27px;
+}
+.title-subtitle {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+}
+.button {
+  	background-color: #2d2d2d;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 24px 64px;
+  	cursor: pointer;
+  	text-align: center;
+  	color: #fff;
+}
+.header-content {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 48px;
+  	min-width: 320px;
+  	max-width: 620px;
+}
+.headerimage-1-icon {
+  	flex: 1;
+  	position: relative;
+  	max-width: 480px;
+  	overflow: hidden;
+  	height: 360px;
+  	object-fit: cover;
+  	min-width: 320px;
+}
+.header-section {
+  	align-self: stretch;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	padding: 42px 24px;
+  	gap: 42px 68px;
+}
+.logo-bar-child {
+  	width: 116.1px;
+  	position: relative;
+  	height: 38.2px;
+}
+.image-1-traced {
+  	width: 86.4px;
+  	position: relative;
+  	height: 30.7px;
+}
+.image-5-traced {
+  	width: 113.1px;
+  	position: relative;
+  	height: 17.4px;
+}
+.image-2-traced {
+  	width: 38.1px;
+  	position: relative;
+  	height: 46.8px;
+}
+.image-7-traced {
+  	width: 64.9px;
+  	position: relative;
+  	height: 43.7px;
+}
+.logo-bar {
+  	align-self: stretch;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	padding: 42px 68px;
+}
+.skills-card-icon {
+  	width: 124px;
+  	position: relative;
+  	height: 124px;
+}
+.title {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 42px;
+  	font-weight: 600;
+  	display: inline-block;
+  	height: 42px;
+  	flex-shrink: 0;
+}
+.title-description {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 12px;
+}
+.skills-card {
+  	flex: 1;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 64px 42px;
+  	box-sizing: border-box;
+  	gap: 42px;
+  	min-width: 320px;
+}
+.cards-section {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+  	gap: 24px;
+}
+.skills-section {
+  	align-self: stretch;
+  	background-color: #fff;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 42px 24px;
+  	text-align: center;
+  	font-size: 27px;
+}
+.latest-work {
+  	position: relative;
+  	line-height: 42px;
+  	font-weight: 600;
+}
+.image-icon {
+  	align-self: stretch;
+  	position: relative;
+  	max-width: 100%;
+  	overflow: hidden;
+  	height: 330px;
+  	flex-shrink: 0;
+  	object-fit: cover;
+}
+.title-description3 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.gallery-card {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	min-width: 320px;
+}
+.cards-section1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+  	gap: 24px;
+  	text-align: left;
+  	font-size: 20px;
+}
+.gallery-section {
+  	align-self: stretch;
+  	background-color: #fff;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 42px 24px;
+  	gap: 42px;
+  	text-align: center;
+  	font-size: 32px;
+}
+.lets-work-together {
+  	width: 626px;
+  	position: relative;
+  	line-height: 42px;
+  	font-weight: 600;
+  	display: inline-block;
+}
+.this-is-a4 {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 27px;
+}
+.title-description6 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.discord-icon {
+  	width: 36px;
+  	position: relative;
+  	height: 36px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	cursor: pointer;
+}
+.social-links {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+}
+.contact-info {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 42px;
+  	min-width: 320px;
+}
+.name {
+  	flex: 1;
+  	position: relative;
+  	line-height: 27px;
+}
+.input-field {
+  	width: 100%;
+  	background-color: #f3f3f3;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 16px 24px;
+  	box-sizing: border-box;
+  	min-width: 320px;
+  	max-width: 520px;
+}
+.button1 {
+  	background-color: #2d2d2d;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 24px 64px;
+  	text-align: center;
+  	font-size: 20px;
+  	color: #fff;
+}
+.contact-form {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	min-width: 320px;
+  	max-width: 520px;
+}
+.contact-section-content {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+  	gap: 42px 142px;
+  	font-size: 17px;
+}
+.contact-section {
+  	align-self: stretch;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 42px 24px 86px;
+  	gap: 24px;
+  	font-size: 32px;
+}
+.portfolio-template {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	text-align: left;
+  	font-size: 20px;
+  	color: #2d2d2d;
+  	font-family: Epilogue;
+}
+
