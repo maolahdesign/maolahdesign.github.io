@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+<title>Tokyo!</title>
+<meta name="author" content="troie!">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <i class="glyphicon glyphicon-cog configure"></i>
+    <div class="row start">
+        <div class="col-md-12">
+            <form role="form">
+                <div class="form-group">
+                    <label for="money">攜帶總金額</label>
+                    <input type="number" class="form-control" id="money">
+                </div>
+                <button type="button" class="btn btn-default save">送出</button>
+                <button type="button" class="btn btn-default cancel">取消</button>
+            </form>
+        </div>
+    </div>
+    <div class="row count hide">
+        <h1></h1>
+        <div class="col-md-12 myform">
+            <form role="form" class="form-inline">
+                <div class="form-group form-inline">
+                    <input type="text" class="form-control" id="item" placeholder="購買商品">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="quantity" placeholder="購買數量">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="pay" placeholder="購買價格">
+                </div>
+                <button type="button" class="btn btn-default buy">&#43;</button>
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>商品</th>
+                        <th>時間</th>
+                        <th>金額</th>
+                        <th>修改</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.tabletojson.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
