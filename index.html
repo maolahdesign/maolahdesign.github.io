@@ -36,7 +36,7 @@
 -->
        <iframe width="560" height="315" src="https://www.youtube.com/embed/W2R-fsH7sns?si=dv93tJrHjnndtlAN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <section>
-            <div id="desktop-resolution-TW-monthly-202304-202404" width="680" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="https://gs.statcounter.com/screen-resolution-stats/desktop/taiwan">StatCounter Global Stats - Screen Resolution Market Share</a></p><script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script><script type="text/javascript" src="https://gs.statcounter.com/chart.php?desktop-resolution-TW-monthly-202304-202404&chartWidth=600"></script>
+            <div id="desktop-resolution-TW-monthly-202304-202404" width="680" height="400" style="width:600px; height: 400px;"></div> You may change the values of width and height above to resize the chart <p>Source: <a href="https://gs.statcounter.com/screen-resolution-stats/desktop/taiwan">StatCounter Global Stats - Screen Resolution Market Share</a></p><script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script><script type="text/javascript" src="https://gs.statcounter.com/chart.php?desktop-resolution-TW-monthly-202304-202404&chartWidth=600"></script>
         </section>
         <section>
             <h2>Experience</h2>
@@ -137,57 +137,35 @@
             </form>
             <div class="slack_btn"></div>
 <!--            <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>-->
-       <script src="hello.js"></script>
         </section>
         <footer>&copy; 2024.maolah design</footer>
     </div>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+<!--    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB51OINeMUJW3n9GQFOvnA7LLANbCqSQhw",
-    authDomain: "maolahbootcamp.firebaseapp.com",
-    projectId: "maolahbootcamp",
-    storageBucket: "maolahbootcamp.appspot.com",
-    messagingSenderId: "864115668301",
-    appId: "1:864115668301:web:fe2cf059842f078be1b304",
-    measurementId: "G-11NKQQTVSD"
-  };
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyB51OINeMUJW3n9GQFOvnA7LLANbCqSQhw",
+        authDomain: "maolahbootcamp.firebaseapp.com",
+        projectId: "maolahbootcamp",
+        storageBucket: "maolahbootcamp.appspot.com",
+        messagingSenderId: "864115668301",
+        appId: "1:864115668301:web:6e8bb0e1f434e4aae1b304",
+        measurementId: "G-JGHHQM37GW"
+        };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-    
-//    const app = firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-
-      // 處理訂閱表單提交
-      document.getElementById('subscription-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // 阻止表單的默認提交行為
-
-        // 獲取電子郵件值
-        const email = document.getElementById('email').value;
-
-        // 添加到 Firestore "subscribers" 集合中
-        db.collection('subscribers').add({
-          email: email,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        .then(function() {
-          alert('Thanks for subscribing!');
-          document.getElementById('email').value = ''; // 清空輸入框
-        })
-        .catch(function(error) {
-          console.error('Error adding document: ', error);
-        });
-      });
-</script>    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = firebase.firestore();
+    </script> 
 </body>
 
 </html>
