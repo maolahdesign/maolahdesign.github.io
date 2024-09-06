@@ -1,6 +1,6 @@
 /*
 Firefox: 224
-Opera: 17
+Opera: 17 
 WebKit (Safari/Chrome): 91 (Left Apple) or 93 (Right Apple)
 */
 
