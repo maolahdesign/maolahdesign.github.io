@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>有我的 email 嗎？</title>
+    <style>
+        strong{padding-left: 1em;font-weight: 400;color:hotpink;}
+    </style>
+</head>
+<body>
+    <div>
+        <input type="email" id="email" name="email" placeholder="輸入你的 email" required>
+        <button id="myButton">送出查詢</button><strong></strong>
+    </div>
+    <script>
+    const button = document.getElementById('myButton');
+    const strongTag = document.querySelector('strong');
+    let email = document.getElementById("email");
+    const mailList = ["happy2u2ul4@gmail.com",
+    "patrick20021215@gmail.com",
+    "sky921418@gmail.com",
+    "agtha920831@gmail.com",
+    "sunnygrace820@gmail.com",
+    "crusoel.chen@gmail.com",
+    "s44973724@gmail.com",
+    "honey1998h2022@gmail.com",
+    "a0935261551@gmail.com",
+    "marchung0907@gmail.com",
+    "emily2610@gmail.com",
+    "rose9666525@gmail.com",
+    "tipeng83122@gmail.com",
+    "oliver02266653@gmail.com",
+    "vicky79315@gmail.com",
+    "beishasha8612@gmail.com",
+    "a0153957@gmail.com",
+    "yuting900329@gmail.com",
+    "amy180198@gmail.com",
+    "edcvf1208@gmail.com",
+    "sgt41412@gmaail.com",
+    "e0985463799@gmail.com",];
+
+    button.addEventListener('click', function() {
+        if (mailList.includes(email.value)) {
+            strongTag.textContent="有喔";
+        } else {
+            strongTag.textContent="沒找到喔！";
+        }
+    });
+    </script>
+</body>
+</html>
