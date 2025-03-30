@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <header>
-       <img src="image/logo.png" alt="">
+       <img src="image/logo.svg" alt="">
         <nav>
             <a href="">123</a>
         </nav>
@@ -202,12 +202,17 @@ function submitForm() {
   var formData = new FormData(document.getElementById('contactForm'));
   
   // 使用 fetch API 發送數據
+    console.log('開始提交表單...');
   fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
     method: 'POST',
     body: formData
   })
-  .then(response => response.json())
+  .then(response => {
+  console.log('收到回應:', response);
+  return response.json();
+  })
   .then(data => {
+      console.log('處理數據:', data);
     if(data.result === 'success') {
       // 顯示成功訊息
       document.getElementById('successMessage').style.display = 'block';
