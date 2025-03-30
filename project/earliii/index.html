@@ -145,9 +145,8 @@
     <section class="whyus"></section>
     <section class="contact">
         <div>
-<!--           <form id="contactForm" onsubmit="return validateForm()">-->
-<!--           <form id="contactForm" action="https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec">-->
-           <form id="contactForm" method="post" action="https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec">
+           <form id="contactForm" method="post" onsubmit="return submitForm()">
+<!--           <form id="contactForm" method="post" action="https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec">-->
             <div class="form-group">
                 <label for="name" class="required">姓名</label>
                 <input type="text" id="name" name="name" required>
@@ -195,7 +194,7 @@
     </form>
 </div>
 <script>
-    function submitForm() {
+function submitForm() {
   // 防止表單直接提交
   event.preventDefault();
   
@@ -203,7 +202,7 @@
   var formData = new FormData(document.getElementById('contactForm'));
   
   // 使用 fetch API 發送數據
-  fetch('您的Apps_Script_URL', {
+  fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
     method: 'POST',
     body: formData
   })
