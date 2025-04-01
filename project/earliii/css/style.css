@@ -11,7 +11,7 @@ body{
     background: #F6F4F4;
 }
 
-.container, header, section, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div{
+.container, header, section, .hero, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div{
     display: flex;
     flex-direction: column;
     outline: 1px dotted #f2f2f2;
@@ -20,13 +20,14 @@ body{
     align-content: flex-end;
     align-items: flex-end;
 }
-header, .service_title, .service_contant, .help, .work, .brand div{
+header, .hero, .service_title, .service_contant, .help, .work, .brand div{
     flex-direction: row;
 }
 header{
     height: 72px;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
 }
 header img{
     width: 111px;
@@ -35,18 +36,30 @@ header img{
 }
 section{
     width: 1300px;
-    height: 767px;
+    height: 100vh;
 }
 h1, h2, h3{ text-transform: uppercase;}
 h2{ font-family: "Albert Sans", sans-serif; font-size: 40px; font-weight: 900; line-height: 48px; letter-spacing: 5px;}
 h2 span{color: var(--main, #222);}
 p, .support h3{font-size: 18px;line-height: 24px;}
 .container,header{width: 1420px;}
+.hero h1, .service_title p,.brand div{font-size: 24px;}
+.hero{justify-content: flex-start;align-items: center;}
+.hero h2{margin-bottom: 3vh;}
+.service_title{margin-top: 132px;margin-bottom: 48px;}
 .service_title, .service_contant div{justify-content: space-between;}
-.service_title div{width: 50%;}
-.service h1, .service_title p,.brand div{font-size: 24px;}
+.service_title div{width: 50%;position: relative;}
+.service_title div::before{content: "";border-left: 8px solid var(--main, #222);height: 170px; display: block;padding-right: 8px;position: absolute;top: 10px;left: -16px;}
+.service_title p{margin-top: 16px;}
 .service_contant {justify-content: space-between;}
 .service_contant div{width: 216px;justify-content: space-between;}
+.service_contant h3{font-size: 24px;margin-bottom: 30px;}
+.service_contant span{
+color: #FFCB00;
+ font-size: 32px;
+ font-family: Albert Sans;
+ font-weight: 800;
+ line-height: 24px;position: relative;top: 2px;padding-right: 16px;}
 
 .help{
     justify-content: space-between;
@@ -56,7 +69,7 @@ p, .support h3{font-size: 18px;line-height: 24px;}
     height: 312px;
     margin-left: 8px;
 }
-.help div{
+.help img,.help>div{margin-top: 19.4vh;
     
 }
 .help_content{
@@ -75,22 +88,23 @@ p, .support h3{font-size: 18px;line-height: 24px;}
 }
 .support{position: relative;}
 .support h2, .support div{position: absolute;}
-.support h2{ left: calc(50% - 230px);top: calc(50% - 16px);}
+.support h2{ left: calc(50vw - 300px);top: calc(50vh - 16px);}
 .impo{position: relative;left: -16px;}
 .impo::before{content: "";border-left: 8px solid var(--main, #222);height: 15px; display: inline-block;padding-right: 8px;}
-.support div:nth-child(1){top: 20%;left: 18%;}
-.support div:nth-child(2){top: 10% ;left: 45%;}
-.support div:nth-child(3){top: 20% ;right: 18%;}
-.support div:nth-child(4){bottom: 20%;left: 18%;}
-.support div:nth-child(5){bottom: 10%;left: 45%;}
-.support div:nth-child(6){bottom: 20%;right: 12%;}
+.support div:nth-child(1){top: 20vh;left: 18vw;}
+.support div:nth-child(2){top: 10vh ;left: 40vw;}
+.support div:nth-child(3){top: 20vh ;left: 62vw;}
+.support div:nth-child(4){bottom: 20vh;left: 18vw;}
+.support div:nth-child(5){bottom: 10vh;left: 40vw;}
+.support div:nth-child(6){bottom: 20vh;left: 62vw;}
 .support p{width: 128px;}
 
-.partner>div{flex-direction: row;justify-content: space-between;align-items: center;}
+.partner>div{flex-direction: row;justify-content: space-between;align-items: center;margin-top: 40px;}
+.partner h2{margin-top: 20vh;}
 .partner .impo{left: 0;}
 
 .work{flex-wrap: wrap;}
-.work h2{width: 100%;margin-bottom: 36px;}
+.work h2{width: 100%;margin-bottom: 36px;margin-top: 10vh;}
 .work img{width: 580px;}
 /*.brand:nth-child(odd){padding-right: 120px;}*/
 .work>div:nth-child(odd){padding-left: 140px;}
@@ -104,7 +118,12 @@ p, .support h3{font-size: 18px;line-height: 24px;}
 
 
 
-
+.contact{
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    background: var(--main, #222);
+}
 
 
 /*
@@ -122,8 +141,8 @@ outline: 2px solid red;
 /* 套用動畫到圖片的 CSS 類別 */
 .rotating-image {
     position: absolute;
-    left: calc(50% - 129px);
-    top: calc(50% - 98px);
+    left: calc(50vw - 200px);
+    top: calc(50vh - 98px);
     width: 208px;
   animation-name: rotate360;
   animation-duration: 5s; /* 完成一圈旋轉需要 5 秒 */
