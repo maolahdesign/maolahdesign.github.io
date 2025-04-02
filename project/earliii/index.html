@@ -11,7 +11,7 @@
     <header>
        <img src="image/logo.svg" alt="">
         <nav>
-            <a href="">123</a>
+<!--            <a href="">123</a>-->
         </nav>
     </header>
     <section class="hero">
@@ -119,33 +119,40 @@
             <img src="image/project_cicso.jpg" alt="">
             <div>
                 CISCO 台灣思科
-                <a href="">詳細介紹</a>
+                <button id="cisco">詳細介紹</button>
             </div>
         </div>
         <div class="brand">
             <img src="image/project_microsoft.jpg" alt="">
             <div>
                 CISCO 台灣思科
-                <a href="">詳細介紹</a>
+                <button id="cisco">詳細介紹</button>
             </div>
         </div>
         <div class="brand">
             <img src="image/project_acronis.jpg" alt="">
             <div>
                 CISCO 台灣思科
-                <a href="">詳細介紹</a>
+                <button id="cisco">詳細介紹</button>
             </div>
         </div>
         <div class="brand">
             <img src="image/project__benz.jpg" alt="">
             <div>
                 CISCO 台灣思科
-                <a href="">詳細介紹</a>
+                <button id="cisco">詳細介紹</button>
             </div>
         </div>
+        <div class="project"><button>+</button></div>
     </section>
-    <section class="whyus">123456</section>
+    <section class="whyus">
+        <h2>why us</h2>
+        <h3>STAY A STEP AHEAD FOR OUR CLIENTS</h3>
+        <h3>為客戶先想一步</h3>
+        <p>2012 年創立，而立數位垂直整合工程專業技術、品牌公關和多產業服務經驗，旨在提供您信賴且完整的行銷創意服務</p>
+    </section>
     <section class="contact">
+        <h2>talk to us</h2>
         <div>
            <form id="contactForm" method="post" onsubmit="return submitForm()">
 <!--           <form id="contactForm" method="post" action="https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec">-->
@@ -153,81 +160,41 @@
                 <label for="name" class="required">姓名</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            
             <div class="form-group">
                 <label for="email" class="required">電子郵件</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
             <div class="form-group">
                 <label for="phone">電話號碼</label>
                 <input type="tel" id="phone" name="phone">
             </div>
-            
             <div class="form-group">
                 <label for="subject" class="required">主旨</label>
                 <input type="text" id="subject" name="subject" required>
             </div>
-            
-            <div class="form-group">
-                <label for="category">聯絡類別</label>
-                <select id="category" name="category">
-                    <option value="general">一般詢問</option>
-                    <option value="support">技術支援</option>
-                    <option value="sales">銷售相關</option>
-                    <option value="feedback">意見反饋</option>
-                    <option value="other">其他</option>
-                </select>
+            <div class="form-group category">
+                <label for="">聯絡類別</label>
+                <label for="category1"><input type="radio" id="category1" name="category" checked>意見反饋</label>
+                <label for="category2"><input type="radio" id="category2" name="category">技術支援</label>
+                <label for="category3"><input type="radio" id="category3" name="category">銷售相關</label>
             </div>
-            
             <div class="form-group">
                 <label for="message" class="required">訊息內容</label>
                 <textarea id="message" name="message" required></textarea>
             </div>
             
             <button type="submit">送出訊息</button>
-        </form></div>
+        </form>
+        </div>
     </section>
     <footer>
         &copy;copyright 2025 earliii
     </footer>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/hello.js"></script>
 <script>
-function submitForm() {
-  // 防止表單直接提交
-  event.preventDefault();
-  
-  // 獲取表單數據
-  var formData = new FormData(document.getElementById('contactForm'));
-  
-  // 使用 fetch API 發送數據
-    console.log('開始提交表單...');
-  fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-  console.log('收到回應:', response);
-  return response.json();
-  })
-  .then(data => {
-      console.log('處理數據:', data);
-    if(data.result === 'success') {
-      // 顯示成功訊息
-      document.getElementById('successMessage').style.display = 'block';
-      document.getElementById('contactForm').reset();
-    } else {
-      // 顯示錯誤訊息
-      alert('提交失敗: ' + data.message);
-    }
-  })
-  .catch(error => {
-    console.error('錯誤:', error);
-    alert('發生錯誤，請稍後再試');
-  });
-  
-  return false;
-}
+
     </script>
 </body>
 </html>
