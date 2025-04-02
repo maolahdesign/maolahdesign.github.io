@@ -1,16 +1,22 @@
 $(document).ready(function(){
     $('.brand button').on('click',function(){
         var buttonId = $(this).attr("id");
-        alert(buttonId);
+        var loadFileName = buttonId+'.html';
         $('.project').addClass('project_on');
-       
+        $('.project').load(loadFileName);
+        $('body').attr('style', 'overflow: hidden;');
+
+
 	});
     
-    $('.project button').on('click',function(){
+    $(document).on('click', '.project_on button', function(){
+        $('body').attr('style', '');
         $('.project').removeClass('project_on');
-        
-	});
+        $('.project').html('');
+    });
+    
 });
+
                   
 function submitForm() {
   // 防止表單直接提交

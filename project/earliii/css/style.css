@@ -7,12 +7,12 @@ en font-family: "Albert Sans", sans-serif;
   --main: #FFCB00;
   --secd: hsla(170, 19%, 62%, 1);
 }
-body, h2, input, textarea, button{font-family: "Albert Sans", "Roboto Slab", sans-serif;}
+body, h2, input, textarea, button, .project article h2{font-family: "Albert Sans", "Roboto Slab", sans-serif;}
 body{
     background: #F6F4F4;
 }
 
-.container, header, section, .hero, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div, .contact, .category, .whyus{
+.container, header, section, .hero, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div, .contact, .category, .whyus, .project{
     display: flex;
     flex-direction: column;
 /*    outline: 1px dotted #f2f2f2;*/
@@ -47,7 +47,7 @@ p, .support h3, label{font-size: 18px;line-height: 24px;}
 label, input{line-height: 32px;}
 input, textarea, button{line-height: 48px;font-size: 32px;border:0;}
 input, textarea{width: 100%;color:hsla(170, 19%, 62%, 1);border-bottom:1px solid #222;background: var(--main, #fff);padding-left: 8px;margin-bottom: 16px;}
-button{border:1px solid #222;font-size: 18px;padding: 4px 16px;}
+button{font-weight: 700;font-size: 18px;line-height: 40px;background: var(--secd);}
 input:focus, textarea{outline: 0}
 input[type="radio"]{width: auto;line-height: 48px;margin-left: 12px;}
 .container,header{width: 1420px;}
@@ -68,9 +68,12 @@ color: #FFCB00;
  font-family: Albert Sans;
  font-weight: 800;
  line-height: 24px;position: relative;top: 2px;padding-right: 16px;}
-
+.container{
+    background: url(../image/bg01.svg) no-repeat 0 1850px;
+}
 .help{
     justify-content: space-between;
+    
 }
 .help img{
     width: 578px;
@@ -115,12 +118,36 @@ color: #FFCB00;
 .work h2{width: 100%;margin-bottom: 24px;}
 .work img{width: 580px;}
 .work>div:nth-child(odd){padding-left: 140px;}
-.project{position: relative;}
+.project{
+    position: relative;
+    background: var(--main) url(../image/bg01.svg) no-repeat 0 25vh;
+    align-items: center;
+    justify-content: center;
+}
+.project article{
+display: flex;
+flex-direction: row;
+}
+.project img{padding-right: 16px;}
+.project article h2{font-size: 24px;
+font-weight: 500;
+line-height: 48px;}
+.project article li{
+    font-size: 18px;
+    font-family: Roboto Serif;
+    font-weight: 400;
+    line-height: 24px;
+}
 .project button{
     position: absolute;
-    top: 32px;
+    top: 100px;
     right: 32px;
     cursor: pointer;
+    background: none;
+    border:0;
+    font-size: 188px;
+    font-weight: 600;
+    transform: rotate(29deg);
 }
 .brand div{width: 100%;justify-content: space-between;align-items: center;margin-top: 16px;margin-bottom: 24px;}
 .brand button{border:0;width: 40px;text-indent: -110px;cursor: pointer; height: 40px;overflow: hidden; background: #F6F4F4 url(../image/plus.svg);}
@@ -137,9 +164,9 @@ color: #FFCB00;
 
 
 .contact{
-    position: relative;
-    bottom: 0;
-    right: -22px;
+/*    position: relative;*/
+/*    bottom: 0;*/
+/*    right: -22px;*/
     width: 100vw;
     background: var(--main, #222);
     padding-top: 10vh;
@@ -148,10 +175,16 @@ color: #FFCB00;
 .contact h2{width: 50%;text-align: right;margin-right: 1em;}
 .contact div{width: 50%;margin-right: 24px;}
 .contact label{width: 100px;display: block;}
+.contact button{position: relative;left: 210px;padding: 0 32px;}
 /*.contact input{border:0;border-bottom:1px solid #222;background: var(--main, #fff);}*/
 .category {flex-wrap: wrap;}
 .category label:nth-child(1){width: 100%;}
-
+footer{
+    background: #222;
+    color: #f2f2f2;
+    line-height: 1.612;
+    padding-left: 1em;
+}
 
 /*
 outline: 2px solid red;
@@ -187,14 +220,34 @@ outline: 2px solid red;
         height: 100vh;
     }
 }
+
+@keyframes rotateX{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(399deg);
+    }
+}
+
 .project_on{
     position: fixed;
     top: 0;
     left: 0;
-    background: var(--main,#f2f2f2);
+    overflow: hidden;
+/*    background-color: var(--main,#f2f2f2);*/
+    
     animation-name: zoomWindow;
     animation-duration: .3s; 
     animation-timing-function: cubic-bezier(0, -0.3, 1, .3); 
     animation-fill-mode: forwards;
     z-index: 8;
+}
+.project_on button{
+    color:var(--secd);
+    animation-name: rotateX;
+    animation-duration: .8s; 
+    animation-timing-function: cubic-bezier(0, -0.3, 1, .3); 
+/*    animation-iteration-count: 1;*/
+    animation-fill-mode: forwards;
 }
