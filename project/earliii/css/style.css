@@ -149,7 +149,7 @@ line-height: 48px;}
     transform: rotate(29deg);
 }
 .brand div{width: 100%;justify-content: space-between;align-items: center;margin-top: 16px;margin-bottom: 24px;}
-.brand button{border:0;width: 40px;text-indent: -110px;cursor: pointer; height: 40px;overflow: hidden; background: #F6F4F4 url(../image/plus.svg);}
+.brand button{border:0;width: 40px;text-indent: -112px;cursor: pointer; height: 40px;overflow: hidden; background: #F6F4F4 url(../image/plus.svg);}
 
 .whyus{align-items: center;align-content: center;}
 .whyus h2{margin-top: 30vh;}
@@ -165,6 +165,7 @@ line-height: 48px;}
 }
 .contact h2, .contact div{width: 710px;}
 .contact h2{text-align: right;margin-right: 1em;}
+.contact span{color: #222;font-size: 18px;font-weight: 400;padding-right: 128px;}
 .contact label{width: 100px;display: block;}
 .contact input, .contact textarea{width: 30vw;}
 .contact input[type="radio"]{width: auto;}
@@ -252,11 +253,7 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
     .support h2, .support div{position: absolute;}
     .support h2{ font-size: 34px;left: calc(50vw - 188px);;top: 91px;}
     .support p{width: 90vw;}
-    .rotating-image {
-    left: calc(50vw - 106px);
-    top: 10px;
-    width: 208px;
-    }
+    .rotating-image {left: calc(50vw - 106px);top: 10px;width: 208px;}
     .support div:nth-child(1){top: 200px;left: 3vw;}
     .support div:nth-child(2){top: 300px;left: 3vw;}
     .support div:nth-child(3){top: 400px;left: 3vw;}
@@ -272,7 +269,6 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
     .contact{flex-direction: column;align-items: flex-start}
     .contact h2 {
         text-align: center;
-/*        margin-right: 1em;*/
     }
     .contact h2, .contact div{width: 100vw;}
     .contact label, .contact input, .contact textarea {width: 90vw;padding-left: 16px;}
