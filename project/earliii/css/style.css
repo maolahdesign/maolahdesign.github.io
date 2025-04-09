@@ -11,13 +11,12 @@ body, h2, input, textarea, button, .project article h2{font-family: "Albert Sans
 body{
     background: #F6F4F4;
 }
-
+/*section{outline:1px solid #999;}*/
 .container, header, section, .hero, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div, .contact, .category, .whyus, .project{
     display: flex;
     flex-direction: column;
-/*    outline: 1px dotted #f2f2f2;*/
 }
-.container{
+.container, .contact, footer{
     align-content: flex-end;
     align-items: flex-end;
 }
@@ -34,7 +33,7 @@ header{
 header img{
     width: 111px;
     height: 33px;
-    margin-left: 8px;
+    padding-left: 8px;
 }
 section{
     width: 1300px;
@@ -46,11 +45,11 @@ h2 span{color: var(--main, #222);}
 p, .support h3, label{font-size: 18px;line-height: 24px;}
 label, input{line-height: 32px;}
 input, textarea, button{line-height: 48px;font-size: 32px;border:0;}
-input, textarea{width: 100%;color:hsla(170, 19%, 62%, 1);border-bottom:1px solid #222;background: var(--main, #fff);padding-left: 8px;margin-bottom: 16px;}
+input, textarea{color:hsla(170, 19%, 62%, 1);border-bottom:1px solid #222;background: var(--main, #fff);padding-left: 8px;margin-bottom: 16px;}
 button{font-weight: 700;font-size: 18px;line-height: 40px;background: var(--secd);}
 input:focus, textarea{outline: 0}
 input[type="radio"]{width: auto;line-height: 48px;margin-left: 12px;}
-.container,header{width: 1420px;}
+.container,header, footer, .contact{width: 1420px;}
 .hero h1, .service_title p,.brand div{font-size: 24px;}
 .hero{justify-content: flex-start;align-items: center;}
 .hero h2{margin-bottom: 3vh;}
@@ -164,31 +163,25 @@ line-height: 48px;}
 
 
 .contact{
-/*    position: relative;*/
-/*    bottom: 0;*/
-/*    right: -22px;*/
-    width: 100vw;
+    width: 1420px;
     background: var(--main, #222);
     padding-top: 10vh;
-    justify-content: center;
+    align-items: flex-start;
 }
-.contact h2{width: 50%;text-align: right;margin-right: 1em;}
-.contact div{width: 50%;margin-right: 24px;}
+.contact h2, .contact div{width: 710px;}
+.contact h2{text-align: right;margin-right: 1em;}
 .contact label{width: 100px;display: block;}
+.contact input, .contact textarea{width: 30vw;}
+.contact input[type="radio"]{width: auto;}
 .contact button{position: relative;left: 210px;padding: 0 32px;}
-/*.contact input{border:0;border-bottom:1px solid #222;background: var(--main, #fff);}*/
 .category {flex-wrap: wrap;}
 .category label:nth-child(1){width: 100%;}
 footer{
     background: #222;
     color: #f2f2f2;
-    line-height: 1.612;
-    padding-left: 1em;
 }
+footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 1.612;}
 
-/*
-outline: 2px solid red;
-*/
 @keyframes rotate360 {
   0% {
     transform: rotate(0deg);
