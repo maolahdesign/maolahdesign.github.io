@@ -257,8 +257,6 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
     top: 10px;
     width: 208px;
     }
-/*    .support>div{position: inherit;left: 3vw;}*/
-/*    .support>div{left: 3vw;}*/
     .support div:nth-child(1){top: 200px;left: 3vw;}
     .support div:nth-child(2){top: 300px;left: 3vw;}
     .support div:nth-child(3){top: 400px;left: 3vw;}
