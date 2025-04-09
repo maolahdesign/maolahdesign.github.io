@@ -242,7 +242,7 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
 
 @media only screen and (max-width: 25.875em) {
     .container, header, footer, .contact,section{width: 100vw;}
-    section {height: 100vh;outline:1px solid red; }
+    section {height: 100vh;/*outline:1px solid red; */}
     .service, .service_title, .service_contant, .help, .brand div, .category{flex-direction: column;}
     .service{height: 1480px;}
     .help{height: 1030px;}
