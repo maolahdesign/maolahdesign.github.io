@@ -8,18 +8,27 @@ en font-family: "Albert Sans", sans-serif;
   --secd: hsla(170, 19%, 62%, 1);
 }
 body, h2, input, textarea, button, .project article h2{font-family: "Albert Sans", "Roboto Slab", sans-serif;}
-body{
-    background: #F6F4F4;
-}
-/*section{outline:1px solid #999;}*/
+
 .container, header, section, .hero, .service_title, .service_contant, .service_contant, .help, .help div, .help_content,.partner>div, .brand div, .contact, .category, .whyus, .project{
     display: flex;
     flex-direction: column;
 }
+
+body{
+    background: #F6F4F4;
+    display: flex;
+/*    flex-direction: column;*/
+    justify-content: center;
+}
+
+div, section{
+/*    outline:1px solid green;*/
+}
 .container, .contact, footer{
-    align-content: flex-end;
+/*    align-content: flex-end;*/
     align-items: flex-end;
 }
+
 header, .hero, .service_title, .service_contant, .help, .work, .brand div, .contact, .category{
     flex-direction: row;
 }
@@ -72,7 +81,6 @@ color: #FFCB00;
 }
 .help{
     justify-content: space-between;
-    
 }
 .help img{
     width: 578px;
@@ -98,15 +106,15 @@ color: #FFCB00;
 }
 .support{position: relative;}
 .support h2, .support div{position: absolute;}
-.support h2{ left: calc(50vw - 300px);top: calc(50vh - 16px);}
+.support h2{ left: calc(750px - 300px);top: calc(50vh - 16px);}
 .impo{position: relative;left: -16px;}
 .impo::before{content: "";border-left: 8px solid var(--main, #222);height: 15px; display: inline-block;padding-right: 8px;}
-.support div:nth-child(1){top: 20vh;left: 18vw;}
-.support div:nth-child(2){top: 10vh ;left: 40vw;}
-.support div:nth-child(3){top: 20vh ;left: 62vw;}
-.support div:nth-child(4){bottom: 20vh;left: 18vw;}
-.support div:nth-child(5){bottom: 10vh;left: 40vw;}
-.support div:nth-child(6){bottom: 20vh;left: 62vw;}
+.support div:nth-child(1){top: 20vh;left: 180px;}
+.support div:nth-child(2){top: 10vh ;left: 580px;}
+.support div:nth-child(3){top: 20vh ;left: 1000px;}
+.support div:nth-child(4){bottom: 20vh;left: 180px;}
+.support div:nth-child(5){bottom: 10vh;left: 580px;}
+.support div:nth-child(6){bottom: 20vh;left: 1000px;}
 .support p{width: 128px;}
 
 .partner>div{flex-direction: row;justify-content: space-between;align-items: center;margin-top: 40px;}
@@ -122,6 +130,8 @@ color: #FFCB00;
     background: var(--main) url(../image/bg01.svg) no-repeat 0 25vh;
     align-items: center;
     justify-content: center;
+    width: 0vw;
+        height: 0vh;
 }
 .project article{
 display: flex;
@@ -144,15 +154,15 @@ line-height: 48px;}
     cursor: pointer;
     background: none;
     border:0;
-    font-size: 188px;
-    font-weight: 600;
-    transform: rotate(29deg);
+    font-size: 168px;
+    font-weight: 300;
+    transform: rotate(28deg);
 }
 .brand div{width: 100%;justify-content: space-between;align-items: center;margin-top: 16px;margin-bottom: 24px;}
 .brand button{border:0;width: 40px;text-indent: -112px;cursor: pointer; height: 40px;overflow: hidden; background: #F6F4F4 url(../image/plus.svg);}
 
-.whyus{align-items: center;align-content: center;}
-.whyus h2{margin-top: 30vh;}
+.whyus{align-items: center;align-content: center;height: 100vh;}
+.whyus h2{margin-top: 200px;}
 .whyus h3{font-size: 32px;line-height: 48px;letter-spacing: 3.20px;color: var(--main, #222)}
 .whyus h3+h3{font-size: 24px;color: #222;margin-bottom: 3em;}
 .whyus p{width: 40%;text-align: center;}
@@ -160,11 +170,12 @@ line-height: 48px;}
 .contact{
     width: 1420px;
     background: var(--main, #222);
-    padding-top: 10vh;
     align-items: flex-start;
+    height: 100vh;
 }
 .contact h2, .contact div{width: 710px;}
 .contact h2{text-align: right;margin-right: 1em;}
+.contact h2, .contact>div{padding-top: 10vh;}
 .contact span{color: #222;font-size: 18px;font-weight: 400;padding-right: 128px;}
 .contact label{width: 100px;display: block;}
 .contact input, .contact textarea{width: 30vw;}
@@ -176,7 +187,7 @@ footer{
     background: #222;
     color: #f2f2f2;
 }
-footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 1.612;}
+footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 1.612;font-weight: 100;}
 
 @keyframes rotate360 {
   0% {
@@ -190,7 +201,7 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
 /* 套用動畫到圖片的 CSS 類別 */
 .rotating-image {
     position: absolute;
-    left: calc(50vw - 200px);
+    left: calc(750px - 200px);
     top: calc(50vh - 98px);
     width: 208px;
   animation-name: rotate360;

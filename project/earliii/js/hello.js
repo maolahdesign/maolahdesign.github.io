@@ -1,12 +1,11 @@
 $(document).ready(function(){
     $('.brand button').on('click',function(){
+        console.log(1);
         var buttonId = $(this).attr("id");
         var loadFileName = buttonId+'.html';
         $('.project').addClass('project_on');
         $('.project').load(loadFileName);
         $('body').attr('style', 'overflow: hidden;');
-
-
 	});
     
     $(document).on('click', '.project_on button', function(){
