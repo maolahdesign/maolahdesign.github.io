@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Roboto+Slab:wght@100..900&display=swap');
+
+:root {
+  --navy: #102C57;
+  --blue: #1679AB; 
+  --peach: #FFB1B1;
+  --peach: #FFCBCB;    
+}
+
+/*
+tc font-family: "Roboto Slab", serif, 
+en font-family: "Albert Sans", sans-serif;
+*/
+:root {
+  --main: #FFCB00;
+  --secd: hsla(170, 19%, 62%, 1);
+}
+body{color: var(--navy);
+    font-family: "Roboto Slab", "LXGW WenKai Mono TC", monospace, serif;
+    display: flex;
+    background: #F6F4F4;
+    color: #242424;    
+   justify-content: center;
+}
+h1, h2, h3{ text-transform: uppercase;}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90vw ;
+    max-width:800px;
+}
+h2{color: var(--peach);line-height: 1.6;margin: 0;}
+a{color: var(--blue);text-decoration: none;}
+a:hover{color:var(--navy);}
+li{line-height: 1.8;}
