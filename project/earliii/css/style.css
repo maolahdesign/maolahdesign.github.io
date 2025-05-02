@@ -277,7 +277,7 @@ footer p{font-family: "Albert Sans", sans-serif; padding-left: 1em;line-height: 
     .work>div:nth-child(odd){padding-left: 0px;}
     .brand button {text-indent: -120px;}
     .work img { width: 100vw;}
-    .contact{flex-direction: column;align-items: flex-start}
+    .contact{flex-direction: column;align-items: flex-start;height: 1038px;}
     .contact h2 {
         text-align: center;
     }
