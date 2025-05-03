@@ -26,6 +26,7 @@ function submitForm() {
   
   // 使用 fetch API 發送數據
     console.log('開始提交表單...');
+//  fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
   fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
     method: 'POST',
     body: formData
