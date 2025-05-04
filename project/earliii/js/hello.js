@@ -16,40 +16,65 @@ $(document).ready(function(){
     
 });
 
-                  
+// Google Apps Script Web App URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxd3FtnFUfac6le29RECaZw2RubvtvlAOw4gQlsixvli7s6GVkqeg99tLsrTPceKBhJNg/exec';
+
+// 表單提交處理函數
 function submitForm() {
-  // 防止表單直接提交
-  event.preventDefault();
+  // 獲取狀態顯示區域
+  const statusDiv = document.getElementById('status');
   
   // 獲取表單數據
-  var formData = new FormData(document.getElementById('contactForm'));
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    subject: document.getElementById('subject').value,
+    message: document.getElementById('message').value,
+    category: document.querySelector('input[name="category"]:checked').value
+  };
   
-  // 使用 fetch API 發送數據
-    console.log('開始提交表單...');
-//  fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
-  fetch('https://script.google.com/a/macros/earliii.com/s/AKfycbxDNPygAQA8_EeN9iC-GbGPN-h8WZf-WADaZzXEBhDY_LqOlDcHGqE5Moh4EH2yQZaqSg/exec', {
+  // 驗證必填字段
+  if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    statusDiv.textContent = '請填寫所有必填字段';
+    statusDiv.className = 'error';
+    statusDiv.style.display = 'block';
+    return false;
+  }
+  
+  // 顯示提交中狀態
+  statusDiv.textContent = '正在提交...';
+  statusDiv.className = '';
+  statusDiv.style.display = 'block';
+  
+  // 發送POST請求到Google Apps Script
+  fetch(scriptURL, {
     method: 'POST',
-    body: formData
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
   })
   .then(response => {
-    console.log('收到回應:', response);
-    return response.json();
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error('網絡回應不成功');
   })
   .then(data => {
-      console.log('處理數據:', data);
-    if(data.result === 'success') {
-      // 顯示成功訊息
-      document.getElementById('successMessage').style.display = 'block';
-      document.getElementById('contactForm').reset();
-    } else {
-      // 顯示錯誤訊息
-      alert('提交失敗: ' + data.message);
-    }
+    // 處理成功回應
+    statusDiv.textContent = data.message || '表單提交成功！';
+    statusDiv.className = 'success';
+    document.getElementById('contactForm').reset(); // 重置表單
   })
   .catch(error => {
-    console.error('錯誤:', error);
-    alert('發生錯誤，請稍後再試');
+    // 處理錯誤
+    console.error('Error:', error);
+    statusDiv.textContent = '提交失敗，請稍後再試。';
+    statusDiv.className = 'error';
   });
   
+  // 阻止表單的默認提交行為
   return false;
 }
+
