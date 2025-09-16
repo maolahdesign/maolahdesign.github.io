@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.11.3/css/reset.min.css">
+    <style>
+    body{
+        display: flex;
+        align-items: center;
+        flex-direction: column;;
+    }
+    section{
+        background: #efefef;
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap-revers;
+    }
+    div {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        color: #fcfcfc;
+        background-color: #999;
+        border: 1px solid #141414;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+    </section>
+</body>
+</html>

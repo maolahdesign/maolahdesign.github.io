@@ -1,0 +1,83 @@
+body, section, header, footer, ul, .think_card{
+    display: flex;
+}
+body {
+    align-items: center;
+    flex-direction: column;
+}
+.container, section, header, footer, a{
+    border: 1px dotted #141414; 
+} 
+.container{
+    width: 80%;
+    -height: 100%;
+}
+header, footer{
+    width: 100%;
+    -flex-direction: column;
+}
+header{
+    justify-content: space-between;
+}
+a{
+    color: #333;
+    padding: 16px 24px;
+    display: block;
+}
+
+aside, main{
+    -height: 50vh;
+    background: #ccc;
+    margin: 10px;
+}
+aside{
+    width: 30%;
+}
+main{
+    width: 70%;
+}
+
+aside ul{
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    color:red;
+  }
+}
+
+/* 平板版 */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    color: green;
+  }
+  h3{
+   font-size: 32px;
+   color: #141414;
+   border: 1px solid #141414;
+  }
+}
+
+/* 手機版 */
+@media screen and (max-width: 767px) {
+  .container {
+    color: blue;
+  }
+  header, ul{
+    flex-direction: column;
+  }
+  aside{
+    display: none;
+  }
+  li{
+   background: #000;
+   height: ;
+  }
+  li a{
+   color: #fff;
+  }
+  h3{
+   font-size: 48px;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.11.3/css/reset.min.css">
+    <style>
+    body, section, header, footer, ul, .think_card{
+        display: flex;
+    }
+    body {
+        align-items: center;
+        flex-direction: column;
+    }
+    .container, section, header, footer, a{
+        border: 1px dotted #141414; 
+    } 
+    .container{
+        width: 80%;
+        -height: 100%;
+    }
+    header, footer{
+        width: 100%;
+        -flex-direction: column;
+    }
+    a{
+        color: #333;
+        padding: 16px 24px;
+        display: block;
+    }
+
+    aside, main{
+        -height: 50vh;
+        background: #ccc;
+        margin: 10px;
+    }
+    aside{
+        width: 30%;
+    }
+    main{
+        width: 70%;
+    }
+
+    aside ul{
+        flex-direction: column;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#">Logo</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>  
+        </header>
+        <section>
+            <aside>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </aside>
+            <main>
+            <div>
+                <div>
+                    <h3>houston exponential</h3>
+                    <p>A new digital HUB for houston’s biggest startup ecosystem.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1750810977675-57927aeccd90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="530" alt="">
+                </div>
+            </div>
+            <div>
+               <div>
+                    <img src="https://images.unsplash.com/photo-1750810977675-57927aeccd90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="530" alt="">
+                </div>
+                <div>
+                    <h3>houston exponential</h3>
+                    <p>A new digital HUB for houston’s biggest startup ecosystem.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>houston exponential</h3>
+                    <p>A new digital HUB for houston’s biggest startup ecosystem.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1750810977675-57927aeccd90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="530" alt="">
+                </div>
+            </div>
+            </main>
+        </section>
+        <footer>FOOTER</footer>
+    </div>
+</body>
+</html>
