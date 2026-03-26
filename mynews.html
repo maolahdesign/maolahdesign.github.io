@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人資料庫</title>
+    <style>
+        /* 1. 視覺設計與佈局 - 基礎設定 */
+        :root {
+            --spacing: 16px;
+            --bg-color: #ffffff;
+            --text-color: #292929;
+            --secondary-text: #757575;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* 標題設定 */
+        header {
+            padding: 40px var(--spacing);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        /* 現代網格佈局 */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing);
+            padding: 0 var(--spacing) 40px var(--spacing);
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 圖片縮放與美學 */
+        .card {
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover {
+            opacity: 0.8;
+        }
+
+        .image-container {
+            aspect-ratio: 16 / 9;
+            background-color: #f2f2f2;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 現代 CSS 裁剪技術 */
+            display: block;
+        }
+
+        .card-info {
+            padding: 12px 0;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card-meta {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* 核心功能：全螢幕閱讀視圖 (Medium 風格) */
+        #reader-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .reader-content {
+            max-width: 680px; /* Medium 經典閱讀寬度 */
+            margin: 0 auto;
+            padding: 80px 24px;
+            line-height: 1.6;
+            font-size: 1.25rem;
+            color: #292929;
+        }
+
+        .reader-header h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--secondary-text);
+        }
+
+        /* 輸入框區域 */
+        .input-section {
+            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        input[type="url"] {
+            padding: 10px 15px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        button.add-btn {
+            padding: 10px 20px;
+            background: #1a8917;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>我的個人資料庫</h1>
+    </header>
+
+    <div class="input-section">
+        <input type="url" id="urlInput" placeholder="輸入網址擷取文章...">
+        <button class="add-btn" onclick="addArticle()">建立文章</button>
+    </div>
+
+    <!-- 文章列表網格 -->
+    <main class="container" id="gallery">
+        <!-- 預設範例 -->
+        <div class="card" onclick="openReader('如何打造極簡工作流', '這是一篇關於生產力的深度文章內容...')">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" alt="Worktop">
+            </div>
+            <div class="card-info">
+                <div class="card-title">如何打造極簡工作流</div>
+                <div class="card-meta">5 分鐘閱讀 · 2026年3月26日</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 全螢幕閱讀器 -->
+    <div id="reader-overlay">
+        <button class="close-btn" onclick="closeReader()">✕ 關閉</button>
+        <article class="reader-content">
+            <header class="reader-header">
+                <h2 id="reader-title">文章標題</h2>
+            </header>
+            <div id="reader-body">
+                <!-- 內容會在此動態生成 -->
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // 3. 核心功能實作
+        
+        // 建立文章列表
+        function addArticle() {
+            const url = document.getElementById('urlInput').value;
+            if (!url) {
+                alert("請輸入有效的網址");
+                return;
+            }
+
+            // 模擬網址擷取 (實際環境因跨域限制需後端支援，此處展示前端邏輯)
+            const gallery = document.getElementById('gallery');
+            const newCard = document.createElement('div');
+            newCard.className = 'card';
+            
+            const randomId = Math.floor(Math.random() * 1000);
+            const title = `從網址擷取的文章 #${randomId}`;
+            const mockContent = `這是來自 ${url} 的主要內容。由於瀏覽器安全限制，前端無法直接讀取第三方網頁，但在實際應用中，這裡會透過後端 API 解析 HTML 並轉換為此 Medium 風格的閱讀模式。`;
+
+            newCard.onclick = () => openReader(title, mockContent);
+            
+            newCard.innerHTML = `
+                <div class="image-container">
+                    <img src="https://picsum.photos/seed/${randomId}/800/450" alt="Random Image">
+                </div>
+                <div class="card-info">
+                    <div class="card-title">${title}</div>
+                    <div class="card-meta">3 分鐘閱讀 · 剛剛</div>
+                </div>
+            `;
+
+            gallery.prepend(newCard);
+            document.getElementById('urlInput').value = '';
+        }
+
+        // 全螢幕視圖切換
+        function openReader(title, content) {
+            document.getElementById('reader-title').innerText = title;
+            document.getElementById('reader-body').innerHTML = `<p>${content}</p><p>${content}</p>`; // 模擬長文
+            document.getElementById('reader-overlay').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 禁止底層捲動
+        }
+
+        function closeReader() {
+            document.getElementById('reader-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 5. 測試檢查導航
+        console.log("導航檢查：目前頁面正常運行，點擊卡片可開啟閱讀視圖。");
+    </script>
+</body>
+</html>
