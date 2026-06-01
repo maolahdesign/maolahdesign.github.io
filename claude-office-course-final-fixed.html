@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-TW"><head><script data-od-sandbox-shim="">(function(){
+  function makeStore(){
+    var data = {};
+    var api = {
+      getItem: function(k){ return Object.prototype.hasOwnProperty.call(data, k) ? data[k] : null; },
+      setItem: function(k, v){ data[k] = String(v); },
+      removeItem: function(k){ delete data[k]; },
+      clear: function(){ data = {}; },
+      key: function(i){ return Object.keys(data)[i] || null; }
+    };
+    Object.defineProperty(api, 'length', { get: function(){ return Object.keys(data).length; } });
+    return api;
+  }
+  function tryShim(name){
+    var works = false;
+    try { works = !!window[name] && typeof window[name].getItem === 'function'; void window[name].length; }
+    catch (_) { works = false; }
+    if (works) return;
+    try { Object.defineProperty(window, name, { configurable: true, value: makeStore() }); }
+    catch (_) { try { window[name] = makeStore(); } catch (__) {} }
+  }
+  tryShim('localStorage');
+  tryShim('sessionStorage');
+  document.addEventListener('click', (e) => {
+    if (!e.target || !(e.target instanceof Element)) return;
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (href === null) return;
+    var isAnchor = href.startsWith('#') || href === '';
+    if (isAnchor) {
+      e.preventDefault();
+      if (href === '' || href === '#') {
+        window.scrollTo({ top: 0 });
+        history.replaceState(null, '', ' ');
+      } else {
+        var targetId = href.slice(1);
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          target.scrollIntoView();
+          location.hash === href && history.replaceState(null, '', ' ');
+          location.hash = href;
+        }
+      }
+    } else if (link.getAttribute('target') === '_blank') {
+      e.preventDefault();
+      let safe = false;
+      try {
+        var url = new URL(href, location.href);
+        safe =
+          url.protocol === 'http:' ||
+          url.protocol === 'https:' ||
+          url.protocol === 'mailto:';
+      } catch (_) {}
+      safe && window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  });
+})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude 職場全能應用課程 · 公旭實業 / 群旭科技 專屬培訓</title>
+  <style>
+    :root {
+      --bg:      #f5f4ed;
+      --surface: #faf9f5;
+      --fg:      #141413;
+      --fg-2:    #3d3d3a;
+      --muted:   #5e5d59;
+      --border:  #e8e6dc;
+      --accent:  #c96442;
+
+      --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
+      --fg-soft:     color-mix(in oklab, var(--fg) 6%, transparent);
+
+      --font-display: "Georgia", "Times New Roman", serif;
+      --font-body:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono:    ui-monospace, "SF Mono", Menlo, "JetBrains Mono", monospace;
+
+      --fs-h1: clamp(40px, 6vw, 64px);
+      --fs-h2: clamp(28px, 4vw, 42px);
+      --fs-h3: 22px;
+      --fs-lead: 18px;
+      --fs-body: 16px;
+      --fs-meta: 14px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1040px;
+      --gutter: 24px;
+
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0; line-height: 1.2; }
+    p { margin: 0; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
+
+    .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+    .section { padding-block: var(--gap-2xl); }
+    .stack { display: flex; flex-direction: column; gap: var(--gap-md); }
+
+    .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: var(--gap-sm); }
+    .lead { font-size: var(--fs-lead); color: var(--muted); max-width: 65ch; }
+    
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--gap-lg); }
+
+    /* Tabs */
+    .tabs-nav { display: flex; gap: var(--gap-md); border-bottom: 1px solid var(--border); margin-bottom: var(--gap-xl); }
+    .tab-btn { padding-block: 12px; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab-btn.active { color: var(--accent); border-color: var(--accent); font-weight: 500; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+    /* Accordion */
+    .accordion { border-top: 1px solid var(--border); }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-trigger { 
+      width: 100%; display: flex; justify-content: space-between; align-items: center; 
+      padding-block: var(--gap-md); text-align: left; transition: color 0.2s;
+    }
+    .accordion-trigger:hover { color: var(--accent); }
+    .accordion-trigger h3 { font-size: 20px; font-family: var(--font-body); font-weight: 600; }
+    .accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: var(--fg-soft); border-radius: var(--radius); }
+    .accordion-content { padding: var(--gap-md); }
+    .accordion-item.active .accordion-panel { max-height: 800px; margin-bottom: var(--gap-md); }
+    .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+    .accordion-icon { transition: transform 0.3s; width: 20px; height: 20px; }
+
+    .unit-meta { display: flex; gap: 16px; margin-top: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+    .unit-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+    .unit-list li { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; }
+    .unit-list li::before { content: "•"; color: var(--accent); }
+
+    .topnav { position: sticky; top: 0; z-index: 100; background: color-mix(in oklab, var(--bg) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding-block: 16px; }
+    .topnav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+
+    .hero { text-align: center; padding-top: var(--gap-2xl); }
+    .hero-content { max-width: 800px; margin-inline: auto; }
+    .hero h1 { margin-bottom: 24px; }
+    .hero .lead { margin-inline: auto; margin-bottom: var(--gap-xl); }
+
+    .quick-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); margin-top: var(--gap-2xl); }
+    .stat-item { padding: var(--gap-md); }
+    .stat-val { font-family: var(--font-display); font-size: 40px; color: var(--accent); display: block; margin-bottom: 4px; }
+    .stat-label { font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-lg); margin-top: var(--gap-lg); }
+    @media (max-width: 768px) {
+      .quick-stats, .schedule-grid { grid-template-columns: 1fr; }
+      .tabs-nav { overflow-x: auto; white-space: nowrap; }
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+<style data-od-tweaks-bridge-style="">
+[data-od-tweaks-hidden] .tw-panel {
+  transform: translateX(calc(100% + 32px)) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.tw-restore { display: none !important; }
+</style><script data-od-tweaks-bridge="">(function(){
+  // Synchronously hide BEFORE the artifact body parses so the panel never
+  // flashes on initial paint. The host removes the attribute via postMessage
+  // once it knows the desired state.
+  document.documentElement.setAttribute('data-od-tweaks-hidden', '');
+
+  var suppressEcho = false;
+  var observer = null;
+
+  function panelEl(){ return document.querySelector('.tw-panel'); }
+
+  function applyClassesToPanel(visible){
+    var panel = panelEl();
+    if (panel) panel.classList.toggle('tw-hidden', !visible);
+  }
+
+  function setPanelVisible(visible){
+    suppressEcho = true;
+    document.documentElement.toggleAttribute('data-od-tweaks-hidden', !visible);
+    applyClassesToPanel(visible);
+    // Clear flag after the MutationObserver has had a chance to fire for this
+    // change so we don't echo our own host-driven toggles back to the host.
+    Promise.resolve().then(function(){ suppressEcho = false; });
+  }
+
+  function postState(){
+    var panel = panelEl();
+    if (!panel) return;
+    try {
+      parent.postMessage({
+        type: 'od:tweaks-panel-state',
+        visible: !panel.classList.contains('tw-hidden'),
+      }, '*');
+    } catch (e) {}
+  }
+
+  function postAvailability(){
+    try {
+      parent.postMessage({
+        type: 'od:tweaks-available',
+        available: !!panelEl(),
+      }, '*');
+    } catch (e) {}
+  }
+
+  function attachObserver(){
+    var panel = panelEl();
+    if (!panel || observer) return;
+    observer = new MutationObserver(function(){
+      if (suppressEcho) return;
+      postState();
+    });
+    observer.observe(panel, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  function onReady(){
+    // Capture the panel authored visibility BEFORE we apply the host hidden
+    // attribute. The bridge sets data-od-tweaks-hidden synchronously in head
+    // (before the body parses), so on entry to onReady the attribute is
+    // always present even though the artifact may have authored the panel
+    // as default-visible. Reading the panel class first is the only place
+    // we can still observe the author intent. Then drive the attribute,
+    // classes, and posted state from that captured value so a default
+    // visible tw-panel reports visible:true and the toolbar toggle starts
+    // ON. Issue surfaced in PR #1643 review.
+    var panel = panelEl();
+    var initialVisible = !!panel && !panel.classList.contains('tw-hidden');
+    document.documentElement.toggleAttribute('data-od-tweaks-hidden', !initialVisible);
+    applyClassesToPanel(initialVisible);
+    attachObserver();
+    postAvailability();
+    // Post the captured initial visibility so the toolbar toggle reflects
+    // the default state on mount. Without this the toggle reads OFF while
+    // a default-visible tw-panel artifact clearly shows its panel and the
+    // user would have to click toggle-on then toggle-off to actually hide.
+    postState();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
+
+  window.addEventListener('message', function(ev){
+    if (!ev.data || ev.data.type !== 'od:tweaks-panel-visible') return;
+    setPanelVisible(!!ev.data.visible);
+  });
+})();</script></head>
+<body>
+
+  <header class="topnav" data-od-id="path-0">
+    <div class="container topnav-inner" data-od-id="path-0-0">
+      <div class="logo">Claude 職場全能應用</div>
+      <div class="unit-meta">公旭實業 / 群旭科技 專屬培訓</div>
+    </div>
+  </header>
+
+  <main data-od-id="path-1">
+    <section class="section hero" data-od-id="path-1-0">
+      <div class="container hero-content" data-od-id="path-1-0-0">
+        <p class="eyebrow">Enterprise Training Series</p>
+        <h1 data-od-id="path-1-0-0-1">Claude AI 職場全能應用課程</h1>
+        <p class="lead">專為行政人員設計的 18 小時實戰培訓，全面釋放 Claude.ai 在企業環境中的生產力潛能。100% 完整教學大綱。</p>
+        
+        <div class="quick-stats">
+          <div class="stat-item">
+            <span class="stat-val">18 hr</span>
+            <span class="stat-label">課程總時數</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">2026</span>
+            <span class="stat-label">最新工具生態</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">3+1</span>
+            <span class="stat-label">核心單元與深耕</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="course-plan" data-od-id="path-1-1">
+      <div class="container" data-od-id="path-1-1-0">
+        <div class="tabs-nav">
+          <button class="tab-btn active" onclick="showTab('core')" data-od-id="path-1-1-0-0-0">核心課程 (Units 1-9)</button>
+          <button class="tab-btn" onclick="showTab('deep-dive')" data-od-id="path-1-1-0-0-1">部門專業深耕 (Appendix)</button>
+        </div>
+
+        <div id="core" class="tab-content active" data-od-id="path-1-1-0-1">
+          <div class="accordion" data-od-id="path-1-1-0-1-0">
+            
+            <div class="accordion-item active">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-0-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-0-0-0-0">單元 1｜認識 Claude：不只是聊天機器人</h3>
+                  <div class="unit-meta"><span>時數：1 小時</span><span>重點：本質與工具生態</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>1-1 Claude 的本質與設計哲學</li>
+                    <li>1-2 Claude 的完整工具生態（2026）</li>
+                    <li>1-3 今日 Claude 能為行政人員做什麼？</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-1-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-1-0-0-0">單元 2｜提示詞基礎：讓 AI 真正聽懂你</h3>
+                  <div class="unit-meta"><span>時數：1.5 小時</span><span>重點：五要素公式</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>2-1 提示詞的本質</li>
+                    <li>2-2 職場提示詞五要素公式</li>
+                    <li>2-3 行政工作常用指令模式</li>
+                    <li>2-4 常見指令錯誤與修正全集</li>
+                    <li>2-5 上傳檔案的最佳提問方式</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-2-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-2-0-0-0">單元 3｜提示詞進階：從指令到策略思考</h3>
+                  <div class="unit-meta"><span>時數：1.5 小時</span><span>重點：策略場景與 Projects</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>3-1 角色扮演法 (Role Prompting)</li>
+                    <li>3-2 步驟拆解法 (Chain of Thought)</li>
+                    <li>3-3 範例引導法 (Few-Shot Prompting)</li>
+                    <li>3-4 讓 Claude 先問問題再執行</li>
+                    <li>3-5 Projects 知識庫功能</li>
+                    <li>3-6 讓 Claude 自我檢查</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-3-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-3-0-0-0">單元 4｜職場文件的 AI 工作法</h3>
+                  <div class="unit-meta"><span>時數：2 小時</span><span>重點：商務信件與分析</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>4-1 商務信件與通知</li>
+                    <li>4-2 會議與專案文件</li>
+                    <li>4-3 資料分析與報表說明</li>
+                    <li>4-4 翻譯與多語言文件</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-4-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-4-0-0-0">單元 5｜Skills 基礎：打造專屬 AI 助理</h3>
+                  <div class="unit-meta"><span>時數：2 小時</span><span>重點：Skill 概念與生態</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>5-1 Skills 概念與生態</li>
+                    <li>5-2 Anthropic 內建四大文件 Skills</li>
+                    <li>5-3 內建 Skills 實際操作</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-5-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-5-0-0-0">單元 6｜Cowork 基礎：讓任務自動化運行</h3>
+                  <div class="unit-meta"><span>時數：2 小時</span><span>重點：批次處理入門</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>6-1 Cowork 的本質與核心能力</li>
+                    <li>6-2 Cowork 設定入門</li>
+                    <li>6-3 第一個 Cowork 任務：文件摘要批次處理</li>
+                    <li>6-4 Cowork 排程任務設定</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-6-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-6-0-0-0">單元 7｜Skills 進階：部門 AI 工作手冊設計</h3>
+                  <div class="unit-meta"><span>時數：2.5 小時</span><span>重點：自訂三層架構</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>7-1 自訂 Skills 的設計原則</li>
+                    <li>7-2 讓 Claude 協助你建立 Skill</li>
+                    <li>7-3 打造三層次 Skills 架構</li>
+                    <li>7-4 Skills 管理與維護</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-7-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-7-0-0-0">單元 8｜Cowork 進階：複雜工作流程自動化</h3>
+                  <div class="unit-meta"><span>時數：2.5 小時</span><span>重點：Connectors 整合</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>8-1 Cowork + Connectors 整合</li>
+                    <li>8-2 多步驟複雜工作流程設計</li>
+                    <li>8-3 Cowork 安全管理進階</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-1-0-8-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-1-0-8-0-0-0">單元 9｜企業導入藍圖與整合實戰</h3>
+                  <div class="unit-meta"><span>時數：3 小時</span><span>重點：組織框架與演練</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>9-1 組織層次的 AI 導入框架</li>
+                    <li>9-2 AI 使用規範與資訊安全</li>
+                    <li>9-3 建立公司 AI 知識庫</li>
+                    <li>9-4 整合實戰：全員大演練</li>
+                    <li>9-5 課程總結與個人行動計畫</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="deep-dive" class="tab-content" data-od-id="path-1-1-0-2">
+          <p class="lead" style="margin-bottom: var(--gap-lg);">完成核心單元 1-4 基礎後，可根據部門需求選擇 3 小時的專屬深耕模組。30% 概念說明 + 70% 實作。</p>
+          <div class="accordion" data-od-id="path-1-1-0-2-1">
+            
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-2-1-0-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-2-1-0-0-0-0">人資部門深耕應用 (HR)</h3>
+                  <div class="unit-meta"><span>時數：3 小時</span><span>對象：人資、HR 相關人員</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>職缺說明書 (JD) 撰寫與面試題庫</li>
+                    <li>教育訓練需求分析 (TNA) 與計畫書</li>
+                    <li>建立「人資文件標準」Skill</li>
+                    <li>Cowork 批次處理 HR 週期性工作</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-2-1-1-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-2-1-1-0-0-0">業務部門深耕應用 (Sales)</h3>
+                  <div class="unit-meta"><span>時數：3 小時</span><span>對象：業務、客服、PM</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>多市場開發信模板與競爭分析</li>
+                    <li>拜訪前準備套件與會議紀錄整理</li>
+                    <li>建立「業務溝通標準」Skill</li>
+                    <li>客戶跟進自動化 Cowork 設定</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)" data-od-id="path-1-1-0-2-1-2-0">
+                <div>
+                  <h3 data-od-id="path-1-1-0-2-1-2-0-0-0">會計部門深耕應用 (Accounting)</h3>
+                  <div class="unit-meta"><span>時數：3 小時</span><span>對象：會計、財務、出納</span></div>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <ul class="unit-list">
+                    <li>合約審閱與費用分析批次摘要</li>
+                    <li>三段式催款信與財務術語說明</li>
+                    <li>建立「會計文件規範」Skill</li>
+                    <li>月結報告自動化 Cowork 設計</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--surface); border-block: 1px solid var(--border);" data-od-id="path-1-2">
+      <div class="container" data-od-id="path-1-2-0">
+        <p class="eyebrow">Implementation Suggestions</p>
+        <h2 data-od-id="path-1-2-0-1">培訓排程建議</h2>
+        <p class="lead">18 小時完整課程可彈性安排，以達到最佳學習與應用平衡。</p>
+        
+        <div class="schedule-grid">
+          <div class="card">
+            <h3 style="font-family: var(--font-body); font-weight: 600; margin-bottom: 12px;" data-od-id="path-1-2-0-3-0-0">方案 A：集中實戰</h3>
+            <p style="color: var(--muted); font-size: 15px;">連續 3 天，每天 6 小時。適合需要短期內快速建立組織 AI 共識的團隊。</p>
+          </div>
+          <div class="card">
+            <h3 style="font-family: var(--font-body); font-weight: 600; margin-bottom: 12px;" data-od-id="path-1-2-0-3-1-0">方案 B：漸進深化</h3>
+            <p style="color: var(--muted); font-size: 15px;">每週 3 小時，共 6 週。適合邊學邊做，實際應用後帶回問題討論。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="section" style="padding-block: var(--gap-lg); border-top: 1px solid var(--border);" data-od-id="path-2">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--gap-md);" data-od-id="path-2-0">
+      <p class="meta">© 2026 Design by Troie</p>
+      <p class="meta">專屬培訓文件 · 繁體中文版</p>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function toggleAccordion(btn) {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      item.parentElement.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    }
+  </script>
+
+
+<script data-od-snapshot-bridge="">(function(){
+  function copyComputedStyle(source, target){
+    if (!source || !target || source.nodeType !== 1 || target.nodeType !== 1) return;
+    var computed = window.getComputedStyle(source);
+    var style = target.getAttribute('style') || '';
+    for (var i = 0; i < computed.length; i++){
+      var prop = computed[i];
+      style += prop + ':' + computed.getPropertyValue(prop) + ';';
+    }
+    target.setAttribute('style', style);
+  }
+  function syncElementState(source, target){
+    var tag = source.tagName ? source.tagName.toLowerCase() : '';
+    if (tag === 'img' && source.currentSrc) target.setAttribute('src', source.currentSrc);
+    if (tag === 'input' || tag === 'textarea') target.setAttribute('value', source.value || '');
+    if (tag === 'canvas') {
+      try {
+        var img = document.createElement('img');
+        img.setAttribute('src', source.toDataURL('image/png'));
+        img.setAttribute('style', target.getAttribute('style') || '');
+        target.parentNode && target.parentNode.replaceChild(img, target);
+      } catch (_) {}
+    }
+  }
+  function inlineSnapshotStyles(originalRoot, cloneRoot){
+    copyComputedStyle(originalRoot, cloneRoot);
+    syncElementState(originalRoot, cloneRoot);
+    var originals = originalRoot.querySelectorAll('*');
+    var clones = cloneRoot.querySelectorAll('*');
+    var count = Math.min(originals.length, clones.length);
+    for (var i = 0; i < count; i++){
+      copyComputedStyle(originals[i], clones[i]);
+      syncElementState(originals[i], clones[i]);
+    }
+    var scripts = cloneRoot.querySelectorAll('script');
+    for (var s = scripts.length - 1; s >= 0; s--) scripts[s].remove();
+  }
+  function waitForImages(){
+    var imgs = Array.prototype.slice.call(document.images || []);
+    return Promise.all(imgs.map(function(img){
+      if (img.complete) return Promise.resolve();
+      return new Promise(function(resolve){
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
+      });
+    }));
+  }
+  function renderSnapshot(id){
+    var w = Math.max(1, window.innerWidth || document.documentElement.clientWidth || 1);
+    var h = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
+    var dpr = window.devicePixelRatio || 1;
+    var docW = Math.max(w, document.documentElement.scrollWidth || 0, document.body ? document.body.scrollWidth : 0);
+    var docH = Math.max(h, document.documentElement.scrollHeight || 0, document.body ? document.body.scrollHeight : 0);
+    var clone = document.documentElement.cloneNode(true);
+    clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    inlineSnapshotStyles(document.documentElement, clone);
+    var serializer = new XMLSerializer();
+    var html = serializer.serializeToString(clone);
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+      '<foreignObject x="' + (-window.scrollX || 0) + '" y="' + (-window.scrollY || 0) + '" width="' + docW + '" height="' + docH + '">' +
+      html +
+      '</foreignObject></svg>';
+    var img = new Image();
+    img.onload = function(){
+      try {
+        var canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.floor(w * dpr));
+        canvas.height = Math.max(1, Math.floor(h * dpr));
+        var ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('no 2d context');
+        ctx.scale(dpr, dpr);
+        ctx.drawImage(img, 0, 0, w, h);
+        window.parent.postMessage({ type: 'od:snapshot:result', id: id, dataUrl: canvas.toDataURL('image/png'), w: canvas.width, h: canvas.height }, '*');
+      } catch (err) {
+        window.parent.postMessage({ type: 'od:snapshot:result', id: id, error: String(err && err.message || err) }, '*');
+      }
+    };
+    img.onerror = function(){
+      window.parent.postMessage({ type: 'od:snapshot:result', id: id, error: 'snapshot image failed' }, '*');
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+  window.addEventListener('message', function(ev){
+    var data = ev && ev.data;
+    if (!data || data.type !== 'od:snapshot' || !data.id) return;
+    waitForImages().then(function(){ renderSnapshot(String(data.id)); });
+  });
+})();</script><script data-od-srcdoc-transport-activation="">(function(){
+  window.addEventListener('message', function(ev){
+    var data = ev && ev.data;
+    if (!data || data.type !== 'od:srcdoc-transport-activate' || typeof data.html !== 'string') return;
+    document.open();
+    document.write(data.html);
+    document.close();
+  });
+})();</script></body></html>
