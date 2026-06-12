@@ -281,6 +281,7 @@ footer{
     margin-top: 2em;
     text-align: center;
 }
+.contact img{width: 100px;}
 @media only screen and (max-width: 600px) {
     nav{
         left: 0;
