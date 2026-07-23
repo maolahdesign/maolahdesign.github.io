@@ -1,0 +1,920 @@
+<!doctype html>
+<html style='font-size:18px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+img:not([height]) { height: auto; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-width: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+svg sub, svg sup { position: static; }
+.nodeLabel p { padding-right: 2px; padding-left: 2px; }
+.typora-export .nodeLabel p { padding-right: 0px; padding-left: 0px; }
+foreignObject { overflow: visible; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+li p { orphans: 1; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+</style>
+<style type='text/css'  id="style-codemirror">.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: medium !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: medium; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: medium; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&amp;subset=latin,cyrillic-ext,cyrillic,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', 'SF Pro', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
+<style type='text/css'  id="style-mac-print"> @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}</style>
+
+<title>AI商業整合工作流講義07181509 copy</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='ai-商業整合工作流學員自學講義'><span>AI 商業整合工作流：學員自學講義</span></h1><h2 id='這份講義怎麼用'><span>這份講義怎麼用？</span></h2><p><span>有沒有組過那種附說明書的模型？零件一包一包編好號，說明書一頁一頁照著做，做完就是盒子上那台。這份講義就是照這個邏輯寫的：每一節先跟你聊這一節要解決什麼問題，接著介紹會用到的工具（規格、價錢、地雷都寫了），然後給你一步一步照著做的操作步驟與完整範例；卡關的時候先翻該節的「常見錯誤與排除」，你會發現你卡的地方，大家都卡過；做完再用「自我檢核」確認自己不是「做完了」，而是「學會了」。</span></p><p><img src="/Users/troie/Library/CloudStorage/SynologyDrive-sync/projects/2026/lccnet/AI商業整合工作流/assets/images.jpeg"></p><p><span>帳號的部分：Perplexity、Manus AI、Granola、Dovetail、Claude（或 Gemini）、Google Stitch、Adobe Firefly、Figma（含 Figma Make／Weave／MCP）、Claude Code、Maze、GitHub，加一個部署平台（Vercel／Netlify／GitHub Pages 擇一）。看起來很多對吧？不用一次全辦，跟著進度用到再開通就好；一次辦完你只會得到一堆忘記密碼的帳號（別問我怎麼知道的）。</span></p><p><em><span>註：講義提及的各項工具或服務、介面路徑與定價，是在完成這份講義時的資訊，AI 與設計工具變動非常快速，實際操作請以當下官方最新版本為準。</span></em></p><hr /><h2 id='範例產品說明全課程統一案例'><span>範例產品說明（全課程統一案例）</span></h2><p><span>學新工具最怕什麼？範例換來換去——這一節用電商、下一節用部落格，學到最後每個工具都會一點，卻拼不出一個完整的作品。所以這份講義從第一週到第七週，只用同一個虛構產品當範例：</span></p><blockquote><p><strong><span>學習圈 StudyLoop</span></strong><span>——一個提供職人技能升級課程（含 AI／設計／數據分析等主題）的線上學習平台，主打「AI 學習助教」陪伴學習的差異化定位，目標網域為 studyloop.tw。</span></p></blockquote><p><span>部署前驗證關卡使用的「AI 學習助教」，正是 StudyLoop 這個產品的其中一項功能。你可以直接沿用這個範例練習，也可以把每個範例中的 StudyLoop 替換成自己的專案。</span></p><hr /><h2 id='學習地圖'><span>學習地圖</span></h2><figure class='table-figure'><table><thead><tr><th><span>週次</span></th><th><span>主題</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>第一週</span></td><td><span>研究與洞察</span></td><td><span>用 AI 快速了解市場與使用者，產出研究洞察報告</span></td></tr><tr><td><span>第二週</span></td><td><span>提示詞工程與快速原型</span></td><td><span>將洞察轉成文字描述，讓 AI 直接生成線框圖與視覺資產</span></td></tr><tr><td><span>第三週</span></td><td><span>Figma AI 實戰與設計系統</span></td><td><span>用 AI 把多方案探索收斂成一套可維護的設計系統</span></td></tr><tr><td><span>第四週</span></td><td><span>邏輯原型與可用性驗證</span></td><td><span>讓 AI 生成能跑真資料的原型，並用 AI 熱圖驗證易用性</span></td></tr><tr><td><span>第五週</span></td><td><span>Agentic UX 與自動化前端轉化</span></td><td><span>設計會自主行動的 AI 代理，並把設計一路轉成前端程式碼</span></td></tr><tr><td><span>第六週</span></td><td><span>網站部署實務與域名營運</span></td><td><span>把成果變成一個有網域、有 HTTPS、能自動發布的正式網站</span></td></tr><tr><td><span>第七週</span></td><td><span>專題結業與未來展望</span></td><td><span>限時完成自己的作品並規劃後續職涯</span></td></tr></tbody></table></figure><hr /><h2 id='工具索引'><span>工具索引</span></h2><p><span>每個工具都有完整的「工具介紹」（定位、核心功能、定價、同類差異、課程角色、適用邊界），需要複習時可依此清單跳轉。</span></p><h3 id='第一週-研究與洞察'><span>第一週 研究與洞察</span></h3><p><strong><span>智慧市場與競爭分析</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://www.perplexity.ai/'><span>Perplexity</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><span>有小農照片跟產地證明的競品與市場研究</span></td></tr><tr><td><a href='https://manus.im/?utm_source=google&amp;utm_medium=&amp;utm_campaign=23542531195&amp;utm_content=191578216734&amp;utm_term=manus.ai&amp;cid=7296735399&amp;adgroupid=191578216734&amp;matchtype=e&amp;placement=&amp;device=c&amp;devicemodel=&amp;network=g&amp;gclid=EAIaIQobChMI84Hl_czKlQMVttYWBR0XfBCzEAAYASAAEgLzDPD_BwE&amp;gbraid=0AAAABB8nEWNl_PsncxXlPvA8Z7YgKKhcP&amp;wbraid=Cj4KCAjwsMLSBhAnEi4A6lPKMOb5wfjFF0WwbBk-KbO600t2Tf09KkdjIkGxgP-Lbdjs--INwjdX1rhmGgKf7A&amp;creative=796284043197&amp;adid=&amp;feeditemid=&amp;extensionid=&amp;hideBanner=1&amp;gad_source=1&amp;gad_campaignid=23542531195'><span>Manus AI</span></a></td><td><span>多步驟批次資料彙整</span></td></tr></tbody></table></figure><p><strong><span>使用者研究自動化與數據合成</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://www.granola.ai/'><span>Granola</span></a></td><td><span>訪談錄音與逐字稿擷取</span></td></tr><tr><td><a href='https://dovetail.com/'><span>Dovetail</span></a></td><td><span>標籤化、聚類與證據鏈治理</span></td></tr><tr><td><a href='https://claude.ai/login'><span>Claude</span></a><span>／</span><a href='https://gemini.google.com/?hl=zh-TW'><span>Gemini</span></a></td><td><span>人物誌與旅程地圖生成</span></td></tr></tbody></table></figure><h3 id='第二週-提示詞工程與快速原型'><span>第二週 提示詞工程與快速原型</span></h3><p><strong><span>從文字到線框圖</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://stitch.withgoogle.com/'><span>Google Stitch</span></a></td><td><span>線框圖多方向發散</span></td></tr></tbody></table></figure><p><strong><span>高保真視覺生成與資產管理</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://firefly.adobe.com/?promoid=NQCJQWSV&amp;mv=other'><span>Adobe Firefly</span></a></td><td><span>品牌視覺資產生成與風格鎖定</span></td></tr><tr><td><a href='https://weave.figma.com/'><span>Figma Weave</span></a></td><td><span>素材產製流程固化與重用</span></td></tr></tbody></table></figure><h3 id='第三週-figma-ai-實戰與設計系統'><span>第三週 Figma AI 實戰與設計系統</span></h3><p><strong><span>Figma Make 與自動化佈局</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://www.figma.com/community/make'><span>Figma Make</span></a></td><td><span>多方案探索與組件變體</span></td></tr><tr><td><a href='https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server&amp;ved=2ahUKEwjj2e6pz8qVAxVQmVYBHbbeHZ8QFnoECBgQAQ&amp;usg=AOvVaw2PmQ82dZWxsVDghn82GU3l'><span>Figma MCP</span></a></td><td><span>讓 AI 讀取結構化設計資訊</span></td></tr><tr><td><a href='https://code.claude.com/docs/zh-TW/overview'><span>Claude Code</span></a></td><td><span>比對、生成、審查、部署的執行引擎</span></td></tr></tbody></table></figure><p><strong><span>AI 驅動的設計系統建立</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://www.figma.com/community/plugin/1005114571859948695/automator'><span>Automator</span></a></td><td><span>組件規範整理自動化</span></td></tr><tr><td><a href='https://www.khroma.co/'><span>Khroma</span></a></td><td><span>AI 配色生成</span></td></tr></tbody></table></figure><h3 id='第四週-邏輯原型與可用性驗證'><span>第四週 邏輯原型與可用性驗證</span></h3><p><strong><span>具備邏輯的互動原型設計</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>Code Connect</span></td><td><span>Figma 元件與程式碼元件映射</span></td></tr></tbody></table></figure><p><strong><span>AI 模擬測試與反饋優化</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://maze.co/ai/'><span>Maze</span></a></td><td><span>AI 預測熱圖與可用性驗證</span></td></tr></tbody></table></figure><h3 id='第五週-agentic-ux-與自動化前端轉化'><span>第五週 Agentic UX 與自動化前端轉化</span></h3><p><strong><span>設計主動式體驗</span></strong>
+<strong><span>Design-to-Code 自動化轉譯與程式碼優化</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>Claude Code</span></td><td><span>用對話指揮 AI 寫程式的終端機工具</span></td></tr><tr><td><span>Figma MCP</span></td><td><span>讓 AI 直接讀懂 Figma 設計檔的橋樑</span></td></tr><tr><td><span>Code Connect</span></td><td><span>把 Figma 元件對應到真實程式碼元件</span></td></tr></tbody></table></figure><h3 id='第六週-網站部署實務與域名營運'><span>第六週 網站部署實務與域名營運</span></h3><p><strong><span>基礎網站部署知識與環境選型</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://vercel.com/'><span>Vercel</span></a><span>／</span><a href='https://www.netlify.com/'><span>Netlify</span></a><span>／</span><a href='https://pages.github.com/'><span>GitHub Pages</span></a></td><td><span>網站託管與 CI/CD</span></td></tr></tbody></table></figure><p><strong><span>域名申請與 DNS 註冊</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://www.namecheap.com/'><span>Namecheap</span></a><span>／</span><a href='https://www.godaddy.com/zh'><span>GoDaddy</span></a></td><td><span>網域購買與 DNS 管理</span></td></tr></tbody></table></figure><p><strong><span>安全性與自動化運維</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>工具</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><a href='https://github.com/'><span>GitHub</span></a></td><td><span>版本控制與自動部署觸發</span></td></tr></tbody></table></figure><h3 id='第七週-專題結業與未來展望'><span>第七週 專題結業與未來展望</span></h3><p><strong><span>結業專案實作：從 Brief 到 Launch</span></strong>
+<strong><span>設計師的 AI 倫理與職涯發展</span></strong></p><hr /><h2 id='課程內容'><span>課程內容</span></h2><h3 id='第一週ai-驅動的研究與洞察'><span>第一週：AI 驅動的研究與洞察</span></h3><h4 id='1-1｜智慧市場與競爭分析'><span>1-1｜智慧市場與競爭分析</span></h4><p><img src="/Users/troie/Library/CloudStorage/SynologyDrive-sync/projects/2026/lccnet/AI商業整合工作流/assets/Gemini_Generated_Image_77vztw77vztw77vz.png"></p><p><span>第一堂課不急著開工具，先看地圖。出國自由行你會先做什麼？我會先打開地圖搞清楚景點的相對位置，不然玩到第三天才發現兩個景點就在隔壁，行程卻排成對角線。這門課會用到十幾個 AI 工具，不先看地圖，你也會走出那條對角線。所以這一節先帶你看一張「AI 增強設計工具全局地圖」，再實際用 Perplexity 與 Manus AI 做一份來源可查證的競品分析，最後收斂成一頁式 SWOT——整套工作流的第一份產出就到手了。</span></p><p><strong><span>核心內容：AI 增強設計工具全局地圖</span></strong></p><p><span>目前主流 AI 增強設計工具，依 UI/UX 工作流階段可分為五類：</span></p><figure class='table-figure'><table><thead><tr><th><span>工作流階段</span></th><th><span>代表工具</span></th><th><span>核心能力</span></th></tr></thead><tbody><tr><td><span>發想與情境探索</span></td><td><span>ChatGPT、Claude、Recraft</span></td><td><span>快速產出人物誌草稿、腦力激盪、生成情緒板素材</span></td></tr><tr><td><span>線框圖與版面生成</span></td><td><span>Google Stitch、Uizard</span></td><td><span>依文字描述快速生成多個版面配置選項</span></td></tr><tr><td><span>高保真 UI 設計</span></td><td><span>Figma AI（含 Figma Make）</span></td><td><span>讀取既有元件庫，依現有設計系統生成新畫面</span></td></tr><tr><td><span>前端雛形與程式碼產出</span></td><td><span>Vercel v0、Claude Code</span></td><td><span>直接生成可運行的元件，並可串接部署</span></td></tr><tr><td><span>使用者研究輔助</span></td><td><span>UX Pilot、Maze AI</span></td><td><span>預測使用者視覺注意力落點、模擬易用性測試</span></td></tr></tbody></table></figure><p><img src="/Users/troie/Library/CloudStorage/SynologyDrive-sync/projects/2026/lccnet/AI商業整合工作流/assets/Gemini_Generated_Image_hbigvthbigvthbig.png"></p><p><span>這張地圖的重點不是「記住每個工具的名字」，而是理解一個原則：</span><strong><span>AI 工具並非取代單一角色，而是分散嵌入工作流的不同節點</span></strong><span>。接下來的課程會依序把這張地圖上的每一格實際操作一遍——就從「研究」這一格開始。同時要建立一個心理準備：業界觀察指出，超過四成使用 AI 生成的介面會出現導航結構與元件配置高度相似的「同質化」現象，原因是模型傾向收斂到訓練資料中已被驗證的主流模式；這代表 AI 適合「加速產出已知有效的模式」，但差異化與創新方向仍需要人類設計師主導判斷——這個原則會貫穿接下來所有動手操作的段落。</span></p><p><strong><span>Perplexity</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Perplexity AI。定位為「AI 答案引擎（Answer Engine）」：介於搜尋引擎與聊天機器人之間，回答以即時網路檢索為基礎，並逐句附上來源連結</span></td></tr><tr><td><span>核心功能</span></td><td><span>即時檢索＋生成式摘要；每則回答附可點擊的來源引用；Deep Research 模式可自動執行多輪搜尋、產出長篇研究報告；Spaces 可把同一專案的多次研究集中管理；付費版可切換底層模型（GPT、Claude、Gemini 等）</span></td></tr><tr><td><span>定價方案</span></td><td><span>免費版可用基本搜尋（進階搜尋每日次數有限）；Pro 約 US$20／月（大量進階搜尋、模型切換、檔案上傳）；另有更高階與企業方案</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>相較 ChatGPT／Claude 以內建知識直接回答，Perplexity 每次都「先檢索、再生成」（RAG 型態），來源可查證性是核心賣點；相較 Google 搜尋，它直接給出彙整後的答案而非連結列表</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第一週競品研究的資訊入口：負責快速取得「附來源、可查證」的市場與競品資訊</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>引用來源品質參差，可能引用內容農場、過時頁面或 GEO 優化過的行銷內容，關鍵數據仍須點開原始來源複核；答案的完整性受檢索結果影響，冷門主題可能漏掉重要競品</span></td></tr></tbody></table></figure><p><strong><span>Manus AI</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Manus（蝴蝶效應團隊）。定位為「通用型 AI 代理（General AI Agent）」：不是問一句答一句，而是接下一個目標後自主規劃步驟、開瀏覽器、執行工具直到完成任務</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>自主瀏覽網頁並抓取資料、批次彙整成表格或報告、執行程式碼、生成簡報與網站、排程定期任務；採積分制，每個動作（瀏覽一頁、跑一段程式）都消耗積分</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>免費版每日 300 積分（適合輕量任務）；付費方案約 US$20／月起，積分額度與並行任務數隨方案提高</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與 Perplexity 的「問答式」互補：Perplexity 適合快速取得一個附來源的答案，Manus 適合「去這五個網站、把功能頁與定價頁整理成同一張表」這種多步驟委派任務</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第一週負責批次抓取多個競品官網並彙整成矩陣，省下人工逐站複製貼上的時間</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>代理執行耗時且積分消耗快，簡單問題用 Perplexity 更划算；抓取結果可能漏抓或誤讀頁面，輸出表格務必抽查原始網頁；遇到登入牆、反爬蟲機制的網站常會失敗</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>在 Perplexity 輸入具體研究問題（例如：「列出 [產品類別] 目前前五大競品，並比較其核心功能與定價模式」），善用其自動附上來源連結的特性，逐一點開查證，不要直接複製答案就當作定論。</span></p></li><li><p><span>用 Manus AI 執行需要多步驟自動彙整的任務（例如：批次抓取多個競品官網功能頁並彙整成表），將其產出貼入試算表或 Notion 整理成競品矩陣。</span></p></li><li><p><span>以 SWOT 四象限（優勢／劣勢／機會／威脅）為框架，把前兩步驟蒐集到的資訊分類彙整，形成一頁式競品分析摘要。</span></p></li><li><p><span>額外練習：針對 Perplexity 給出的同一個問題，換三種不同措辭重新問一次，觀察答案是否穩定——這個練習能具體感受到「生成式 AI 本質上是機率性、非確定性運作」這個概念（會在 2-1 節進一步展開）。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 競品分析</span></strong></p><p><strong><span>Perplexity 提問</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">列出台灣與國際線上技能學習平台目前前五大競品，並比較其核心功能、</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">定價模式、與是否具備 AI 學習助教／輔導功能。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="display: none; height: 54px;"></div></div></div></pre><p><strong><span>Perplexity 回覆重點摘錄（附來源連結，逐一點開查證後保留）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>競品</span></th><th><span>核心功能</span></th><th><span>定價模式</span></th><th><span>AI 輔助功能</span></th></tr></thead><tbody><tr><td><span>Hahow</span></td><td><span>中文課程、社群討論區</span></td><td><span>單堂購買</span></td><td><span>無</span></td></tr><tr><td><span>Udemy</span></td><td><span>海量課程、講師自建</span></td><td><span>單堂購買＋常態折扣</span></td><td><span>部分課程有 AI 摘要</span></td></tr><tr><td><span>Coursera</span></td><td><span>大學合作證書課程</span></td><td><span>訂閱制＋單堂</span></td><td><span>AI 助教僅限少數課程</span></td></tr><tr><td><span>PressPlay</span></td><td><span>中文訂閱制學習</span></td><td><span>月費訂閱</span></td><td><span>無</span></td></tr><tr><td><span>YOTTA</span></td><td><span>職人實戰課程</span></td><td><span>單堂購買</span></td><td><span>無</span></td></tr></tbody></table></figure><p><strong><span>Manus AI 批次彙整任務描述</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請前往上述五個平台的官網功能頁與定價頁，彙整成表格，欄位為：</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">競品名稱／核心功能／定價／目標客群／是否有 AI 陪伴學習功能。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="display: none; height: 54px;"></div></div></div></pre><p><strong><span>SWOT 分析成果</span></strong><span>：</span></p><p><span>想開一間雞排店嗎？先做個 SWOT 再說，誇張嗎？一點也不。</span></p><p><span>SWOT 就四個格子：優勢（Strengths）、劣勢（Weaknesses）、機會（Opportunities）、威脅（Threats）。用雞排店講最快——你的雞排比別人大塊又便宜，這是優勢；你完全不會行銷，招牌還是用小畫家做的，這是劣勢；夜市最近爆紅、人潮翻倍，這是機會；對面要開連鎖雞排店，這是威脅。</span></p><p><span>看出規律了嗎？前兩格講的是你自己，後兩格講的是環境。</span></p><blockquote><p><span>優勢劣勢看自己，機會威脅看外面；自己的能改，外面的只能應對。</span></p></blockquote><p><span>SWOT 最常見的死法是寫得太空泛：「劣勢：資源不足」——誰的資源充足過？「優勢：新鮮食材」——誰家用不新鮮的？每一格都要寫得出具體證據，指得出「跟誰比、差在哪」，這張表才有用；寫不出證據的那一格，你就該回去做功課。四個格子填完，策略其實已經自己浮出來了：用優勢去接機會，補劣勢去擋威脅。是不是很簡單？簡單到常常被亂用（哈哈）。動手填一次就知道了，卡住歡迎來討論，在線等。</span></p><p><img src="/Users/troie/Library/CloudStorage/SynologyDrive-sync/projects/2026/lccnet/AI商業整合工作流/assets/Gemini_Generated_Image_3wolmq3wolmq3wol.png"></p><figure class='table-figure'><table><thead><tr><th><span>象限</span></th><th><span>內容</span></th></tr></thead><tbody><tr><td><span>優勢</span></td><td><span>五大競品中僅極少數有 AI 陪伴學習功能，StudyLoop 主打「AI 學習助教」具差異化空間</span></td></tr><tr><td><span>劣勢</span></td><td><span>品牌知名度低於 Hahow／Udemy，課程內容量初期無法比拚</span></td></tr><tr><td><span>機會</span></td><td><span>職人技能升級需求持續成長，且使用者對「有人（或有 AI）陪伴學習」的需求尚未被滿足</span></td></tr><tr><td><span>威脅</span></td><td><span>若 Udemy／Coursera 全面導入 AI 助教，StudyLoop 的差異化優勢會被迅速追平</span></td></tr></tbody></table></figure><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>直接把 Perplexity 答案當最終結論寫進報告</span></td><td><span>未點開來源查證，可能引用到過時或不準確資訊</span></td><td><span>至少抽查 2–3 個關鍵數據的原始來源連結</span></td></tr><tr><td><span>Manus AI 彙整結果欄位對不齊、資料混雜</span></td><td><span>任務描述不夠具體，未指定輸出格式</span></td><td><span>下指令時明確要求「輸出成表格，欄位為：競品名稱／核心功能／定價／目標客群」</span></td></tr><tr><td><span>SWOT 四象限內容空泛（例如「劣勢：功能不足」）</span></td><td><span>未回頭對照競品矩陣的具體條目</span></td><td><span>每一項 SWOT 論點都要能指回矩陣中的某一格資料</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能說出至少三種 AI 設計工具分別對應工作流的哪個階段。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成的競品矩陣至少涵蓋 5 個競品、4 個比較維度，且每個資訊都能追溯到來源。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我的 SWOT 分析每一點都有具體資料支撐，而非空泛描述。</span></p></li></ul><hr /><h4 id='1-2｜使用者研究自動化與數據合成'><span>1-2｜使用者研究自動化與數據合成</span></h4><p><span>訪談做完了，然後呢？很多人的做法是把逐字稿直接丟給 AI：「幫我生成人物誌」，三十秒後拿到一份看起來超專業的文件，開心拿去報告，被利害關係人問一句「這個痛點是哪位受訪者說的？」，當場安靜。這一節就是要避免那個安靜的瞬間：你會搞懂 Granola、Dovetail、Claude／Gemini 三個工具為什麼要分工，實際走完「錄音 → 逐字稿 → 標籤化 → 生成人物誌」的完整流程，並學會檢查 AI 生成的每一項特徵，是不是都指得回受訪者的原話。</span></p><p><strong><span>核心內容：為什麼需要三種工具，而不是直接讓 Claude 做完全部</span></strong></p><p><span>Granola 解決的是「擷取」問題：不需要邀請 bot 加入 Zoom/Teams 通話，而是直接錄系統音訊、本機即時轉錄，跨平台通用（實體訪談、任何會議軟體都能用），並有專門的 User Interview 範本，錄完直接產出結構化訪談筆記。少了這一層，你得自己想辦法把訪談錄音轉成乾淨逐字稿，才能餵給 Claude 或 Gemini。</span></p><p><span>Dovetail 解決的是「治理與存證」問題：它是專門的研究資料庫，每一個洞察、每一個人物誌特徵都能回溯連結到原始逐字稿的確切時間點與引言。這在跟利害關係人報告時很關鍵——你能證明「這個洞察來自哪三位受訪者的哪句話」，而不是一個看起來合理、但其實是模型自己整併出來的說法。Claude/Gemini 是無狀態的生成引擎，可以叫它讀一堆逐字稿去生成人物誌，但它不會自動幫你維護一個「所有洞察都可追溯回原始引言」的長期結構化資料庫。</span></p><p><span>Claude 或 Gemini 則接手最後一步：讀取 Dovetail 裡已經整理好、有證據支撐的主題，生成動態人物誌、旅程地圖與洞察報告。整條邏輯是：Granola 負責把訪談變乾淨、結構化的逐字稿；Dovetail 負責把多場訪談的引言標籤化、聚類、留下可追溯的證據鏈；Claude 或 Gemini 負責生成最後的敘事產出。少了前兩層，生成出來的東西會失去「這是真的使用者說的話」這個可信度基礎——這正是第一份教案中「使用者信任」概念在研究階段的具體體現：一份無法回溯來源的 AI 生成人物誌，利害關係人有充分理由不信任它。</span></p><p><strong><span>工具介紹｜Granola</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Granola。定位為「AI 筆記本」：專為連續會議與訪談設計的錄音、轉錄與筆記工具</span></td></tr><tr><td><span>核心功能</span></td><td><span>直接擷取系統音訊，不需邀請 bot 加入會議，跨平台通用（Zoom、Meet、Teams、實體訪談皆可）；本機即時轉錄；內建範本（含 User Interview 範本）會後自動產出結構化筆記；可跨多場會議用 AI 問答；付費版支援 MCP，可把會議脈絡接進 Claude 等工具</span></td></tr><tr><td><span>定價方案</span></td><td><span>免費版涵蓋核心筆記功能（筆記歷史保留則數有上限）；Business 約 US$14／人／月（無限歷史、完整整合與 MCP）；Enterprise 約 US$35／人／月（SSO 與管理功能）</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>Fireflies、Otter、Fathom、tl;dv 等皆以「bot 加入會議」方式錄音，與會者看得到；Granola 錄系統音訊，對方不會看到錄音者。注意：正因如此，訪談前的知情同意完全是使用者自己的責任，務必事先告知並取得同意</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>研究流程的「擷取層」：把訪談變成乾淨、結構化的逐字稿，供後續 Dovetail 與 Claude 使用</span></td></tr><tr><td><span>適用邊界與限制</span></td><td><span>中文訪談夾雜英文專有名詞時轉錄仍會出錯，匯入 Dovetail 前需人工通讀校正；它不是研究資料庫——多場訪談的標籤、聚類與證據鏈治理是 Dovetail 的工作</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Dovetail</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Dovetail（澳洲）。定位為「使用者研究資料庫／洞察中樞」：把多場訪談的質性資料集中儲存、編碼、聚類，並維持洞察的可追溯性</span></td></tr><tr><td><span>核心功能</span></td><td><span>自動轉錄與會議匯入；highlight＋標籤化編碼；Magic 系列 AI 功能（自動摘要、主題聚類 Magic cluster、語意搜尋、情感分析）；每個洞察可回溯連結到原始逐字稿的確切時間點與引言；洞察報告分享</span></td></tr><tr><td><span>定價方案</span></td><td><span>有免費方案（小型團隊、儲存量有限）；付費方案約 US$15／人／月起，團隊與企業版逐級加價</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>相較用 Notion 或試算表手工整理，Dovetail 專為質性研究治理設計；相較直接把逐字稿丟給 Claude，核心價值是「長期、跨專案、可追溯的證據鏈」。同類工具有 Condens、EnjoyHQ，Dovetail 的 AI 功能與生態整合目前較完整</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>研究流程的「治理層」：確保後續 AI 生成的每一項人物誌特徵，都能指回真實受訪者的原話</span></td></tr><tr><td><span>適用邊界與限制</span></td><td><span>AI 自動聚類是輔助而非定論，主題命名與歸類仍需研究者審核；樣本數少（例如 5 位受訪者）時，「主題出現頻率」不具統計意義，只能當質性線索</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Claude／Gemini</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Anthropic 的 Claude 與 Google 的 Gemini，皆為通用大型語言模型助手，在本課程中負責「讀入整理好的研究資料、生成敘事產出」</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>長上下文讀取（可一次讀入多份逐字稿與主題群）；結構化生成（表格、清單、JSON）；專案／附件功能可維持同一專案的背景資訊；Claude 另有 Artifacts 與 MCP 生態，Gemini 與 Google Workspace（文件、簡報）整合較深</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>兩者皆有免費版；個人付費方案約 US$20／月起</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>就本課程的用途（生成人物誌、旅程地圖）兩者可互換；選擇依據主要是生態系——本課程後段大量使用 Claude Code 與 MCP，選 Claude 銜接較順；若團隊重度使用 Google Workspace 則 Gemini 有整合優勢</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>研究流程的「生成層」：把 Dovetail 整理好、有證據支撐的主題，轉為人物誌、旅程地圖與洞察報告</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>無狀態的生成引擎——不會自動維護證據鏈，必須在 Prompt 中強制要求「每項特徵標註依據、不得新增未出現的細節」；幻覺風險在「補細節讓故事更完整」時最高，這正是人物誌生成的典型情境</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><strong><span>Granola</span></strong><span>：開啟 Granola 錄音（不需邀請 bot 加入會議，直接錄系統音訊即可），選用「User Interview」範本，訪談結束後直接取得結構化逐字稿。</span></p></li><li><p><strong><span>Dovetail</span></strong><span>：把逐字稿匯入 Dovetail 專案，針對關鍵發言加上主題標籤，善用「Magic cluster」跨專案聚類功能，確保每個洞察都能回溯連結到原始逐字稿的確切時間點與引言。</span></p></li><li><p><strong><span>Claude／Gemini</span></strong><span>：將 Dovetail 已標籤、聚類完成的主題匯出，餵給 Claude 或 Gemini，下指令生成動態人物誌與使用者旅程地圖，並要求模型在每一項人物誌特徵旁標註「依據哪個 Dovetail 主題群」，維持可追溯性。</span></p></li><li><p><span>額外練習：拿到 Claude 生成的人物誌後，隨機抽 3 個特徵，回頭到 Dovetail 找出對應的原始引言，確認沒有被模型過度延伸或無中生有。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 使用者人物誌生成</span></strong></p><p><strong><span>Granola 逐字稿片段（訪談對象：28 歲行銷專員）</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">「我下班回家已經很累了，如果要學新技能，我最怕的就是卡關又找不到人問。</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">之前買過一堂線上課，卡在某個步驟直接放棄，錢等於白花。」</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="display: none; height: 54px;"></div></div></div></pre><p><strong><span>Dovetail 標籤化結果</span></strong><span>：</span></p><ul><li><p><span>主題標籤：「卡關求助」「時間壓力」「沉沒成本焦慮」</span></p></li><li><p><span>Magic cluster 聚類：與另外 4 位受訪者的類似發言歸為同一主題群「下班後學習的求助障礙」</span></p></li></ul><p><strong><span>餵給 Claude 的 Prompt</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">以下是 Dovetail 中「下班後學習的求助障礙」主題群的 5 則原始引言：</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[貼上 5 則引言]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請依此生成一份人物誌，並在每一項特徵旁標註依據哪一則引言，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">不要新增引言中沒有出現過的細節。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 108px;"></div><div class="CodeMirror-gutters" style="display: none; height: 108px;"></div></div></div></pre><p><strong><span>Claude 生成結果（節錄）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>人物誌欄位</span></th><th><span>內容</span></th><th><span>依據</span></th></tr></thead><tbody><tr><td><span>姓名／代稱</span></td><td><span>小雅（28 歲，行銷專員）</span></td><td><span>訪談對象基本資料</span></td></tr><tr><td><span>核心痛點</span></td><td><span>下班後精力有限，卡關時容易直接放棄學習</span></td><td><span>引言：「我下班回家已經很累了…卡在某個步驟直接放棄」</span></td></tr><tr><td><span>對 AI 助教的期待</span></td><td><span>希望能立即得到協助，不想等真人客服</span></td><td><span>主題群「卡關求助」中另兩則引言的共通描述</span></td></tr></tbody></table></figure><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>逐字稿有明顯轉錄錯誤但沒人校對</span></td><td><span>過度信任自動轉錄的準確度</span></td><td><span>至少快速通讀一次逐字稿，修正明顯錯字或斷句錯誤再匯入 Dovetail</span></td></tr><tr><td><span>Dovetail 標籤過於瑣碎或重複命名不一致</span></td><td><span>缺乏事先定義的標籤體系</span></td><td><span>開始標記前，先列出 5–8 個預期主題類別作為標籤基礎</span></td></tr><tr><td><span>Claude 生成的人物誌內容「聽起來很合理但查無此人」</span></td><td><span>未要求模型附上依據來源，模型自行腦補細節</span></td><td><span>明確在 Prompt 中要求「僅使用以下 Dovetail 主題群的內容，不要新增未出現過的細節」</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能解釋為什麼不直接把逐字稿丟給 Claude，而要先經過 Dovetail。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我的人物誌至少有一項特徵，我能指出它對應到哪一句受訪者原話。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了至少一份人物誌與一份旅程地圖，作為研究洞察報告的產出。</span></p></li></ul><hr /><h3 id='第二週提示詞工程與快速原型'><span>第二週：提示詞工程與快速原型</span></h3><h4 id='2-1｜從文字到線框圖'><span>2-1｜從文字到線框圖</span></h4><p><span>開始大量生成之前，先搞懂兩個概念：「逐字預測」跟「上下文視窗」。聽起來很理論對吧？但你之後每天都會撞到它們——為什麼同一句 prompt 每次結果都不一樣？為什麼換個工具它就忘了你剛剛說過的話？答案都在這兩個概念裡。搞懂之後，你會用 Google Stitch 把研究洞察變成多個線框圖方向，再讓 Claude 把選定的方向變成可運作的雛形。</span></p><p><strong><span>核心內容：生成式 AI 原理速成</span></strong></p><p><span>玩過文字接龍嗎？大型語言模型做的事就是接龍：持續預測「接下來最可能出現的字（token）」。它不是先想好完整答案再打出來，是邊生成邊決定下一步——所以 AI 有時會講出看似合理、其實錯誤的內容（幻覺），因為它給你的是「統計上說得通的接續」，不是查證過的事實。這也解釋了為什麼同一句 prompt 在 Stitch 或 Claude 上、甚至同一個工具重跑一次，結果都可能不同：生成本質上是機率性的，跟 Figma 靜態稿「同樣操作、永遠同樣結果」是兩個世界。</span></p><p><span>再來是「上下文視窗」。把每個 AI 工具想成一個只看得到眼前白板的同事：白板上寫了什麼它就知道什麼；白板放不下的、寫在別間會議室的，它一概不知道。所以當你把 Stitch 生成的方向丟給 Claude 接手，Claude 的白板是空白的——它不知道你在 Stitch 設定過什麼限制，你得把「目標使用者」「品牌調性」「這是延續哪一版方向」重新寫上去；不然產出偏題別怪它，它是真的沒看到。</span></p><p><span>另外一個實務上重要的區分：目前落地應用大致分三種型態——純生成（直接依模型內建知識生成，需標示「這是草稿」）、檢索增強生成 RAG（先查外部資料再生成，需附來源）、代理式 AI（自主規劃多步驟並呼叫工具，需要人工核可節點）。這一階段做的 Text-to-Wireframe 屬於「純生成」，產出是草稿而非定論，仍需人工篩選與修正。</span></p><p><strong><span>工具介紹｜Google Stitch</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Google Labs 實驗性產品（前身為 Google 收購的 Galileo AI）。定位為「Text-to-UI 生成工具」：把文字描述、草圖或參考圖轉成 UI 畫面與程式碼</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>文字／草圖／圖片轉 UI 畫面（App、Dashboard、網頁）；多畫面生成可維持一致的色彩、元件與字體風格；可匯出 Figma 圖層或 HTML（Tailwind CSS）／Flutter 程式碼；新版加入無限畫布與語音輸入</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>免費，以 Google 帳號登入即可使用，每月生成次數有上限（標準模式數百次、實驗模式較少）</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與 Uizard、Visily 同屬線框／版面生成工具；Stitch 的優勢是免費、生成速度快、匯出程式碼品質相對可用；劣勢是它是 Google Labs 實驗性產品，功能與存續都有變動風險</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第二週「文字→線框圖」的發散引擎：數十秒產出多個版面方向，供人工篩選後交棒給 Claude</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>同質化現象明顯——產出傾向收斂到主流版式，適合快速取得「已知有效的模式」而非創新版面；複雜互動邏輯無法表達，必須交給 Claude 或 Figma 接手；不宜作為團隊工作流中唯一依賴的環節</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>在 Google Stitch 輸入結構化描述（頁面目的、目標使用者、關鍵資訊區塊），數十秒內取得多個版面方向，挑選 2–3 個方向匯出 Figma 圖層或 HTML/React 程式碼。</span></p></li><li><p><span>把選定方向交給 Claude，補充互動邏輯需求（例如表單驗證、狀態切換），讓 Claude 接手產出可運作的網站／App 元件，並視需要串接 API。</span></p></li><li><p><span>兩個工具交替使用時，務必在對話開頭重新聲明「目前情境」與「延續哪一版方向」，避免上下文流失導致產出偏題。</span></p></li><li><p><span>額外練習：對 Stitch 下同一句 Prompt 三次，比較三次產出的差異，親身體會「機率性生成」的實際樣貌，並記錄哪些元素穩定不變、哪些元素每次都不同。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 課程頁線框圖生成</span></strong></p><p><strong><span>Google Stitch Prompt</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">設計一個線上學習平台的課程詳情頁，目標使用者是下班後想學新技能的</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">上班族。頁面需包含：課程介紹、講師資訊、學習大綱、AI 學習助教入口、</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">立即報名按鈕。風格：專業但不生硬，具備陪伴感。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 81px;"></div><div class="CodeMirror-gutters" style="display: none; height: 81px;"></div></div></div></pre><p><strong><span>Stitch 產出</span></strong><span>：3 個版面方向——(A) 左側課程介紹＋右側固定報名欄；</span>
+<span>(B) 頂部影片預覽＋下方分段大綱；(C) 卡片式大綱＋懸浮 AI 助教按鈕。</span>
+<span>選定方向 (C)，因為懸浮 AI 助教按鈕最符合「AI 陪伴學習」的差異化定位。</span></p><p><strong><span>交給 Claude 的銜接 Prompt</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">情境摘要：這是 StudyLoop 學習平台的課程詳情頁，延續 Stitch 產出的</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">方向 C（卡片式大綱＋懸浮 AI 助教按鈕）。目標使用者是下班後想學新</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">技能的上班族，品牌調性專業但具陪伴感。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請把這個版面轉成可運作的 React 元件，需求：</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1. 點擊「立即報名」需檢查使用者是否已登入，未登入則彈出登入視窗</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">2. 懸浮 AI 助教按鈕點擊後展開對話面板（面板內容部署前驗證關卡再詳細設計）</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="display: none; height: 162px;"></div></div></div></pre><p><strong><span>Claude 產出</span></strong><span>：一個具備登入狀態判斷邏輯的 React 課程頁元件，AI 助教按鈕先做出展開／收合的殼，對話內容留待後續階段填入。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>把 Stitch 生成的第一版直接當定稿使用</span></td><td><span>誤把生成式 AI 的產出當成確定性結果</span></td><td><span>一律生成 2–3 個方向並排比較，篩選後再進入 Claude 階段</span></td></tr><tr><td><span>切換到 Claude 後產出突然偏題</span></td><td><span>未重新提供上下文，模型不知道之前設定的限制</span></td><td><span>每次切換工具或開新對話，先貼一段「情境摘要」再下指令</span></td></tr><tr><td><span>把 AI 生成的線框圖直接當作「查證過的資訊架構」交付</span></td><td><span>混淆「純生成」與「RAG／已驗證內容」</span></td><td><span>明確標示這是草稿，仍需人工檢視資訊架構是否符合實際使用情境</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能用自己的話解釋「為什麼同一句 Prompt 兩次生成結果不同」。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了至少 2 個 Stitch 版面方向，並用 Claude 把其中一個轉成可運作雛形。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我知道這一階段的產出屬於「純生成」，需要人工篩選，而非直接當定案。</span></p></li></ul><hr /><h4 id='2-2｜高保真視覺生成與資產管理'><span>2-2｜高保真視覺生成與資產管理</span></h4><p><span>版面有了，接下來是視覺資產。這一節的目標說白了就一句：不要每次生圖都重新下一次 prompt。Adobe Firefly 負責「生成＋鎖定品牌風格」，Figma Weave 負責「把流程固化成生產線」；訓練一次 Custom Model，之後生出來的每張圖都自動長得像同一家人做的。</span></p><p><strong><span>核心內容</span></strong></p><p><span>Adobe Firefly 是核心生成引擎。它的 Custom Model 功能可以用品牌自己的素材（logo、產品照、既有視覺）訓練專屬模型，鎖定固定風格、角色或攝影感，之後每次生成都會維持同一套視覺語言，這是目前少數針對「風格複製」設計的機制。加上商用安全授權（訓練資料乾淨、可放心大量產出對外素材），以及跟 Creative Cloud Libraries／Photoshop／Illustrator 的既有整合，適合當作品牌資產的「生成＋管理」中樞。</span></p><p><span>Figma Weave 負責把 Firefly 生出來的素材系統化、可重複使用。它的節點式工作流可以把「套用品牌模型 → 去背 → 合成 → 輸出多尺寸版本」固定成一條可重複執行的流程，同一套品牌規則能重複套用在不同素材上而不用每次重新下提示詞；而且它本身就在 Figma 生態系裡，能直接跟設計系統（Design System／Components）串接，讓生成出來的素材與既有品牌庫維持同一套管理邏輯。</span></p><p><strong><span>工具介紹｜Adobe Firefly</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Adobe。生成式 AI 家族（圖像、向量、影片），核心定位是「商用安全的品牌素材生成引擎」</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>文生圖、生成填色、風格參考；Custom Models 可用品牌自有素材訓練專屬風格模型（企業方案功能）；與 Photoshop、Illustrator、Creative Cloud Libraries 深度整合；生成內容附內容憑證（Content Credentials）標示 AI 生成</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>有免費生成額度；個人方案約 US$9.99–19.99／月（依生成點數分級）；Custom Models 屬企業方案，需另洽 Adobe 議價</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>相較 Midjourney（藝術風格強但商用授權疑慮較多）與 Stable Diffusion（自由度高但需自行架設），Firefly 主打訓練資料乾淨、可安心商用，適合企業對外的大量素材產出</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第二週品牌視覺資產的「生成＋鎖定風格」引擎：用 Custom Model 確保每次生成維持同一套視覺語言</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>藝術風格的多樣性與驚豔度通常不如 Midjourney；Custom Models 有企業方案門檻，個人學習者可先用一般文生圖＋風格參考（Style Reference）功能模擬「風格鎖定」的練習</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Figma Weave</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Figma（收購 Weavy 後推出的獨立產品）。定位為「節點式 AI 創作平台」：在同一張畫布上，把多家 AI 模型與專業編輯工具串成可重複執行的工作流</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>節點式畫布可串接多家生成模型（圖像、影片、3D）與專業編輯節點（合成、遮罩、去背、放大、色階、裁切等）；工作流可存成樣板，重複執行與團隊分享；採點數制計費</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>免費版每月約 150 點數；付費依點數分級（團隊方案約 US$48／人／月）；與 Figma 設計座位分開訂閱，購買 Figma 不會自動取得 Weave</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>概念與開源的 ComfyUI 相同（節點式 AI 工作流），但免自行架設、模型庫齊全、與 Figma 生態銜接；與「每次重新下 Prompt」的差異是流程可固化重用——同一套品牌規則套用到不同素材不必重寫指令</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>把 Firefly 產出素材系統化的「流程層」：固化「套用品牌模型→去背→合成→多尺寸輸出」管線</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>點數消耗快（影片生成尤甚），練習時建議以圖像節點為主；節點式思維對沒接觸過的設計師有學習曲線；產品剛整併進 Figma 品牌，功能與計價的變動風險偏高</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>在 Adobe Firefly 上傳品牌既有素材（logo、產品照、既有視覺），訓練 Custom Model，鎖定固定風格；之後每次生成新素材時選用該模型，確保視覺語言一致。</span></p></li><li><p><span>在 Figma Weave 建立節點式流程：「套用品牌模型 → 去背 → 合成 → 輸出多尺寸版本」，把這條流程存成可重複執行的樣板，之後同一套規則可直接套用在不同素材上，不需每次重寫 Prompt。</span></p></li><li><p><span>把 Weave 輸出結果同步進 Figma 的 Design System／Components，確保生成素材與既有品牌庫維持同一套管理邏輯。</span></p></li><li><p><span>額外練習：用同一個 Custom Model，分別生成三種不同用途的素材（社群貼文圖、網站 Banner、App 圖示），檢查風格是否維持一致。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 品牌視覺資產生成</span></strong></p><p><strong><span>Adobe Firefly Custom Model 訓練素材</span></strong><span>：StudyLoop 既有的 logo（藍紫漸層圓形圖標）、3 張講師錄課照片、既有社群貼文的配色風格，共 15 張素材，訓練出「StudyLoop 品牌模型」。</span></p><p><strong><span>生成 Prompt（使用 Custom Model）</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">生成一張課程上線宣傳用的網站 Banner，主題為「AI 學習助教陪你學設計」，</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">延續品牌模型的色調與視覺語言，畫面需保留右側 40% 留白供文案疊加。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="display: none; height: 54px;"></div></div></div></pre><p><strong><span>Figma Weave 節點流程設定</span></strong><span>：</span></p><ol start='' ><li><p><span>節點一：套用「StudyLoop 品牌模型」生成素材</span></p></li><li><p><span>節點二：自動去背（去除生成圖片背景雜訊）</span></p></li><li><p><span>節點三：合成到預先設計好的 Banner 版型上</span></p></li><li><p><span>節點四：批次輸出三種尺寸（網站 Banner 1920×600、社群貼文 1080×1080、App 首頁 Icon 512×512）</span></p></li></ol><p><strong><span>產出結果</span></strong><span>：一套風格一致的三種尺寸宣傳素材，全部同步進 Figma 的「StudyLoop Design System」資產庫，供後續行銷與產品頁共用。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>Custom Model 生成結果風格飄移</span></td><td><span>訓練素材數量太少或風格本身不一致</span></td><td><span>訓練素材至少準備 10–20 張風格一致的品牌既有視覺</span></td></tr><tr><td><span>每次生成新素材都重新下一次完整 Prompt</span></td><td><span>沒有把流程存成 Weave 樣板</span></td><td><span>把常用的節點組合存成可重複呼叫的樣板</span></td></tr><tr><td><span>生成的素材沒有進到設計系統，散落各處</span></td><td><span>缺少同步機制</span></td><td><span>固定把 Weave 輸出結果同步進 Figma Components</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能說出 Firefly 與 Figma Weave 各自負責什麼，為什麼兩者要搭配使用。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我訓練了至少一個 Custom Model，並用它生成了 2 種以上不同用途的素材。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我建立了一條可重複執行的 Weave 節點流程，並同步進了設計系統。</span></p></li></ul><hr /><h3 id='第三週figma-ai-實戰與設計系統'><span>第三週：Figma AI 實戰與設計系統</span></h3><h4 id='3-1｜figma-make-與自動化佈局'><span>3-1｜Figma Make 與自動化佈局</span></h4><p><span>這一節進入 Figma AI 實戰，也會用到整門課最關鍵的一組技術：Figma MCP。先用 Figma Make 對同一需求生成多個方案與組件變體，然後讓 Claude Code 透過 MCP 直接讀取設計檔的結構化資訊，做「變數層級」的比對。以前比對多方案是用眼睛一格一格看間距對不對，看到懷疑人生；現在 AI 直接給你差異報告，眼睛可以留著看更重要的東西。</span></p><p><strong><span>核心內容</span></strong></p><p><span>過去若要比較多個 AI 生成方案的一致性，只能靠人工肉眼逐一檢查每個方案的間距、色彩變數、元件命名是否一致，耗時且容易漏看。Figma MCP（Model Context Protocol）讓 Claude Code 可以直接讀取 Figma 檔案的結構化資訊，而不是只看畫面截圖，因此能做「變數層級」的精準比對，而非「看起來像不像」的表面比對。</span></p><p><strong><span>工具介紹｜Figma Make</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Figma 內建的 AI 生成功能。定位為「prompt-to-design／prompt-to-app」：用自然語言在 Figma 內直接生成畫面、變體與可互動原型</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>自然語言生成畫面與可互動原型；可讀取檔案內既有的設計脈絡與元件；針對同一需求生成多個方案與組件變體；可用對話持續迭代修改</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>隨 Figma 付費座位（Full seat）提供，使用額度依方案分級</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與 Google Stitch 的關鍵差異是「活在你的 Figma 檔案裡」：能沿用你既有的設計系統與元件庫生成新畫面，而非從零生成通用版面。Stitch 適合發散（從無到有找方向），Make 適合收斂（在既有系統內擴充）</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第三週多方案探索與組件變體生成的主力，其產出交由 Figma MCP＋Claude Code 做變數層級的一致性比對</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>生成結果的圖層結構與命名未必乾淨，收入設計系統前需人工整理；檔案本身越混亂，生成品質越差——「先整理檔案再用 AI」是使用前提</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Figma MCP</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Figma 官方的 MCP（Model Context Protocol）伺服器。定位為「設計脈絡的橋樑」：讓 Claude Code 等 AI 代理讀取 Figma 檔案的結構化資訊，而非只看截圖</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>提供 </span><code>get_design_context</code><span>（讀取設計上下文）、</span><code>get_variable_defs</code><span>（讀取變數定義）、</span><code>get_screenshot</code><span>、</span><code>create_design_system_rules</code><span>（生成設計系統規則文件）等工具；遠端版所有 Figma 方案可用，桌面版需付費方案的 Dev 或 Full seat；免費方案每月工具呼叫次數極有限</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>Beta 期間免費（官方預告未來將轉為用量計費）；實際可用額度依 Figma 方案與座位類型而異</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與「貼截圖給 AI」的根本差異：AI 拿到的是變數、圖層結構、元件對應等結構化資料，因此能做「變數層級」的精準比對與程式碼生成，而不是「看起來像不像」的表面判斷</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>貫穿第三至五週的「設計⇄程式碼」橋樑：方案比對、規則文件生成、原型程式碼生成都經過它</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>讀取品質取決於 Figma 檔案的結構化程度（命名、Auto Layout、變數化）——檔案亂，AI 讀到的就是亂；額度與方案限制較複雜，團隊導入前先確認自己的座位類型</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Claude Code</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Anthropic。定位為「終端機 AI 編程代理」：在命令列中接受自然語言指令，自主讀寫專案檔案、執行指令、完成多步驟開發任務</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>讀寫整個專案的程式碼；執行終端機指令與測試；多步驟自主規劃與迭代；透過 MCP 連接外部工具（如 Figma MCP）；程式碼審查、重構與撰寫測試</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>隨 Claude Pro／Max 訂閱使用（約 US$20／月起，重度使用需更高方案），或以 API 用量計費</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與 Cursor、Windsurf（IDE 內建 AI）不同，Claude Code 是「代理優先」：你描述意圖，它自己找檔案、改程式、跑測試；與 Vercel v0（生成單一 UI 元件）不同，它能操作整個專案並串接部署</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第三週起的核心執行引擎：多方案比對、規則文件生成、互動原型、程式碼優化到部署，全在這一個介面完成</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>終端機介面對設計師有心理門檻，本課程只需最小指令集即可上手；自主性高代表更需要人工審查節點——大幅改動前先要求它「說明計畫再執行」，養成先看 diff 再放行的習慣</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>用 Figma Make 針對同一需求生成多個方案與組件變體。</span></p></li><li><p><span>在 Claude Code 中呼叫 Figma MCP 的 </span><code>get_design_context</code><span> 與 </span><code>get_variable_defs</code><span>，讀取 Figma Make 產出的多個方案內容與變數定義。</span></p></li><li><p><span>讓 Claude Code 交叉比對各方案的變數與結構是否一致，輸出差異報告，取代過去人工肉眼逐一比對多方案的做法。</span></p></li><li><p><span>額外練習：故意在其中一個方案手動改掉一個間距數值，看 Claude Code 的差異報告是否能準確抓出這個不一致之處。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 課程卡片元件比對</span></strong></p><p><strong><span>Figma Make 生成</span></strong><span>：針對「課程列表卡片」需求，生成 3 個變體——(A) 圖片置頂＋文字置下；(B) 左圖右文橫式卡片；(C) 圖片全滿版＋文字疊加。</span></p><p><strong><span>Claude Code 指令</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請用 Figma MCP 的 get_design_context 讀取「課程卡片變體 A/B/C」三個方案，</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">再用 get_variable_defs 讀取三者使用的間距與色彩變數，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">比對三者的變數定義與圖層結構是否一致，列出差異清單。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 81px;"></div><div class="CodeMirror-gutters" style="display: none; height: 81px;"></div></div></div></pre><p><strong><span>Claude Code 回傳的差異報告（節錄）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>方案 A</span></th><th><span>方案 B</span></th><th><span>方案 C</span></th><th><span>是否一致</span></th></tr></thead><tbody><tr><td><span>卡片內距（padding）</span></td><td><span>16px</span></td><td><span>16px</span></td><td><span>12px</span></td><td><span>否，方案 C 不一致</span></td></tr><tr><td><span>標題字級變數</span></td><td><code>text/heading-sm</code></td><td><code>text/heading-sm</code></td><td><code>text/heading-md</code></td><td><span>否，方案 C 使用了不同變數</span></td></tr><tr><td><span>主色變數</span></td><td><code>color/brand-primary</code></td><td><code>color/brand-primary</code></td><td><code>color/brand-primary</code></td><td><span>是</span></td></tr></tbody></table></figure><p><strong><span>結論</span></strong><span>：方案 C 在間距與字級上使用了未定義於設計系統中的獨立數值，若採用需先修正為既有變數，避免產生新的樣式碎片。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>Claude Code 讀不到 Figma 檔案內容</span></td><td><span>Figma MCP 尚未正確連接或授權</span></td><td><span>確認 MCP 連線狀態，並確認 Figma 檔案權限已開放給對應帳號</span></td></tr><tr><td><span>差異報告只列出表面差異，未指出根本原因</span></td><td><span>下指令時只問「有沒有不同」，沒問「為什麼不同」</span></td><td><span>明確要求 Claude Code 指出是變數定義不同、還是結構層級不同</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能說出 Figma MCP 讀取設計上下文，與單純看截圖比對的差異在哪裡。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我實際用 </span><code>get_design_context</code><span>／</span><code>get_variable_defs</code><span> 完成過一次多方案比對。</span></p></li></ul><hr /><h4 id='3-2｜ai-驅動的設計系統建立'><span>3-2｜AI 驅動的設計系統建立</span></h4><p><span>方案收斂了，該把成果整理成一套可維護的設計系統了。這一節你會用 Automator 與 Khroma 產生配色與組件規範草案，再讓 Figma MCP 的 </span><code>create_design_system_rules</code><span> 直接依你的 Figma 檔案生成規則文件——一份不需要你在旁邊口頭補充、人跟工程團隊都看得懂的那種。</span></p><p><strong><span>核心內容</span></strong></p><p><span>這一段的兩個工具處理的是不同層次的問題，彼此不衝突：Automator／Khroma 處理的是色彩理論與配色生成（例如依主色自動推導出一整套符合對比度標準的色階）；</span><code>create_design_system_rules</code><span> 處理的是「把 Figma 檔案本身的結構，轉譯成一份人類與工程團隊都看得懂的規則文件」（design tokens 命名慣例、元件使用規範）。過去這份規則文件多半靠設計師手工整理，容易與實際檔案脫節；現在讓 AI 直接依實際 Figma 檔案生成，規則文件與檔案本身的一致性更高。</span></p><p><strong><span>工具介紹｜Automator</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>原為 Diagram 團隊開發的 Figma 外掛（Diagram 已被 Figma 收購）。定位為「Figma 內的自動化腳本工具」：把重複性設計操作組成可重複執行的自動化流程</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>以積木式方塊組合自動化流程（批次改名、批次調整屬性、排序、依資料填充等），存成可重複執行的 Automation</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>Figma 社群外掛，基本功能免費</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第三週組件規範整理的輔助：把「整理元件命名、批次套用屬性」這類機械性工作自動化</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>被收購後更新趨緩，部分功能可能逐步併入 Figma 原生 AI；若外掛不可用，改用 Figma 原生批次選取＋屬性面板操作即可達成多數需求</span></td></tr></tbody></table></figure><p><strong><span>工具介紹｜Khroma</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>免費的 AI 配色工具（網頁版）。定位為「個人化配色生成器」：先學習你的色彩偏好，再無限生成符合偏好的配色組合</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>初次使用先從色票中挑選約 50 個喜歡的顏色訓練個人演算法；之後以文字、海報、漸層等形式無限生成配色組合；可查看每組配色的色碼與對比度資訊</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>免費</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第三週配色方案的發想來源：快速產出大量候選配色，供人工篩選後納入設計系統</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>生成配色未強制符合 WCAG 無障礙對比度標準，關鍵文字與背景的搭配務必另行用對比度檢測工具複核；它處理的是「好看」，「可用」要自己把關</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>用 Automator／Khroma 產生配色方案與組件規範草案（此部分不涉及 Figma MCP，純粹處理色彩理論）。</span></p></li><li><p><span>在 Claude Code 呼叫 Figma MCP 的 </span><code>create_design_system_rules</code><span>，讓其直接依 Figma 檔案自動生成設計系統規則文件（design tokens 命名、元件使用規範）。</span></p></li><li><p><span>把 Automator／Khroma 的配色成果與 </span><code>create_design_system_rules</code><span> 產出的規則文件整合，形成一份有 AI 生成規範文件佐證的完整設計系統。</span></p></li><li><p><span>額外練習：請團隊中沒參與這個檔案的人讀一次生成出來的規則文件，確認光靠文件就能看懂命名邏輯，不需要額外口頭說明。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 設計系統規則文件</span></strong></p><p><strong><span>Khroma 配色輸出</span></strong><span>：以品牌主色（藍紫漸層中的 #4F46E5）為基準，自動推導出 9 階色階，並標示其中 </span><code>#4F46E5</code><span>（主色）與 </span><code>#1E1B4B</code><span>（深色文字）的對比度符合 WCAG AA 標準。</span></p><p><strong><span>Claude Code 指令</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請用 Figma MCP 的 create_design_system_rules，依「StudyLoop 設計系統」</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">檔案自動生成設計系統規則文件，需包含 design tokens 命名規則與元件使用規範。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="display: none; height: 54px;"></div></div></div></pre><p><strong><span>產出的規則文件節錄</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Design Tokens 命名規則：</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">- color/brand-primary → #4F46E5（主要按鈕、連結）</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">- color/text-heading → #1E1B4B（標題文字，對比度已驗證符合 AA 標準）</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">- spacing/card-padding → 16px（所有卡片類元件統一內距）</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">元件使用規範：</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">- EnrollButton（報名按鈕）僅可使用 color/brand-primary，不可自訂顏色</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">- 課程卡片一律套用 spacing/card-padding，不可個別調整</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 216px;"></div><div class="CodeMirror-gutters" style="display: none; height: 216px;"></div></div></div></pre><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>生成的規則文件與實際 Figma 檔案內容有落差</span></td><td><span>Figma 檔案本身結構混亂，AI 只是如實反映亂象</span></td><td><span>先花時間整理 Figma 檔案的圖層與命名，再執行 </span><code>create_design_system_rules</code></td></tr><tr><td><span>配色通過視覺檢查但無障礙對比度不足</span></td><td><span>Automator／Khroma 未特別針對 WCAG 對比度標準檢查</span></td><td><span>額外用對比度檢測工具複核關鍵文字與背景色的搭配</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了一份配色規範與一份 AI 生成的設計系統規則文件。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我請人驗證過規則文件是否「不需口頭補充就看得懂」。</span></p></li></ul><hr /><h3 id='第四週邏輯原型與可用性驗證'><span>第四週：邏輯原型與可用性驗證</span></h3><h4 id='4-1｜具備邏輯的互動原型設計'><span>4-1｜具備邏輯的互動原型設計</span></h4><p><span>這一節做的原型，跟你以前做的不一樣：它能跑真資料。以前的原型是「點下去會跳到下一張圖」，看起來會動，其實是紙紮的；這次你會先用 Code Connect 把 Figma 元件對應到真實的程式碼元件庫，再讓 Claude Code 生成能串接真實 API 的互動原型——從第一行就是真的程式碼。</span></p><p><strong><span>核心內容</span></strong></p><p><span>這一段的關鍵差異在於「原型的真實程度」。過去許多原型工具做出來的是「看起來會動」的假互動（例如點擊後跳到下一張靜態圖），但底層沒有真正的邏輯與資料。這裡採用 Claude Code＋Figma MCP＋Code Connect 三件組：Code Connect 先建立 Figma 元件與正式 React 元件庫的對應關係，讓 Claude Code 知道「這個畫面上的按鈕，對應到程式碼裡的哪個元件」；接著 Claude Code 透過 MCP 讀取設計上下文與變數，直接生成能跑真資料、串接真實 API 的互動原型。這條路線的程式碼品質與可維護性優於單純的原型工具產出，因為它從一開始就是「真的程式碼」，而不是之後需要重新翻譯的假稿。</span></p><p><strong><span>工具介紹｜Code Connect</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Figma Dev Mode 的功能。定位為「設計元件與程式碼元件的對應機制」：把 Figma 元件逐一映射到程式碼庫中真實存在的元件</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>為 Figma 元件建立與 React、SwiftUI、Compose 等框架元件的對應；建立後，Dev Mode 與 Figma MCP 輸出的不再是「近似的生成程式碼」，而是「團隊元件庫中真實元件的呼叫寫法」（含正確的 props）；需 Figma Organization 或 Enterprise 方案</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>含在 Figma Organization／Enterprise 方案的 Dev Mode 中，無單獨售價</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>沒有 Code Connect 時，AI 生成的是「長得像」的一次性程式碼，工程團隊往往要整段重寫；有了對應之後，生成程式碼直接引用既有元件庫，可維護性完全不同——這是「原型程式碼」能否升級為「生產程式碼」的分水嶺</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第四與第五週「真程式碼原型」的前提建設：讓 Claude Code 知道畫面上每個元件對應到程式碼裡的哪個元件</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>建立對應關係需要工程協作與初期投入，且有方案門檻；個人學習者可用開源元件庫（如 shadcn/ui）建立小型對應練習，體會「引用真實元件」與「生成近似程式碼」的差異</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>先用 Code Connect 建立 Figma 元件與正式 React 元件庫的對應關係。</span></p></li><li><p><span>讓 Claude Code 透過 Figma MCP 讀取設計上下文與變數（沿用第三週建立的設計系統）。</span></p></li><li><p><span>指示 Claude Code 直接生成串接真實 API、能跑真資料的互動原型，而非僅止於視覺上像真的靜態稿。</span></p></li><li><p><span>額外練習：故意串接一支會回傳錯誤或空值的測試 API，觀察 Claude Code 生成的原型是否有基本的錯誤處理，而不是直接崩潰。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 報名流程互動原型</span></strong></p><p><strong><span>Code Connect 對應設定</span></strong><span>：把 Figma 元件「EnrollButton」對應到程式碼庫中的 </span><code>&lt;EnrollButton /&gt;</code><span> React 元件；「CourseProgressBar」對應到 </span><code>&lt;ProgressBar /&gt;</code><span>。</span></p><p><strong><span>Claude Code 指令</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請透過 Figma MCP 讀取「課程詳情頁」的設計上下文與變數，並串接</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">StudyLoop 測試環境的報名 API（POST /api/enrollments）。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">需求：</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1. 使用者點擊 EnrollButton 後呼叫報名 API</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">2. API 成功回傳後，畫面切換為「已報名，課程進度 0%」並顯示 ProgressBar</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">3. API 回傳錯誤（例如名額已滿）時，顯示對應錯誤訊息而非白畫面</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="display: none; height: 162px;"></div></div></div></pre><p><strong><span>Claude Code 產出</span></strong><span>：一個真正呼叫測試 API 的互動原型，點擊報名後可看到進度條從 0% 開始更新；刻意把測試 API 改成回傳 429（名額已滿）錯誤碼時，畫面正確顯示「此梯次名額已滿，是否加入候補名單？」而非崩潰白屏。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>Claude Code 生成的元件與 Figma 設計對不上</span></td><td><span>Code Connect 對應關係尚未建立或不完整</span></td><td><span>逐一確認每個關鍵元件都已在 Code Connect 中對應</span></td></tr><tr><td><span>原型只處理「成功情境」，沒有錯誤處理</span></td><td><span>Prompt 未明確要求處理異常情況</span></td><td><span>明確要求「請同時處理 API 回傳錯誤或空值時的畫面呈現」</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能解釋這條路線產出的原型，跟傳統原型工具的「假互動」差在哪裡。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了至少一個能串接真實或測試 API 的互動原型。</span></p></li></ul><hr /><h4 id='4-2｜ai-模擬測試與反饋優化'><span>4-2｜AI 模擬測試與反饋優化</span></h4><p><span>原型做出來了，但好用嗎？這一節用 Maze 的 AI 預測熱圖快速找出問題，然後做一件流程上很叛逆的事：不回頭改設計稿，把反饋直接轉成 Claude Code 的修正指令，讓「測試 → AI 建議 → 程式碼修正」一次到位。</span></p><p><strong><span>核心內容</span></strong></p><p><span>過去的流程是：測試發現問題 → 回頭改設計稿 → 再請工程重新刻一次。這裡的閉環設計省略了「重畫設計稿」這一步：Maze 的反饋不回頭改設計稿，而是直接餵給 Claude Code，讓它改的是原型「程式碼本身」，形成「測試 → AI 建議 → 程式碼修正」一次到位的循環。這麼做的前提是：4-1 節做出來的原型本身就是真的程式碼（而非假稿），所以修正可以直接發生在程式碼層級，不需要先翻譯回設計工具再重新產出程式碼。</span></p><p><strong><span>工具介紹｜Maze</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>開發商與定位</span></td><td><span>Maze。定位為「產品研究平台」：主打免主持（unmoderated）可用性測試、快速驗證與 AI 輔助分析</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>匯入 Figma 原型執行任務型測試；路徑分析與點擊熱圖；AI 預測性熱圖（不需真人受測，以演算法預測視覺注意力落點）；五秒測試、問卷、卡片分類；AI 追問功能；受測者招募（另以點數計費）</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>免費版（同時 1 個進行中研究、每研究回覆數有限）；付費約 US$99／月起，團隊方案更高；受測者招募費用另計</span></td></tr><tr><td><span>與同類工具差異</span></td><td><span>與 Useberry、Lyssna（前 UsabilityHub）同類；Maze 的 Figma 整合與 AI 功能目前較深。要特別區分：「預測熱圖」是演算法模擬，「真人測試熱圖」才是行為數據——前者快而便宜，後者才有效度，兩者是互補而非替代</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第四週驗證層：用 AI 預測熱圖快速找出潛在問題，把反饋轉成 Claude Code 的修正指令，形成閉環</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>預測熱圖對非典型版式、新穎互動模式的準確度存疑（模型是從常見版式學來的）；高風險決策仍需真人測試交叉驗證；小樣本結果只能當質性線索，不可當統計定論</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>把互動原型匯入 Maze，執行 AI 預測性熱圖分析，觀察使用者可能的視覺注意力落點。</span></p></li><li><p><span>蒐集 Maze 產出的反饋建議，不要回頭修改設計稿，而是直接把建議整理成需求，餵回 Claude Code。</span></p></li><li><p><span>讓 Claude Code 依反饋直接修正原型的程式碼本身，形成「測試 → AI 建議 → 程式碼修正」一次到位的閉環，不需切換回設計工具重畫。</span></p></li><li><p><span>額外練習：把 Maze 的熱圖預測結果，拿去跟一位真實使用者的實際操作錄影對照，感受「預測性分析」與「真實行為觀察」之間可能存在的落差。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 報名按鈕熱圖優化</span></strong></p><p><strong><span>Maze AI 熱圖預測發現</span></strong><span>：使用者的預測視覺注意力大量停留在課程介紹影片上，EnrollButton（位於頁面右側固定欄）的預測關注度偏低，顯示按鈕可能不夠顯眼。</span></p><p><strong><span>回饋轉述給 Claude Code 的指令</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Maze 熱圖分析顯示，課程詳情頁的 EnrollButton 視覺關注度偏低，</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">使用者注意力集中在課程介紹影片區塊。請調整 EnrollButton 的樣式，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">提高視覺對比與大小，並在使用者捲動頁面超過影片區塊後，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">讓按鈕改為頁面底部固定顯示（sticky bar），而非只維持在右側欄。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 108px;"></div><div class="CodeMirror-gutters" style="display: none; height: 108px;"></div></div></div></pre><p><strong><span>Claude Code 修正結果</span></strong><span>：EnrollButton 尺寸放大並改用高對比色，新增 </span><code>useScrollPosition</code><span> 邏輯，捲動超過影片區塊後切換為底部固定顯示，直接修改的是原型的程式碼本身，未經過重新設計稿的翻譯流程。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>把 Maze 的預測熱圖當成唯一真理</span></td><td><span>誤把 AI 預測性分析等同於真實使用者測試</span></td><td><span>搭配至少小規模的真人測試或訪談交叉驗證，尤其是高風險決策</span></td></tr><tr><td><span>反饋轉述給 Claude Code 時過於籠統（例如「這裡不好用」）</span></td><td><span>沒有具體指出是哪個元件、哪個互動環節</span></td><td><span>具體描述「哪個按鈕」「使用者卡在哪個步驟」再下指令</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了一次 Maze 熱圖分析，並能指出至少一個潛在問題點。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我把反饋直接轉成 Claude Code 的修正指令，並確認程式碼確實更新。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我知道 AI 預測性分析與真實使用者測試的差異，不會把兩者混為一談。</span></p></li></ul><hr /><h3 id='第五週agentic-ux-與自動化前端轉化'><span>第五週：Agentic UX 與自動化前端轉化</span></h3><h4 id='5-1｜設計主動式體驗'><span>5-1｜設計主動式體驗</span></h4><p><span>這一節先聊人，再動手。你會認識設計 AI 功能時最重要的兩個心理現象：演算法反感（AI 明明表現比較好，使用者就是不信）跟過度依賴悖論（AI 明明錯了，使用者照單全收）——一體兩面的失衡，而「AI 犯錯後的那一次互動」正是信任能不能修復的關鍵。搞懂之後，你會用「感知－思考－行動」框架設計一個會主動行動的 AI 代理，並在高風險動作前保留人工核可節點。</span></p><p><strong><span>核心內容：使用者信任與可解釋性</span></strong></p><p><span>使用者對 AI 系統的信任不是單一開關，而是隨互動經驗動態變化的過程，其中「AI 犯錯之後」的那一次互動，往往是信任是否能修復的關鍵節點。設計 Agent 時特別容易遇到兩種相反卻同樣常見的失衡：</span></p><p><strong><span>演算法反感</span></strong><span>：即使證據顯示 AI 表現優於人類，使用者仍傾向拒絕採用、轉而依賴人類判斷。成因包括對錯誤的容忍度不對等（看到 AI 犯錯後信任下降幅度更大）、缺乏掌控感、輸出結果難以理解。研究發現一個緩解方向：當使用者被允許對 AI 的建議做出微幅調整，演算法反感的程度會明顯降低——這代表「保留使用者的最終控制權」是有效的設計槓桿。</span></p><p><strong><span>過度依賴悖論</span></strong><span>：使用者即使面對錯誤的 AI 建議，仍然選擇採信。直覺上，若 AI 提供解釋，使用者應該更能辨別建議是否可信；但研究發現單純附加解釋並不必然降低過度依賴，尤其在任務困難時，解釋反而可能讓使用者更快接受建議而不加思索——因為使用者是在權衡「自己動腦驗證的成本」與「直接採信的成本」。這代表可解釋性介面不能只回答「為什麼這樣建議」，還需要同時降低使用者「動腦驗證」的成本。</span></p><p><span>這兩個概念直接對應本階段要設計的 Agent 觸發規則：Agent 的行動階段要保留人工核可節點（對應演算法反感對策——保留最終控制權），Agent 的思考階段要能誠實表態信心程度（對應過度依賴悖論對策——讓使用者知道何時該提高警覺，而不是靠一段解釋文字讓使用者「感覺安心」但沒有真的降低驗證成本）。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>為每個 Agent 功能畫出「感知（偵測到什麼情境）→ 思考（判斷該不該行動、信心程度多高）→ 行動（執行什麼、或呈現什麼選項）」三段式流程圖。</span></p></li><li><p><span>針對「思考」階段，明確定義信心分數的高／中／低門檻，並規定低信心時一律轉為「詢問使用者」而非「自動執行」。</span></p></li><li><p><span>針對高風險或不可逆的「行動」，加入人工核可節點（例如彈出確認視窗），不允許 Agent 全自動執行。</span></p></li><li><p><span>額外練習：針對自己設計的 Agent 功能，具體寫下「如果這個 Agent 這次判斷錯了，使用者下一步可以怎麼修正」，確認答案不是「沒辦法，只能重來」。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 學習進度提醒 Agent</span></strong></p><p><strong><span>感知－思考－行動流程設計</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>階段</span></th><th><span>內容</span></th></tr></thead><tbody><tr><td><span>感知</span></td><td><span>偵測到使用者已 5 天未登入、且該課程進度卡在 40% 超過 3 天</span></td></tr><tr><td><span>思考</span></td><td><span>信心分數：中（因為「5 天未登入」可能是忙碌，也可能是失去興趣，原因不明確）</span></td></tr><tr><td><span>行動</span></td><td><span>信心中等 → 不直接發推播「你落後了」，改為發一則溫和提醒＋提供「調整學習計畫」選項，而非武斷判定使用者失敗</span></td></tr></tbody></table></figure><p><strong><span>若信心分數為高</span></strong><span>（例如使用者在同一個測驗題目連續錯 3 次）：Agent 直接主動彈出「需要複習這個章節嗎？」的建議卡片，附上具體依據（「你在第 3 題已經錯了 3 次」），並保留「不用了，我自己再想想」的否決選項。</span></p><p><strong><span>若信心分數為低</span></strong><span>（例如僅登入資料不完整、無法判斷是忙碌還是放棄）：Agent 不主動行動，僅在使用者下次登入時被動展示「要不要看看你上次卡住的地方？」，不強迫互動。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>Agent 對所有情境都用同一套信心表態方式</span></td><td><span>未依任務難度區分處理邏輯</span></td><td><span>簡單任務可直接給建議，困難或高風險任務需額外要求使用者確認</span></td></tr><tr><td><span>高風險動作（如刪除、送出、扣款）由 Agent 直接自動執行</span></td><td><span>為了展示「全自動」的效果而省略核可節點</span></td><td><span>明確列出哪些動作屬於不可逆，一律加上人工確認步驟</span></td></tr><tr><td><span>附加了「解釋文字」但使用者仍然照單全收</span></td><td><span>誤以為多寫一段說明就等於降低過度依賴</span></td><td><span>檢查解釋是否真的降低了「使用者驗證的成本」，而不只是增加閱讀量</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能分別舉一個「演算法反感」與「過度依賴」的例子，並說出對應的設計對策。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我設計的 Agent 功能，思考階段有明確的信心分數門檻。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我設計的 Agent 功能，高風險行動都有人工核可節點。</span></p></li></ul><hr /><h4 id='5-2｜design-to-code-自動化轉譯與程式碼優化'><span>5-2｜Design-to-Code 自動化轉譯與程式碼優化</span></h4><p><span>這一節把前面學的工具收斂成單一流程：設計讀取、程式碼生成、審查優化，全部在 Claude Code 一個介面完成，不用再開三個工具切來切去。最後我會介紹兩種互補的驗證方法——LLM 原型法跟 Wizard of Oz 原型法——為接下來的部署前驗證關卡做準備。</span></p><p><strong><span>核心內容</span></strong></p><p><span>過去這一步驟常需要用到 Builder.io 做語意對應、Cursor AI 做程式碼審查，等於一個流程要在三個工具間切換。這裡收斂到 Claude Code 一個介面完成，因為 Code Connect 已經確保生成的程式碼直接引用真實存在的元件庫，不需要再靠額外工具做語意對應；而程式碼審查與結構優化（讀取、重構、寫測試、迭代）本來就是 Claude Code 的原生能力。整條路徑從設計到程式碼都由同一個 AI agent 透過 MCP 貫通，讓「單一意圖驅動流程」取代「多工具拼接」。</span></p><p><strong><span>核心內容：AI 設計原型法（銜接下一節）</span></strong></p><p><span>LLM 原型法（用真實模型測試可行性）與 Wizard of Oz 原型法（略去真實 AI、由人操控，純測期望性）是兩種互補的驗證方法。實務上建議依專案不確定性高低決定順序：概念極不確定時，先用 Wizard of Oz 測試「就算做到完美，使用者也真的想要」；概念已初步驗證但不確定技術能否達成時，才用 LLM 原型法測試現有模型是否真的能穩定產出期待的品質。第五週已經用真實模型把 Agentic 功能做出來了（可行性已驗證），部署前驗證關卡要反過來，用 Wizard of Oz 精神再測一次「使用者是否真的想要這個自動化體驗」，作為部署前的最後把關——避免把資源投入到一個技術上做得到、但使用者根本不需要或反感的功能上。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>確認 Code Connect 已對應好第四週建立的元件庫，讓 Claude Code 生成的程式碼直接引用真實存在的元件，不需額外做語意對應。</span></p></li><li><p><span>直接請 Claude Code 執行程式碼審查與結構優化（讀取、重構、寫測試、迭代），不需切換到其他 IDE。</span></p></li><li><p><span>全程只在 Claude Code 一個介面完成「設計讀取 → 程式碼生成 → 審查優化」，體會「單一意圖驅動流程」而非多工具拼接的差異。</span></p></li><li><p><span>額外練習：回顧第五週做出來的 Agentic 功能，先自問「這個功能的可行性，我驗證過了嗎？」（應該可以肯定回答，因為是用真實模型做出來的），再自問「這個功能的期望性，我驗證過了嗎？」（這正是部署前驗證關卡要處理的缺口）。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 學習進度提醒 Agent 程式碼收斂</span></strong></p><p><strong><span>Claude Code 指令</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請透過 Figma MCP 讀取「學習進度提醒卡片」的設計上下文，</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">並確認 Code Connect 已對應到 &lt;ReminderCard /&gt; 元件。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">生成完整前端邏輯：串接使用者登入紀錄與測驗答錯次數的 API，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">依信心分數高低分別觸發「主動建議卡片」「被動展示卡片」兩種呈現方式。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請同時審查程式碼是否有重複邏輯可以重構。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 135px;"></div><div class="CodeMirror-gutters" style="display: none; height: 135px;"></div></div></div></pre><p><strong><span>Claude Code 產出</span></strong><span>：</span><code>&lt;ReminderCard /&gt;</code><span> 元件已能依 API 回傳的信心分數欄位（</span><code>confidenceLevel: &quot;high&quot;|&quot;medium&quot;|&quot;low&quot;</code><span>）切換三種呈現邏輯，並在程式碼審查階段自動把原本重複寫在三處的「否決按鈕」邏輯抽出成共用元件 </span><code>&lt;DismissAction /&gt;</code><span>。</span></p><p><span>全程未切換到 Builder.io 或 Cursor AI，讀取設計、生成程式碼、審查重構都在 Claude Code 一個介面完成。</span></p><p><strong><span>銜接下一節的自問</span></strong><span>：這個 Agent 是用真實模型做出來的，技術上「做得到」已經驗證；但「小雅這樣的使用者，收到這個提醒卡片真的會覺得有幫助、而不是被打擾嗎？」——這個問題留到驗證關卡一用 Wizard of Oz 方法驗證。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>為了展示技術能力，切換多個工具完成同一件事</span></td><td><span>誤以為多工具拼接比較「專業」</span></td><td><span>檢視每個切換是否真的必要，能在 Claude Code 內完成的就不切換</span></td></tr><tr><td><span>做完可行性驗證就直接視為「這個功能沒問題了」</span></td><td><span>混淆「做得到」與「值得做」</span></td><td><span>明確意識到可行性與期望性是兩件事，缺一不可</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成的前端程式碼，全程只在 Claude Code 內生成與優化，沒有中途切換到其他獨立工具。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能說出 LLM 原型法與 Wizard of Oz 原型法分別驗證什麼、什麼情況該先用哪一個。</span></p></li></ul><hr /><h2 id='部署前驗證關卡上線前的最後把關'><span>部署前驗證關卡（上線前的最後把關）</span></h2><h4 id='驗證關卡一｜wizard-of-oz-測試設計'><span>驗證關卡一｜Wizard of Oz 測試設計</span></h4><p><span>部署之前，先停下來回答一個問題：這個功能就算做到完美，使用者真的想要嗎？注意，這題問的不是「技術做不做得到」，是「有沒有人要」——兩題常常被混在一起，混在一起的代價通常很貴。這一節你會設計並執行一場 Wizard of Oz 測試：由人在幕後扮演 AI，讓回覆品質「永遠完美」，純粹測期望性。</span></p><p><strong><span>核心內容</span></strong></p><p><span>Wizard of Oz 原型法讓受測者以為自己在與一個真實運作的 AI 系統互動，實際上系統的核心判斷由操控者在幕後即時手動操控完成。這個方法的特殊之處，在於它刻意「略去實際的 AI 元件」：回覆品質由操控者的判斷力決定，因此可以做到「品質永遠是完美的」，藉此純粹測試「如果這個功能完美運作，使用者會不會想要、會不會採用」，而不受目前模型技術能力高低的干擾——這跟第五週用真實模型做出來的 Agentic 原型，測的是完全不同的問題。</span></p><p><span>操控者角色設定有四個原則：人設一致性（維持單一語氣風格，避免忽冷忽熱）、回應延遲控制（加入 1–3 秒思考延遲，模擬真實感）、不主動暴露操控痕跡（避免「我幫你問一下」這類真人用語）、允許適度的不完美（偶爾給出不夠精確的答案，更貼近真實 AI 行為，才能觀察受測者的追問與修正行為）。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>找 2–3 位同事或朋友扮演使用者，針對剛完成的 Agentic 功能設計 2–3 個任務腳本（例如：「請這個自動化助教幫你安排下一步學習內容」）。</span></p></li><li><p><span>自己或同組另一人扮演操控者，在受測者看不到的畫面幕後即時回應，模擬 Agent 已經完美運作的假象。可套用以下 Prompt 範本，讓 Claude 生成回應草稿，操控者審核後再手動轉發：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">角色設定：你是 [產品名稱] 的 AI [角色名稱]，服務對象是 [目標使用者]。</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">語氣與風格：親切但專業，每次回答控制在 3-5 句話內；遇到不確定的問題，</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">誠實表示「這部分我需要再確認」，不要編造內容。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">目前情境：使用者正在 [情境描述]，任務是 [任務描述]。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">使用者提問：[貼上受測者的即時提問]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">請生成一則以此角色身分回覆的草稿，供操控者審核後手動發送給使用者。</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="display: none; height: 162px;"></div></div></div></pre></li><li><p><span>記錄行為觀察指標：任務完成度、對話輪數、誤觸或困惑次數、是否要求「真人協助」，判斷「就算做到完美，使用者是否真的想要」。</span></p></li><li><p><span>額外練習：測試結束後追加一題「你覺得剛剛是不是真人在跟你對話？」，觀察操控是否有明顯破綻，作為下一輪測試的改進依據。</span></p></li></ol><p><strong><span>完整範例：StudyLoop AI 學習助教 WOZ 測試</span></strong></p><p><strong><span>任務腳本給受測者</span></strong><span>：「你正在瀏覽『資料視覺化入門』課程頁，但不確定這堂課適不適合完全沒有 Excel 基礎的你，請使用畫面上的 AI 學習助教詢問。」</span></p><p><strong><span>套用 Prompt 範本產生的操控者草稿</span></strong><span>：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: medium;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: medium;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">角色設定：你是 StudyLoop 的 AI 學習助教，服務對象是想學資料視覺化、</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">但擔心自己基礎不夠的上班族。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">目前情境：使用者正在瀏覽「資料視覺化入門」課程頁，任務是想知道這堂課</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">適不適合完全沒有 Excel 基礎的自己。</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">使用者提問：「我完全沒用過 Excel，這堂課我學得會嗎？」</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 135px;"></div><div class="CodeMirror-gutters" style="display: none; height: 135px;"></div></div></div></pre><p><strong><span>Claude 生成草稿</span></strong><span>：「這堂課的前兩個單元會從 Excel 最基礎的操作開始教，所以完全沒有基礎也可以跟上；不過建議你先預留多一點時間在前兩單元，之後的進度會比較順。」——操控者審核後，刻意加入 1.5 秒延遲再發送。</span></p><p><strong><span>觀察紀錄摘錄</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>受測者</span></th><th><span>任務完成時間</span></th><th><span>對話輪數</span></th><th><span>關鍵發言</span></th></tr></thead><tbody><tr><td><span>P01</span></td><td><span>1 分 40 秒</span></td><td><span>2 輪</span></td><td><span>「喔那我應該學得會，但我還是有點怕」</span></td></tr><tr><td><span>P02</span></td><td><span>3 分 10 秒</span></td><td><span>4 輪</span></td><td><span>追問「大概要花多久才能跟上」，顯示光給保證還不夠，還想要更具體的時間預期</span></td></tr></tbody></table></figure><p><strong><span>初步發現</span></strong><span>：受測者不只想知道「學得會嗎」，還想知道「要花多少時間」——這個發現會直接影響驗證關卡二的需求對應矩陣設計。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>操控者回覆過於完美流暢，一看就不像真實系統</span></td><td><span>忘記刻意保留適度不完美與延遲</span></td><td><span>加入 1–3 秒延遲，偶爾給出需要追問才能釐清的回答</span></td></tr><tr><td><span>操控者逐字照搬 AI 生成的草稿，未考慮情境細節是否吻合</span></td><td><span>省略人工審核環節</span></td><td><span>操控流程必須保留「人工審核」步驟，不可完全自動轉發</span></td></tr><tr><td><span>樣本數僅 2–3 人就直接下結論「使用者不需要這個功能」</span></td><td><span>誤把小樣本質性觀察當成統計顯著的定論</span></td><td><span>標註為「初探性發現」，作為迭代方向參考，避免作為唯一決策依據</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了至少 2–3 次 Wizard of Oz 測試，並記錄了行為觀察指標。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我知道這個測試結果是「初探性發現」，不能直接當作統計顯著的結論。</span></p></li></ul><hr /><h4 id='驗證關卡二｜介面設計與模型需求轉譯'><span>驗證關卡二｜介面設計與模型需求轉譯</span></h4><p><span>測出來的需求，要落回介面跟規格才算數。這一節你會把上一節的觀察轉成需求對應矩陣與結構化線框圖，再盤點 AI 模型能力需求規格，跟你手上的 Agent 逐項比對——缺什麼，就是部署前的待辦清單。</span></p><p><strong><span>核心內容</span></strong></p><p><span>驗證關卡一觀察到的使用者需求，有一個共通點：使用者不一定擅長「下指令」。若介面只提供一個空白對話框（純提示詞介面），會讓求助意圖轉化為表達能力的門檻，這是「Spork 問題」的典型徵狀。因此這一步採混合式介面：以自由文字輸入為基礎，同時搭配結構化的快速選項、卡片與操作按鈕。</span></p><p><span>要讓介面能呈現步驟卡、推薦卡等結構化元件，模型必須具備「結構化輸出能力」——能依問題類型輸出對應格式（純文字／步驟清單／推薦卡片），供前端渲染成對應元件。這是避免 Spork 問題的技術前提：若選用的模型不支援可靠的結構化輸出，畫面就無法呈現卡片式互動，屆時建議退而求其次，在前端以規則式樣板依關鍵字分類。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>把驗證關卡一觀察到的使用者需求，套進「需求對應矩陣」：每個痛點對應一個互動設計原則與介面元件（例如：「問題不清楚」→「情境感知快速提問卡」；「卡在步驟」→「分步驟卡片＋下一步按鈕」）。</span></p></li><li><p><span>畫出（或用 Figma／Stitch 快速產出）對應的結構化線框圖：快速提問卡、分步驟卡片、推薦卡片、不確定／升級出口，避免整個功能只剩一個空白對話框。</span></p></li><li><p><span>條列 AI 模型能力需求規格（上下文長度、多輪對話狀態、RAG、結構化輸出、不確定性表態、回應延遲），對照 Claude Code 目前產出的 Agent 是否都已滿足，缺口列為部署前待辦事項。</span></p></li><li><p><span>額外練習：檢查自己設計的「不確定／升級」畫面，是否明確表態「這部分我不確定」並提供至少兩個結構化出口（例如換個問法、轉真人協助），而不是讓使用者卡住只能默默放棄。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 需求對應矩陣與模型規格</span></strong></p><p><strong><span>需求對應矩陣（依驗證關卡一發現填入）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>使用者需求</span></th><th><span>互動設計原則</span></th><th><span>對應介面元件</span></th></tr></thead><tbody><tr><td><span>想知道課程適不適合自己</span></td><td><span>情境感知快速提問卡</span></td><td><span>「這堂課適合零基礎嗎？」快速提問卡（依課程頁自動產生）</span></td></tr><tr><td><span>想知道要花多久時間</span></td><td><span>回覆需附具體量化資訊，而非只給定性保證</span></td><td><span>推薦卡片附「預估學習時數」欄位</span></td></tr></tbody></table></figure><p><strong><span>AI 模型能力需求規格落差比對（節錄）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>能力項目</span></th><th><span>需求說明</span></th><th><span>目前 Agent 是否已滿足</span></th></tr></thead><tbody><tr><td><span>結構化輸出（推薦卡片含預估時數欄位）</span></td><td><span>需能輸出 JSON 格式，前端渲染成卡片</span></td><td><span>尚未滿足，目前僅能輸出純文字，列為部署前待辦</span></td></tr><tr><td><span>檢索增強（RAG，讀取課程實際單元時數資料）</span></td><td><span>需準確引用課程大綱中的實際時數，而非估算</span></td><td><span>已滿足，已串接課程資料庫</span></td></tr></tbody></table></figure><p><strong><span>待辦缺口處理</span></strong><span>：結構化輸出能力尚未滿足，決議部署前先以前端規則式樣板（偵測到回覆中包含「小時」關鍵字就自動渲染成卡片格式）作為過渡方案，待模型端支援穩定 JSON 輸出後再全面切換。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>只設計了「回答正確」的畫面，沒設計「AI 不確定」的畫面</span></td><td><span>過度樂觀假設 Agent 永遠給得出好答案</span></td><td><span>明確設計不確定狀態的畫面與結構化出口</span></td></tr><tr><td><span>要求模型輸出卡片格式，但模型不支援穩定的結構化輸出</span></td><td><span>選用的模型或架構本身不支援可靠 JSON schema 輸出</span></td><td><span>先實測模型的結構化輸出穩定度，不穩定時改用前端規則式樣板</span></td></tr><tr><td><span>規格文件列了需求，卻沒有對照目前 Agent 是否已滿足</span></td><td><span>只做了「應該要有什麼」，沒做「現在缺什麼」</span></td><td><span>逐項打勾比對，缺口列為明確待辦事項</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我的介面設計中，「不確定」狀態有明確畫面與至少兩個結構化出口。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了 AI 模型能力需求規格清單，並標出目前尚未滿足的缺口。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我確認這個功能已同時通過「期望性」（驗證關卡一）與「規格對齊」（本小時）兩關，可以放行進入部署。</span></p></li></ul><hr /><h3 id='第六週網站部署實務與域名營運'><span>第六週：網站部署實務與域名營運</span></h3><h4 id='6-1｜基礎網站部署知識與環境選型'><span>6-1｜基礎網站部署知識與環境選型</span></h4><p><span>從這一節開始，把成果變成一個真正上線的網站。你會先弄懂靜態託管跟伺服器渲染（SSR）差在哪——這決定你該選哪個平台；然後從 Vercel、Netlify、GitHub Pages 挑一個，完成本課程（也可能是你人生）的第一次部署。</span></p><p><strong><span>核心內容</span></strong></p><p><span>買過便當嗎？便當店有兩種：一種是便當裝好排在檯面上，你來了直接拿，快又便宜；另一種是現點現炒，你點了老闆才下鍋，等久一點，但每個人拿到的都不一樣。靜態託管就是第一種——網站內容在建置時就做好固定的 HTML 檔案，伺服器只負責原封不動地端出來；伺服器渲染（SSR）是第二種——每次有人來，伺服器現場運算出屬於他的頁面。作品集、行銷頁這種人人看到都一樣的內容，拿現成便當就好（速度快、成本低）；要登入、要顯示個人化內容的產品，就得現點現炒（SSR 或混合渲染）。</span></p><p><strong><span>工具介紹｜Vercel／Netlify／GitHub Pages 三平台比較</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>Vercel</span></th><th><span>Netlify</span></th><th><span>GitHub Pages</span></th></tr></thead><tbody><tr><td><span>定位</span></td><td><span>前端雲平台（Next.js 開發商）</span></td><td><span>Jamstack 部署平台</span></td><td><span>GitHub 附屬的靜態託管</span></td></tr><tr><td><span>SSR 支援 </span><strong><span>[功能事實]</span></strong></td><td><span>原生支援（Next.js 整合最深）</span></td><td><span>支援（透過 Functions）</span></td><td><span>不支援，僅靜態檔案</span></td></tr><tr><td><span>免費額度 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>Hobby 方案免費（頻寬與建置分鐘有限，且</span><strong><span>限非商業用途</span></strong><span>）</span></td><td><span>免費方案（頻寬約 100GB／月等級）</span></td><td><span>完全免費（公開儲存庫）</span></td></tr><tr><td><span>自訂網域＋HTTPS </span><strong><span>[功能事實]</span></strong></td><td><span>支援，自動簽發憑證</span></td><td><span>支援，自動簽發憑證</span></td><td><span>支援，自動簽發憑證</span></td></tr><tr><td><span>CI/CD </span><strong><span>[功能事實]</span></strong></td><td><span>Git push 自動部署；Preview Deployment 供上線前預覽</span></td><td><span>Git push 自動部署；Deploy Preview</span></td><td><span>需搭配 GitHub Actions 設定</span></td></tr><tr><td><span>適合情境 </span><strong><span>[專家推論]</span></strong></td><td><span>需要登入、個人化內容的產品（如 StudyLoop）</span></td><td><span>靜態為主、需要表單或少量後端函式的行銷網站</span></td><td><span>純靜態作品集、零預算入門</span></td></tr></tbody></table></figure><p><span>三者共通點是都走「連結 Git 儲存庫、push 即自動部署」的模式，差異主要在動態渲染能力與商用條款。選型時先回答「內容會不會依使用者變化」，再看免費額度的商用限制——例如把商業產品放在 Vercel Hobby 方案上是違反服務條款的，正式營運需升級付費方案。</span></p><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>釐清產品屬性：內容是否會頻繁動態變化（傾向 SSR）還是大致固定（傾向靜態託管）。</span></p></li><li><p><span>依此比較 Vercel、Netlify、GitHub Pages 三者在部署流程、免費額度、與 CI/CD 整合度上的差異。</span></p></li><li><p><span>選定一個平台，完成帳號註冊與第一次手動部署，確認網站可透過平台提供的預設網址開啟。</span></p></li><li><p><span>額外練習：把同一個專案分別嘗試部署到兩個不同平台，比較實際部署流程的順暢度差異，作為未來選型的第一手經驗。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 部署平台選型</span></strong></p><p><strong><span>產品屬性判斷</span></strong><span>：StudyLoop 有「登入後顯示個人化學習進度」的需求（每位使用者看到的內容不同），屬於需要動態渲染的產品，因此排除純靜態託管的 GitHub Pages。</span></p><p><strong><span>選型決策</span></strong><span>：選擇 Vercel，理由：與 Next.js（StudyLoop 前端框架）整合度最高、CI/CD 設定最簡單、預覽部署（Preview Deployment）功能方便在正式上線前先給團隊試看。</span></p><p><strong><span>首次部署結果</span></strong><span>：完成 </span><code>vercel --prod</code><span> 部署後，取得平台預設網址 </span><code>studyloop.vercel.app</code><span>，開啟後確認課程列表頁與登入功能皆正常運作。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>選了 SSR 平台卻只是要放靜態作品集</span></td><td><span>未先釐清產品實際需求就選型</span></td><td><span>先回答「內容會不會依使用者變化」這個問題，再選平台</span></td></tr><tr><td><span>部署後開啟網址顯示空白頁</span></td><td><span>建置設定（build command／output directory）填寫錯誤</span></td><td><span>對照所選框架（如 React／Next.js）的官方部署文件檢查建置設定</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能說出靜態託管與 SSR 的差異，並說出自己的產品適合哪一種。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了第一次部署，且能用平台提供的網址正常開啟網站。</span></p></li></ul><hr /><h4 id='6-2｜域名申請與-dns-註冊流程實作'><span>6-2｜域名申請與 DNS 註冊流程實作</span></h4><p><span>網站上線了，但網址還是平台送的那串 xxx.vercel.app，跟開店用別人的招牌差不多意思。這一節你會買下自己的網域，弄懂 A Record 跟 CNAME 差在哪，然後把自訂網域跟部署平台綁起來。</span></p><p><strong><span>核心內容</span></strong></p><p><span>網域註冊商跟部署平台是兩家不同的店，中間靠 DNS（網域名稱系統）牽線。DNS 記錄有兩種常用寫法：A Record 像是把你的店名登記到一個固定的門牌號碼（IP 位址）；CNAME 像是登記成「跟著某某店走」（指向另一個網域）。多數現代平台建議用 CNAME，理由很實際：平台底層的 IP 會搬家，你登記死門牌，哪天它搬走你的網站就失聯了；登記「跟著它走」，它搬到哪你跟到哪。</span></p><p><strong><span>工具介紹｜Namecheap／GoDaddy（網域註冊商）</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>定位</span></td><td><span>網域註冊商：提供網域搜尋、購買、DNS 管理與 WHOIS 隱私保護。Namecheap 以價格透明、免費 WHOIS 隱私著稱；GoDaddy 規模最大、支援的頂級網域最多</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>網域搜尋與註冊、DNS 記錄管理（A／CNAME／TXT 等）、自動續約、網域轉移</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><code>.com</code><span> 首年常見優惠價約 US$6–12，續約約 US$13–20／年；不同頂級網域價差大</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>第六週網域購買與 DNS 設定的操作對象</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>並非所有國際註冊商都支援 </span><code>.tw</code><span> 頂級網域，若要購買 </span><code>.tw</code><span>（如範例的 studyloop.tw），下手前先確認註冊商支援清單，或改用台灣本地註冊商（如 PChome 買網址、Gandi 等有支援者）；注意首年優惠與續約價的落差，以及結帳時預設勾選的加購項目</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>在 Godaddy 或 Namecheap 搜尋並購買一個符合產品品牌的網域名稱。</span></p></li><li><p><span>進入網域註冊商的 DNS 管理頁面，新增 A Record（指向平台 IP）或 CNAME（指向平台網域），依所選部署平台官方文件填入對應數值。</span></p></li><li><p><span>等待 DNS 傳播（通常數分鐘至數小時），用自訂網域開啟網站確認綁定成功。</span></p></li><li><p><span>額外練習：用線上 DNS 查詢工具（例如 whatsmydns.net）查詢自己設定的記錄是否已在多個地區的 DNS 伺服器上生效，理解「DNS 傳播」不是瞬間發生的。</span></p></li></ol><p><strong><span>完整範例：studyloop.tw 網域綁定</span></strong></p><p><strong><span>網域購買</span></strong><span>：在 Namecheap 搜尋並購買 </span><code>studyloop.tw</code><span>。</span></p><p><strong><span>DNS 設定（依 Vercel 官方文件填入）</span></strong><span>：</span></p><figure class='table-figure'><table><thead><tr><th><span>記錄類型</span></th><th><span>主機名稱</span></th><th><span>指向值</span></th></tr></thead><tbody><tr><td><span>A</span></td><td><span>@</span></td><td><span>76.76.21.21（Vercel 提供的固定 IP）</span></td></tr><tr><td><span>CNAME</span></td><td><span>www</span></td><td><span>cname.vercel-dns.com</span></td></tr></tbody></table></figure><p><strong><span>綁定驗證</span></strong><span>：設定完成後等待約 20 分鐘，用 </span><code>studyloop.tw</code><span> 開啟網站，確認顯示的是 StudyLoop 課程首頁而非錯誤頁面；用 whatsmydns.net 查詢確認多數地區的 DNS 已生效。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>設定完 DNS 立刻覺得「沒生效」而重複修改</span></td><td><span>不了解 DNS 傳播需要時間</span></td><td><span>設定完至少等待 30 分鐘至數小時，再用 DNS 查詢工具確認</span></td></tr><tr><td><span>A Record 與 CNAME 同時指向同一個子網域造成衝突</span></td><td><span>對兩種記錄的用途不熟悉</span></td><td><span>同一個主機記錄只設定一種類型，依平台官方文件指示選擇</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了網域購買，並設定了對應的 DNS 記錄。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我能用自訂網域正常開啟自己的網站。</span></p></li></ul><hr /><h4 id='6-3｜安全性與自動化運維'><span>6-3｜安全性與自動化運維</span></h4><p><span>正式上線前的最後兩塊拼圖：HTTPS 加密跟 CI/CD 自動部署。做完這一節，你會親眼看到「設計一動、網站同步」——push 一次程式碼，網站自己建置、自己更新，全程不用手動上傳任何檔案；那個瞬間的爽感，很難用文字形容，你自己體會。</span></p><p><strong><span>核心內容</span></strong></p><p><span>HTTPS 加密不只是提升安全感，也直接影響 SEO 權重與瀏覽器是否會顯示「不安全」警示，是正式上線產品的基本門檻。CI/CD（持續整合／持續部署）則是本課程「設計一動，網站同步」理念的最後一塊拼圖：當 GitHub Repository 與部署平台連動後，每次程式碼推送到主分支，平台會自動重新建置並發布，不需要每次手動上傳。</span></p><p><strong><span>工具介紹｜GitHub</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>項目</span></th><th><span>說明</span></th></tr></thead><tbody><tr><td><span>定位</span></td><td><span>Microsoft 旗下的程式碼代管平台：版本控制（Git）＋協作（Pull Request）＋自動化（GitHub Actions）</span></td></tr><tr><td><span>核心功能 </span><strong><span>[功能事實]</span></strong></td><td><span>Git 版本控制與歷史紀錄；公開／私有儲存庫（個人免費）；Pull Request 審查流程；GitHub Actions 自動化工作流；與 Vercel／Netlify 一鍵連動</span></td></tr><tr><td><span>定價方案 </span><strong><span>[功能事實，撰寫當下]</span></strong></td><td><span>個人免費方案即涵蓋本課程全部需求</span></td></tr><tr><td><span>在本課程的角色</span></td><td><span>部署流程的「單一事實來源」：程式碼 push 到主分支即觸發部署平台自動建置發布，是「設計一動、網站同步」的樞紐</span></td></tr><tr><td><span>適用邊界與限制 </span><strong><span>[專家推論]</span></strong></td><td><span>設計師常見門檻是 Git 概念（commit、branch、merge），本課程只需最小集合：clone、commit、push；Claude Code 可以代為執行 Git 操作，但建議至少看懂每次 commit 的內容再放行</span></td></tr></tbody></table></figure><p><em><span>註：以上功能與定價為撰寫當下資訊，工具介面、方案與額度可能隨版本更新而變動，請以官方最新版為準。</span></em></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>在部署平台後台一鍵開啟 HTTPS／SSL（多數平台會自動簽發並更新憑證）。</span></p></li><li><p><span>將專案的 GitHub Repository 與部署平台連動，設定「push 到主分支即自動部署」。</span></p></li><li><p><span>實測一次：在 Figma 或程式碼中做一個小改動並 push，確認網站內容確實同步更新，驗證「設計一動、網站同步」的自動化發布是否成立。</span></p></li><li><p><span>額外練習：刻意 push 一個會導致建置失敗的錯誤程式碼，觀察平台的建置失敗通知與錯誤訊息，熟悉排查建置錯誤的基本流程。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 自動化發布驗證</span></strong></p><p><strong><span>SSL 設定</span></strong><span>：Vercel 後台顯示 </span><code>studyloop.tw</code><span> 的 SSL 憑證狀態為「Active」，網址列出現鎖頭圖示。</span></p><p><strong><span>CI/CD 連動</span></strong><span>：將 GitHub Repository </span><code>studyloop-web</code><span> 與 Vercel 連動，設定「push 到 </span><code>main</code><span> 分支即自動部署」。</span></p><p><strong><span>實測</span></strong><span>：把課程頁的「立即報名」按鈕文字從「立即報名」改成「馬上開始學習」，commit 並 push 到 </span><code>main</code><span>；約 90 秒後 Vercel 自動完成建置，重新整理 </span><code>studyloop.tw</code><span> 網站，按鈕文字已同步更新，全程沒有手動上傳任何檔案。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>SSL 憑證顯示「未生效」或瀏覽器仍警示不安全</span></td><td><span>憑證簽發需要時間，或網域 DNS 尚未完全生效</span></td><td><span>確認 DNS 已生效後再檢查憑證狀態，通常等待數分鐘至數小時</span></td></tr><tr><td><span>Push 程式碼後網站沒有自動更新</span></td><td><span>GitHub 與平台的連動設定不完整，或推送到錯誤分支</span></td><td><span>檢查平台後台的 Git 整合設定，確認監聽的分支是否正確</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我的網站已開啟 HTTPS，瀏覽器不再顯示不安全警示。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我實測過一次 push 程式碼後網站自動更新，確認 CI/CD 流程正常運作。</span></p></li></ul><hr /><h3 id='第七週專題結業與未來展望'><span>第七週：專題結業與未來展望</span></h3><h4 id='7-1｜結業專案實作從-brief-到-launch'><span>7-1｜結業專案實作：從 Brief 到 Launch</span></h4><p><span>結業專案來了。這一節要在限時內獨立跑完整條工作流：研究 → 原型 → 設計系統 → 邏輯原型與驗證 → Agentic UX → 部署，最後交出一個綁好網域、真正上線的產品連結。重點不是做得多複雜，是證明這整套流程你一個人也跑得完——這句話寫起來輕鬆，跑起來就知道了。</span></p><p><strong><span>核心內容</span></strong></p><p><span>這是整門課的整合演練：把前六週學到的每一格工具與方法論，在限時內獨立完整跑過一輪。重點不在於做出多複雜的產品，而在於驗證「這整套工作流，我自己一個人也能跑得完」。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>用一句話寫下自己的產品 Brief（目標使用者、核心問題、預期解決方案）。</span></p></li><li><p><span>依第一至六週建立的完整工作流，限時跑完一輪，中途卡關時可回頭查閱對應章節的操作步驟。</span></p></li><li><p><span>完成後取得一個「已綁定域名、已上線」的真實產品連結，作為結業成果。</span></p></li><li><p><span>額外練習：邀請一位不了解這個專案背景的朋友，直接用你的 Live URL 操作一次，觀察他是否能在沒有你在場說明的情況下理解並完成基本任務。</span></p></li></ol><p><strong><span>完整範例：StudyLoop 結業成果</span></strong></p><p><strong><span>產品 Brief</span></strong><span>：「StudyLoop 是給下班後想學新技能、但害怕卡關求助無門的上班族設計的線上學習平台，核心差異化是隨時待命的 AI 學習助教。」</span></p><p><strong><span>限時跑完流程摘要</span></strong><span>：沿用第一至六週已完成的研究洞察、課程頁原型、設計系統、報名互動原型、AI 學習助教 Agent、WOZ 驗證與規格文件，把各週產出串接成同一個 Next.js 專案，部署到 </span><code>studyloop.tw</code><span>。</span></p><p><strong><span>最終成果</span></strong><span>：</span><code>https://studyloop.tw</code><span> 可正常瀏覽課程列表、完成報名流程、並與 AI 學習助教互動；邀請一位不知情的朋友實測，對方能在未經說明的情況下，找到「資料視覺化入門」課程並詢問 AI 助教「這堂課適合零基礎嗎」，且順利得到有預估時數的回覆。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>在某一階段卡太久，導致後面階段時間不夠</span></td><td><span>想把每個階段都做到完美</span></td><td><span>設定每階段的時間上限，先求「跑完整條路徑」，再回頭深化細節</span></td></tr><tr><td><span>略過部署前驗證關卡的期望性驗證，直接部署</span></td><td><span>趕時間而跳過驗證關卡</span></td><td><span>至少用簡化版的一次性 WOZ 快速訪談，確認核心功能方向正確</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成的產品已上線，並可透過自訂網域正常開啟。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我至少讓一位他人實際操作過我的產品，並蒐集了初步反饋。</span></p></li></ul><hr /><h4 id='7-2｜設計師的-ai-倫理與職涯發展'><span>7-2｜設計師的 AI 倫理與職涯發展</span></h4><p><span>最後一節不教新東西，我們一起回頭盤點：這門課用過的工具，哪些會真的留在你的日常？反覆出現的把關原則，哪一項最該帶回你的團隊？最後把結業作品整理成可以直接放進作品集、拿去求職或接案的素材。</span></p><p><strong><span>核心內容</span></strong></p><p><span>這門課走完整套流程後，最容易遺漏的一步是「回頭盤點」：哪些工具真的會持續用、哪些只是課堂展示。同時，整門課反覆出現的把關原則（同質化風險、過度依賴悖論、幻覺與可行性、人工核可節點）值得整理成一份自己或團隊未來可以直接套用的檢核清單，而不是學完就忘。</span></p><p><strong><span>操作步驟</span></strong></p><ol start='' ><li><p><span>盤點本課程使用過的所有工具，列出「日常工作會持續使用」與「僅課堂展示、暫不導入」兩份清單。</span></p></li><li><p><span>依課程中反覆出現的把關原則（同質化風險、過度依賴悖論、幻覺與可行性、人工核可節點），寫下自己團隊或客戶最需要優先建立的一項審核機制。</span></p></li><li><p><span>整理結業作品（LIVE URL＋簡短說明），作為求職或接案時可直接展示的作品集項目。</span></p></li><li><p><span>額外練習：三個月後回頭重看這份升級清單，確認當初列的工具是否真的持續在用，藉此校準自己判斷工具價值的準確度。</span></p></li></ol><p><strong><span>完整範例：個人 AI 工具升級清單（節錄）</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>分類</span></th><th><span>工具</span></th><th><span>決定</span></th></tr></thead><tbody><tr><td><span>立即可用</span></td><td><span>Perplexity、Claude、Figma MCP</span></td><td><span>已在 StudyLoop 專案中驗證好用，納入日常工作流程</span></td></tr><tr><td><span>需要團隊配合</span></td><td><span>Dovetail、Code Connect</span></td><td><span>需要團隊建立標籤體系與元件對應規範，才能發揮效益，列入下季導入計畫</span></td></tr><tr><td><span>觀察中</span></td><td><span>Maze AI 預測熱圖</span></td><td><span>這次僅用於 StudyLoop 單一案例，需再多幾個專案驗證預測準確度後再決定是否全面採用</span></td></tr></tbody></table></figure><p><strong><span>團隊審核機制反思</span></strong><span>：StudyLoop 案例中最容易被忽略把關的環節是「AI 生成的推薦卡片是否真的引用了正確的課程時數」，決定下一個專案要在需求對應矩陣中，把「來源引用正確性」列為固定的審核項目。</span></p><p><strong><span>結業作品集項目</span></strong><span>：</span><code>studyloop.tw</code><span>（Live URL）＋一段 150 字說明，內容包含使用的工具鏈、WOZ 驗證發現、以及部署前規格落差比對的把關過程。</span></p><p><strong><span>常見錯誤與排除</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>常見錯誤</span></th><th><span>原因</span></th><th><span>排除方式</span></th></tr></thead><tbody><tr><td><span>清單列了十幾項工具，卻沒有優先順序</span></td><td><span>想一次全部導入</span></td><td><span>依「立即可用」「需要團隊配合」「觀察中」分三級排序</span></td></tr><tr><td><span>作品集只放連結，沒有說明用了哪些方法把關品質</span></td><td><span>忽略「把關過程」本身也是專業能力的展現</span></td><td><span>簡短補充說明曾在哪個環節做過人工審核或驗證</span></td></tr></tbody></table></figure><p><strong><span>自我檢核</span></strong></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我完成了個人 AI 工具升級清單，並排出優先順序。</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>我的結業作品集包含 Live URL，並附上簡短的方法論說明。</span></p></li></ul><hr /><h2 id='結語學完了嗎'><span>結語：學完了嗎？</span></h2><p><span>老實說，這門課教的工具，過兩年大概會換掉一半（覺得自己講得還太保守）。所以重點從來不是記住每個工具的操作步驟，而是那幾條不會過時的判斷原則：</span></p><blockquote><p><span>AI 適合加速產出已知有效的模式，差異化與創新仍要人來主導；</span>
+<span>AI 生成的內容，需要人工核可節點與可追溯的證據鏈；</span>
+<span>期望性與可行性是兩件事，要分開驗證。</span></p></blockquote><p><span>建議你每完成一週的進度，就回頭跑一次「自我檢核」，確認自己不是「跟著步驟做完」，而是真的知道每一步為什麼這樣做。如果哪裡卡住了，或者做出了什麼有趣的東西，歡迎隨時一起討論，等你喔。</span></p><hr /><p><strong><span>Troie Pan</span></strong>
+<span>聯絡電話：0980123456</span>
+<span>Email：</span><a href='mailto:troie@maolah.com' target='_blank' class='url'>troie@maolah.com</a></p><p>&nbsp;</p></div></div>
+</body>
+</html>
