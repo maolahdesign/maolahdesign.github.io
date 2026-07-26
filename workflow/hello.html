@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="zh-TW"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#dff4ff",
+                        "surface-container-highest": "#cfe6f2",
+                        "on-tertiary-fixed": "#3a0a00",
+                        "on-primary-fixed": "#001356",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#27308a",
+                        "outline": "#747688",
+                        "secondary-container": "#959efd",
+                        "on-background": "#071e27",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "surface-tint": "#124af0",
+                        "background": "#f3faff",
+                        "tertiary-fixed": "#ffdbd0",
+                        "surface-variant": "#cfe6f2",
+                        "surface-bright": "#f3faff",
+                        "on-surface": "#071e27",
+                        "outline-variant": "#c4c5d9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#d5ecf8",
+                        "on-primary-container": "#efefff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#c7dde9",
+                        "error": "#ba1a1a",
+                        "surface-container": "#dbf1fe",
+                        "on-tertiary-container": "#ffece7",
+                        "surface-container-low": "#e6f6ff",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "inverse-primary": "#b8c3ff",
+                        "surface": "#f3faff",
+                        "secondary": "#4c56af",
+                        "secondary-fixed": "#e0e0ff",
+                        "tertiary-container": "#c04319",
+                        "on-tertiary-fixed-variant": "#852300",
+                        "on-surface-variant": "#434656",
+                        "tertiary": "#9e2b00",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary": "#0040e0",
+                        "primary-container": "#2e5bff",
+                        "on-secondary-fixed": "#000767",
+                        "tertiary-fixed-dim": "#ffb59f",
+                        "on-primary-fixed-variant": "#0035be",
+                        "primary-fixed": "#dde1ff",
+                        "inverse-surface": "#1e333c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "stack-sm": "12px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    },
+                    "boxShadow": {
+                        "soft": "0 8px 30px rgba(0, 0, 0, 0.04)",
+                        "warm": "0 10px 40px rgba(158, 43, 0, 0.05)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f3faff; color: #071e27; scroll-behavior: smooth; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); }
+        .chat-bubble-ai { border-radius: 20px 20px 20px 4px; }
+        .chat-bubble-user { border-radius: 20px 20px 4px 20px; }
+        .pulse-soft { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+    </style>
+</head>
+<body class="text-on-background selection:bg-secondary-container/30 bg-white">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky backdrop-blur-md border-b border-surface-container shadow-soft z-50 bg-white/95">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md text-primary">Lumina Learning</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">我的課程</a>
+<a class="text-primary font-bold border-b-2 border-primary font-body-md text-body-md" href="#">瀏覽課程</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">社群討論</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">幫助中心</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant/30 rounded-none">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-48 placeholder:text-outline" placeholder="搜尋課程..." type="text">
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all rounded-none shadow-none">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all rounded-none shadow-none">bookmark</button>
+<img class="w-10 h-10 rounded-full border-2 border-surface-variant cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3TUoKkW34Z7OCSx1yzzGmaL5aape8OADk3ZEZzIhcI8Y1F3xwRFk6vUkAI7PqXTs1MRnI52SmFf9eAD75_UuONNwn4R-96kourN_Qrp3-utqbYiDHYQ5ilLYOpU0tdgJUpKk8DMcKDbWLJ0wjqbLLshM6GtJY54wbmgtS5yvKr7TwdO0TNKwgGGk5nG88RabSowrpANZIIbiBcFBlAUrYcEVm6uIAzrIDz-v-5nZbQqdaCdxNFpvwz-WJKli3MHWBWnIdJijk8iyv">
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto relative">
+<!-- SideNavBar (Learning Drawer) - Simplified for social feel -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-64 sticky top-20 p-4 gap-4 bg-surface-container-lowest border-r border-outline-variant/20 rounded-none">
+<div class="p-4 bg-primary-container/10 rounded-xl mb-4 border border-primary-container/20">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">menu_book</span>
+</div>
+<div>
+<p class="font-headline-sm text-[14px] text-on-surface leading-tight">Project Management Pro</p>
+<p class="font-label-sm text-outline text-[11px]">專案管理大師</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-3 text-primary bg-primary-container/20 rounded-lg font-bold" href="#overview">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">課程概覽</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors" href="#study-buddy">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI 學習夥伴</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors" href="#reviews">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-md text-label-md">學員心得</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors" href="#syllabus">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-label-md text-label-md">課程大綱</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors" href="#instructor">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">導師簡介</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 flex flex-col gap-2">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95 rounded-none shadow-none">
+                立即加入學習
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-4 md:px-gutter lg:px-margin-desktop py-stack-md max-w-4xl mx-auto lg:mx-0">
+<!-- Hero Section -->
+<section class="mb-stack-lg" id="overview">
+<div class="relative rounded-xl overflow-hidden bg-white p-8 md:p-12 shadow-soft border border-surface-container-high rounded-none shadow-none border-surface-dim">
+<div class="relative z-10">
+<div class="flex flex-wrap items-center gap-3 mb-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm">4.9/5 星級課程</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full animate-pulse">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+<span class="font-label-sm text-label-sm">目前有 42 位同學正在學習</span>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">
+                        Project Management Pro:<br><span class="text-primary">從混亂到秩序的藝術</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl">
+                        我們不只是教你工具，而是陪伴你建立職場思維。專為繁忙的跨領域專業人士設計，把複雜的專案管理轉化為可執行的日常習慣。
+                    </p>
+<div class="flex flex-wrap gap-4 items-center">
+<button class="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all rounded-none shadow-none">
+                            開始你的學習旅程
+                        </button>
+<div class="flex -space-x-3 items-center">
+<div class="flex -space-x-2">
+<img class="w-9 h-9 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9kmi4S2vgRTBwV3yi3zqYDQg51R2CGwagvAX4XJ3nwF_cFkJxBKXitJ1ogAjZlBJvKAE3sJHdx38mgFdg0Mx3tyxjQ1VXjy7QEL2IqkCJe397xS-nADOvsZX5wsPeZeCvPCdA5gPdcrgLa_IN5QD4RXQuYSJKn2BfE2lZb1qG6K5LqxfJ9mvrXWob2hLS9HvmTBGAWc8mELBK4zYHEq3ksWgvb0bj_c0eusea_zGyMUY0BskRPl0H2YaWbUncsW_4inb9vXxqd0SG">
+<img class="w-9 h-9 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0IckgyfAGcuRcLkbMTGAvCC6zAt42wJhcnD1WjiFsW4rYewVcMI3DgOyZQ1sTgoL185szqHpAB3m2TfTdrhsZgm60Lh1wk9wNKEk1iB3mAfk-6uM8j2CELG7Jx95ECApHUYkcWdccOYtgMF2_EwReAjHnu-MNuUP2r5wNhEGOz0Inid48_F_JvsXeLYfqhOyer--F8FeKpXvlx_2Krso47JNrGt4ZQvhnuuSb4SkHvjOlUYcDCfRt1E3FZ5MOj3VUGF3iSCtOWV66">
+<img class="w-9 h-9 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVKdsowELVxjxoQs_owqrhiCsJWUyLAxnKWasrhJGmMQDRxROrP9QSkoxHg662Jkrw6T-IJWSYtV99FRVZpJeaHCHvVzrmQcCj0xd3Ef-qn05-VZ-bP1H8BSv-mAg46_mBWXzBDl14SgzSwMxLXxcavyGBpoq6w30HLbbqpJamyRrwX2qmI8iTS6813kLfmM5pK3lMYn8D9b9qfL-3sNB7rF83Wbcm7sual4AYe_fUjrdBKE2suNtOIGRpRJM1UnCzwZx-2PKekTnC">
+</div>
+<span class="ml-5 text-label-md font-label-md text-on-surface-variant">已有 1,200+ 位夥伴加入</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials (Elevated) -->
+<section class="mb-stack-lg" id="reviews">
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-primary">group</span>
+<h2 class="font-headline-md text-headline-md">同學的心路歷程</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-xl shadow-soft border border-surface-container relative hover:border-primary/20 transition-all rounded-none shadow-none border-surface-dim">
+<span class="material-symbols-outlined text-primary/10 absolute top-4 right-4 text-5xl">format_quote</span>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6 leading-relaxed relative z-10">
+                        「這是我參加過最貼近實戰的課程。Sarah 老師的教學風格非常溫暖，AI 助教也總是在我卡關時即時出現。我現在對專案掌控更有信心了。」
+                    </p>
+<div class="flex items-center gap-3">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFg9nU7BBrStomvh2YFg_J4CR-k8J8e5Zq7HEAeQ93PvQALyep6zpQ2dWVloTYOsxK733qP0RA7fwtPJky4U0-k-4uQwIrnrps0UNcECt0QDlehCqM2H-3NEYbQkFW7zyZsk6yL0kDH6sLfMKdv8Ro20opiLPWYfy3jrvM4HxHzkrmNg8GAd0U9jCE-4DN-Cv8fs2rpYdNhKFPYvdcPsFS0mJm54Jp2Fb1o7ygfhdjEA6PW01IUEXwFpODMz7zvaIYH7voJGdWhrE2">
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">James L.</p>
+<p class="text-label-sm text-outline text-[11px]">資深軟體工程師</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-soft border border-surface-container relative hover:border-primary/20 transition-all rounded-none shadow-none border-surface-dim">
+<span class="material-symbols-outlined text-primary/10 absolute top-4 right-4 text-5xl">format_quote</span>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6 leading-relaxed relative z-10">
+                        「零碎時間學習的救星！AI 幫我把長達一小時的影片拆解成我的專屬筆記，社群裡的討論氛圍也非常友善，一點都不孤單。」
+                    </p>
+<div class="flex items-center gap-3">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmtSXeRQic4CXXnUEb7_lzU1LncgQ2n9vSonNkjjsHrzYITwphzrzFGlJltSjxuDgijuu7WAk_VVQGQAqfFijia4rsnSsR9CREqGVxC809zqvQat4-LdoB_7mS6twxXneWriwRLs7dNYD1_mBi7kUk5ZDrRWBn_HPHihd_VzZmsnwXUbWDvt2DRWphgZ-sY0G31CJUavJmVhAU9-zRTDQStvlpztK_7Eg0GqTwaD5UdhvFlroS0CyYAUk6wRHZzxv5LqcWl-4VFEfm">
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Emily W.</p>
+<p class="text-label-sm text-outline text-[11px]">產品經理</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Assistant (Conversational Integration) -->
+<section class="mb-stack-lg" id="study-buddy">
+<div class="rounded-xl border border-primary/10 p-6 md:p-8 shadow-warm bg-white border-outline-variant/20 rounded-none shadow-none border-surface-dim">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-2xl">smart_toy</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-primary">Lumina AI 學習助理</h3>
+<p class="text-label-sm text-outline">24/7 為您提供即時支援</p>
+</div>
+</div>
+<div class="space-y-4 max-w-2xl mb-6">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-xs">smart_toy</span>
+</div>
+<div class="chat-bubble-ai bg-white p-4 shadow-sm border border-surface-variant/50 text-body-md text-on-surface-variant">
+                            你好！我是你的 AI 夥伴。想知道這門課如何幫助你解決工作中的混亂嗎？或者你想了解學員們最喜歡哪個章節？
+                        </div>
+</div>
+<div class="flex gap-3 justify-end">
+<div class="chat-bubble-user bg-primary text-white p-4 shadow-sm text-body-md">
+                            我想了解這門課適合完全沒有專案管理背景的人嗎？
+                        </div>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center shrink-0 overflow-hidden border border-white">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3TUoKkW34Z7OCSx1yzzGmaL5aape8OADk3ZEZzIhcI8Y1F3xwRFk6vUkAI7PqXTs1MRnI52SmFf9eAD75_UuONNwn4R-96kourN_Qrp3-utqbYiDHYQ5ilLYOpU0tdgJUpKk8DMcKDbWLJ0wjqbLLshM6GtJY54wbmgtS5yvKr7TwdO0TNKwgGGk5nG88RabSowrpANZIIbiBcFBlAUrYcEVm6uIAzrIDz-v-5nZbQqdaCdxNFpvwz-WJKli3MHWBWnIdJijk8iyv">
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-white rounded-xl p-2 border border-outline-variant/30 focus-within:border-primary transition-all rounded-none">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-md px-3" placeholder="詢問關於課程或學習上的問題..." type="text">
+<button class="p-2 bg-primary text-white rounded-lg hover:bg-primary-container transition-all rounded-none shadow-none">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Instructor Section -->
+<section class="mb-stack-lg" id="instructor">
+<h2 class="font-headline-md text-headline-md mb-stack-sm">認識陪伴你的導師</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white rounded-xl p-8 shadow-soft border border-surface-container rounded-none shadow-none border-surface-dim">
+<div class="md:col-span-4">
+<div class="aspect-square rounded-xl overflow-hidden relative ring-4 ring-surface-container-low">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW9op5usSRoDwjScSbLoxxbpn_4BqpFFjhnjQzfUFFiAltI4Ytci6ILfBgRJ_n6dvKSrvnaVpsYBT6b6GmWRY_P009uCvVqBZDh5KRR7gB2PlRHKhFoLsfm610KIqlCTAgpm-KcjednWxUv8MoHDeAVO4K89uTDVttr55xmaVS9Fk-sRp5hwD1HJouomwTTicuh64BulaaZPkcLHj-9cwSLwH86qcP7284TqcfQ-F6J04NNrWBKTF1I8EgRXEsCiR3KTvJOT4eUEdZ">
+</div>
+</div>
+<div class="md:col-span-8">
+<h3 class="font-headline-sm text-headline-sm mb-1">Dr. Sarah Chen</h3>
+<p class="text-primary font-label-md text-label-md mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                        前矽谷資深專案總監 | 20+ 年實戰經驗
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+                        「我明白在繁忙的職場中保持效率是多麼困難。這門課不僅僅是關於工具和流程，更是關於如何建立一種讓你與團隊共同成長的思維方式。我將帶領你跨越理論，直接進入實戰場景。」
+                    </p>
+<div class="flex gap-6">
+<div class="flex flex-col">
+<span class="font-bold text-headline-sm text-primary">15k+</span>
+<span class="text-label-sm text-outline">成功指導學員</span>
+</div>
+<div class="w-px bg-outline-variant/30 h-10"></div>
+<div class="flex flex-col">
+<span class="font-bold text-headline-sm text-primary">98%</span>
+<span class="text-label-sm text-outline">學員滿意度</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Syllabus Section -->
+<section class="mb-stack-lg" id="syllabus">
+<div class="flex justify-between items-end mb-stack-sm">
+<h2 class="font-headline-md text-headline-md">課程大綱</h2>
+<span class="font-label-md text-label-md text-outline">共 6 個單元 • 12 小時高質量內容</span>
+</div>
+<div class="space-y-4">
+<div class="bg-white rounded-xl p-6 shadow-soft border border-surface-container hover:shadow-md transition-shadow group cursor-pointer rounded-none shadow-none border-surface-dim">
+<div class="flex justify-between items-center mb-3">
+<span class="px-3 py-1 bg-primary-container/10 text-primary rounded-full font-label-sm text-label-sm">單元 01</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">expand_more</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-2">The Agile Mindset：敏捷思維的深度養成</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">學習如何在不確定的環境中保持靈活，並建立快速迭代的正向循環。</p>
+</div>
+<div class="bg-white rounded-xl p-6 shadow-soft border border-surface-container hover:shadow-md transition-shadow group cursor-pointer rounded-none shadow-none border-surface-dim">
+<div class="flex justify-between items-center mb-3">
+<span class="px-3 py-1 bg-primary-container/10 text-primary rounded-full font-label-sm text-label-sm">單元 02</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">expand_more</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Stakeholder Magic：利益相關者的溝通藝術</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">掌握如何與不同部門的高階主管溝通，將衝突轉化為共識。</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Desktop CTA Side Card -->
+<aside class="hidden xl:block w-80 sticky top-24 h-fit ml-gutter">
+<div class="bg-white rounded-xl shadow-lg p-6 border border-primary/5 overflow-hidden rounded-none shadow-none border-surface-dim">
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold rounded uppercase tracking-wider">限時早鳥優惠</span>
+<span class="text-label-sm text-tertiary font-medium">剩餘 2 天</span>
+</div>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-display-lg-mobile font-display-lg-mobile text-on-background">NT$ 4,800</p>
+<p class="text-label-md text-outline line-through">NT$ 8,200</p>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-green-500 text-[20px]">verified</span>
+                    終身無限次觀看
+                </li>
+<li class="flex items-center gap-3 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-green-500 text-[20px]">verified</span>
+                    AI 助教 24/7 專屬服務
+                </li>
+<li class="flex items-center gap-3 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-green-500 text-[20px]">verified</span>
+                    專屬學習社群加入權
+                </li>
+<li class="flex items-center gap-3 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-green-500 text-[20px]">verified</span>
+                    結業實戰證書
+                </li>
+</ul>
+<button class="w-full py-4 bg-primary text-white font-bold rounded-xl mb-3 hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95 rounded-none shadow-none">
+                立即解鎖全部內容
+            </button>
+<button class="w-full py-4 border-2 border-outline-variant text-on-surface-variant font-bold rounded-xl hover:bg-surface-container transition-all rounded-none shadow-none">
+                免費試聽第一單元
+            </button>
+<p class="text-center mt-4 text-label-sm text-outline">保障學員權益：30 天無條件退款</p>
+</div>
+</aside>
+</div>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] px-6 py-3 flex justify-between items-center z-50 border-t border-surface-container">
+<button class="flex flex-col items-center gap-1 text-primary rounded-none shadow-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold">概覽</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant rounded-none shadow-none">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px]">心得</span>
+</button>
+<div class="relative -top-8">
+<button class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-white rounded-none shadow-none">
+<span class="material-symbols-outlined text-[28px]">rocket_launch</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant rounded-none shadow-none">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="text-[10px]">AI 助手</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant rounded-none shadow-none">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">我的</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="pt-stack-lg pb-24 md:pb-stack-lg mt-stack-lg border-t border-outline-variant/10 bg-white">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<span class="text-headline-md font-headline-md text-primary mb-6 block">Lumina Learning</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm leading-relaxed">
+                我們致力於為忙碌的專業人士提供最有溫度的學習體驗。拒絕無效內耗，與我們一起在社群的陪伴下，尋找清晰的職業道路。
+            </p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md font-bold mb-6">學習資源</h5>
+<ul class="space-y-3">
+<li class=""><a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">關於我們</a></li>
+<li class=""><a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">精選課程</a></li>
+<li class=""><a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">學員社群</a></li>
+<li class=""><a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">常見問題</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md font-bold mb-6">聯繫與社群</h5>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-soft hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-stack-md pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-label-sm text-outline">© 2024 Lumina Learning. 用心陪伴每一位學習者的職場成長。</p>
+</div>
+</footer>
+<script>
+    // Micro-interactions for syllabus cards
+    document.querySelectorAll('#syllabus > div').forEach(card => {
+        card.addEventListener('click', () => {
+            const icon = card.querySelector('.material-symbols-outlined');
+            icon.style.transform = icon.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+            icon.style.transition = 'transform 0.3s ease';
+        });
+    });
+
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 10) {
+            header.classList.add('shadow-md', 'bg-white/95');
+        } else {
+            header.classList.remove('shadow-md', 'bg-white/95');
+        }
+    });
+</script>
+
+
+</body></html>
