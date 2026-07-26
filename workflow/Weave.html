@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Weave說明文件中文翻譯</title>
+</head>
+<body><h1 id='figma-weave-說明文件'>Figma Weave 說明文件</h1>
+<h1 id='第一部分weaves-編輯器操作指南'>第一部分：Weave&#39;s 編輯器操作指南</h1>
+<h2 id='一媒體media'>一、媒體（Media）</h2>
+<h3 id='1-使用媒體working-with-media'>1. 使用媒體（Working with Media）</h3>
+<p><strong>匯入媒體</strong>
+要把媒體檔案匯入 Weave，你可以直接把檔案拖曳到畫布上，或是使用「匯入節點（Import Node）」。用拖放方式匯入多個檔案時，每個檔案會各自變成獨立的項目；用匯入節點匯入的話，所有檔案則會歸在同一個節點底下。</p>
+<p><strong>排序媒體</strong>
+你可以依「名稱」或「加入日期」排序媒體，只要點選排序圖示、選擇想要的排序方式即可。</p>
+<p><strong>媒體節點顯示方式</strong>
+當同一個節點（不論是匯入節點還是 AI 生成節點）裡有多個媒體項目時，你可以調整排序與顯示方式：可以一次只看一個項目、用箭頭圖示切換上一個／下一個，或是切換成「圖庫檢視」一次看到所有項目。</p>
+<h3 id='2-媒體庫media-gallery'>2. 媒體庫（Media Gallery）</h3>
+<p><strong>用圖庫模式開啟媒體</strong>
+點選媒體節點右下角的圖庫圖示，就能全螢幕檢視你產生的成果；也可以將滑鼠停在節點上、按下空白鍵快速開啟。</p>
+<p><strong>產生歷程紀錄</strong>
+在圖庫檢視模式中點選「顯示資訊（Show info）」，就能看到這個檔案完整的生成資訊，包括：使用的提示詞、參數與設定、種子碼（seed）等技術細節。</p>
+<h3 id='3-下載媒體downloading-media'>3. 下載媒體（Downloading Media）</h3>
+<p>點選節點右上角的三個點，即可選擇下載目前檔案，或是下載同一個節點內的所有檔案。</p>
+<p><strong>從群組下載</strong>：節點被群組起來之後，在群組區域上按右鍵並選擇「Download All」，即可一次下載群組內所有檔案。</p>
+<p><strong>從多個節點下載</strong>：拖曳滑鼠框選多個節點，接著在框選範圍內按右鍵並選擇「Download All」，即可同時從多個節點下載媒體。</p>
+<h3 id='4-從節點移除檔案removing-a-file-from-a-node'>4. 從節點移除檔案（Removing a file from a Node）</h3>
+<p><strong>移除單一選取的檔案</strong>：點選節點右上角三個點，選擇「Remove Current Generation」。</p>
+<p><strong>移除除了選取項目以外的所有檔案</strong>：點選節點右上角三個點，選擇「Remove All Other Generations」。</p>
+<hr />
+<h2 id='二文字與提示詞text-and-prompts'>二、文字與提示詞（Text and Prompts）</h2>
+<h3 id='5-調整文字節點大小resizing-a-text-node'>5. 調整文字節點大小（Resizing a Text Node）</h3>
+<p>使用文字節點時，可以調整它的尺寸以擴大顯示範圍：抓住節點邊緣拖曳到想要的大小即可。</p>
+<h3 id='6-提示詞變數prompt-variables'>6. 提示詞變數（Prompt Variables）</h3>
+<p>變數功能可以讓你把多組提示詞或文字輸入整合進同一個主要提示詞裡，想加多少變數都可以。加入變數後，節點上會出現一個新的輸入接點，任何連接到這個接點的文字節點都會被當作變數使用。變數能幫助你更有條理地組織與修改提示詞，把多個文字輸入整合進單一節點。</p>
+<p><strong>如何建立變數</strong>：新增一個「提示詞節點（Prompt Node）」，點選節點左下角的「Add Variables」，這時節點上會出現一個新的變數輸入接點；把任何文字節點連接到這個接點，它就會變成變數。</p>
+<p><strong>變數顯示選項</strong>：點選節點右下角的「Display」，可以選擇變數的顯示模式，例如只顯示「變數來源」、只顯示「變數值」，或是兩者同時顯示。</p>
+<p><strong>搬移變數</strong>：直接點選變數並拖曳，就能重新調整它在節點內的位置。</p>
+<hr />
+<h2 id='三操作畫布navigating-weave'>三、操作畫布（Navigating Weave）</h2>
+<h3 id='7-操作畫布navigating-the-canvas'>7. 操作畫布（Navigating the Canvas）</h3>
+<p>畫布是你在 Weave 裡的創作工作區，熟悉操作方式能大幅提升工作效率。</p>
+<p><strong>平移畫面</strong>：點選工具列上的手形工具，或直接按 H 鍵啟用。啟用後，用滑鼠可以「按住拖曳」平移、用滾輪「上下捲動」；用觸控板則是「按住拖曳」平移、或用兩指滑動捲動畫面。</p>
+<p><strong>縮放畫面</strong>：按住 ⌘（Mac）或 Ctrl（Windows）同時滾動滑鼠滾輪，往上滾放大、往下滾縮小；觸控板則用兩指「捏合」手勢縮放。</p>
+<h3 id='8-群組與取消群組節點group-and-ungroup-nodes'>8. 群組與取消群組節點（Group and Ungroup Nodes）</h3>
+<p><strong>群組節點</strong>：選取想要群組的節點，按下 Ctrl+G（Windows）或 Cmd+G（Mac），或按右鍵選擇「Group Selection」。點選群組內的空白處並拖曳，可以移動整個群組；選取群組內的節點並拖曳，群組範圍會自動跟著擴大。在群組上按右鍵選擇「Resize to Fit」，可以讓群組外框自動縮小到剛好包住節點、不留多餘空間。</p>
+<p><strong>群組標題</strong>：點選標題文字即可直接輸入修改；在群組上按右鍵選擇「Title Size」可調整標題文字大小。</p>
+<p><strong>群組顏色</strong>：在群組上按右鍵選擇「Color」即可更換群組顏色。</p>
+<p><strong>取消群組</strong>：在群組上按右鍵選擇「Ungroup」即可解除群組；若只想把單一節點移出群組，點選該節點右上角三個點、選擇「Remove from Group」即可。</p>
+<h3 id='9-連接線connecting-edges--wires'>9. 連接線（Connecting Edges / Wires）</h3>
+<p>要連接節點，只要從輸入或輸出接點拖曳出一條線即可。</p>
+<ul>
+<li>從輸出接點拖曳並放到畫布空白處，會跳出選單讓你選擇要新增哪種節點。</li>
+<li>把輸出接點拖曳到既有節點上，系統會自動連到對應的輸入接點（例如文字接文字、圖片接圖片）。</li>
+<li>連線會依照順序分配：第一條線會連到第一個可用的輸入接點，以此類推；如果沒有相容的輸入接點，節點就不會連上。</li>
+<li>對於支援多重輸入的節點（例如可接多張圖片的節點），只要持續拖曳更多連線過去，新的輸入接點就會自動出現。</li>
+
+</ul>
+<h3 id='10-刪除連接線deleting-edges--wires'>10. 刪除連接線（Deleting Edges / Wires）</h3>
+<p>用右鍵點選一條連接線把它選取，接著按下 Delete 鍵或直接雙擊該連線即可刪除。也可以拖曳框選多條連接線，一次選取後按 Delete 鍵批次刪除。</p>
+<h3 id='11-認識節點understanding-nodes'>11. 認識節點（Understanding Nodes）</h3>
+<p>節點是 Weave 創作流程中最基礎的組成單位。</p>
+<p><strong>什麼是節點？</strong> 節點就是一個具備特定輸入與輸出的功能：輸入在節點左側、輸出在節點右側。每個節點都會對你的內容執行特定的動作或轉換，可以接收另一個節點的輸出、或使用者直接輸入的內容，處理後再產生輸出。</p>
+<p><strong>連接節點</strong>：建立工作流程時，記得確認連接的內容類型是相容的（例如文字接文字、圖片接圖片），從一個節點的輸出接點拖曳到另一個節點的輸入接點，連線就會以線條呈現在兩者之間。</p>
+<p><strong>節點的兩大類型</strong>：</p>
+<ul>
+<li><strong>生成式 AI 節點</strong>：有「Run」按鈕，每次生成都需要消耗點數，用來根據輸入產生新內容，這些點數用來支應 AI 模型的授權與雲端運算成本。</li>
+<li><strong>非生成式節點</strong>：包含手動操作工具，例如繪圖、模糊化、多層合成等，也可能執行特定功能（例如把文字合併起來的「提示詞串接器」），這類節點不需要消耗點數。</li>
+
+</ul>
+<p><strong>新增節點到畫布</strong>：可以從左側選單瀏覽或搜尋節點，或是在畫布任意處按下 Tab 鍵搜尋想要的節點。小技巧：在畫布空白處按右鍵可以看到所有節點的選單，接著直接輸入關鍵字就能快速搜尋。</p>
+<p><strong>節點屬性</strong>：點選節點後，右側面板會顯示該節點所有可調整的參數，例如長寬比、提示詞遵循度，以及其他模型專屬的參數。</p>
+<p><strong>節點顏色說明</strong>：綠色代表圖片節點、紫色代表文字節點、紅色代表影片節點、紫色也用於 LoRA、藍色代表陣列／清單／3D 節點、白色代表多重輸入選項、萊姆綠代表遮罩（Mask）。</p>
+<p><strong>執行模型</strong>：確認所有必要的輸入都已正確連接後，點選節點上的「Run」按鈕即可執行生成式 AI 模型。</p>
+<h3 id='12-工具tools'>12. 工具（Tools）</h3>
+<p><strong>什麼是工具？</strong> 工具（原本叫做 Design Apps）是為了簡化你的工作流程而設計的，讓你能打造帶有自訂屬性的專屬「設計機器」，並分享給任何人使用。有了工具，你只需要建立一次工作流程，就能輕鬆產生無限多種變化版本。</p>
+<p><strong>如何建立工具</strong>：可以在任何既有的工作流程裡建立工具。新增一個「輸出節點（Output）」並連接到你的最終結果，畫布上方就會解鎖「Tool」分頁可以使用。工具中會顯示出來的屬性，是來自那些「沒有輸入接點」的節點（例如提示詞節點或匯入圖片節點）。如果不想讓某些屬性顯示在工具檢視畫面中，可以把它們「鎖定」：點選節點右上角三個點即可切換鎖定／解鎖狀態，三個點旁邊的鎖頭圖示可以看出目前狀態。</p>
+<p><strong>發布工具</strong>：切換到「Tool」分頁並點選「Publish」即可發布你的工具。發布後只有你分享的對象才能以「工具模式」看到它，身為建立者，你自己則永遠會看到可編輯模式。被分享的使用者可以切換模式來實驗你的工作流程，如果他們改動後想放棄修改，只要重新開啟你分享的原始連結，就會回復到已發布的版本。你可以自由調整工作流程，不會影響到對方目前正在使用的工具版本，等你準備好之後，再次點選「Publish」即可把更新推送給使用者。</p>
+<p><strong>版本管理</strong>：每次發布都會自動建立一個帶有時間戳記的版本（包含名稱、日期與時間），你可以在「Publish」按鈕旁邊看到目前使用的版本。點選版本日期即可開啟下拉選單，瀏覽並選擇任一個過去的版本來載入；雖然無法編輯舊版本，但隨時都能檢視或分享它們。</p>
+<h3 id='13-快捷鍵keyboard-shortcuts'>13. 快捷鍵（Keyboard Shortcuts）</h3>
+<ul>
+<li><strong>Tab</strong>：開啟節點選單</li>
+<li><strong>Cmd/Ctrl + C ／ Cmd/Ctrl + V</strong>：複製／貼上</li>
+<li><strong>Cmd/Ctrl + D</strong>：複製選取的節點</li>
+<li><strong>Cmd/Ctrl + Z ／ Cmd/Ctrl + Shift + Z</strong>：復原／取消復原</li>
+<li><strong>Cmd/Ctrl + P</strong>：建立新的提示詞節點</li>
+<li><strong>拖曳連接線時按住 Option/Alt</strong>：放開時開啟節點建議選單，並自動連接所選節點</li>
+<li><strong>V ／ H</strong>：切換「選取工具」與「手形工具」</li>
+<li><strong>Cmd + I</strong>：匯入檔案</li>
+
+</ul>
+<h3 id='14-時間軸編輯器timeline-editor'>14. 時間軸編輯器（Timeline Editor）</h3>
+<p>Weave 的時間軸功能整合在「合成器（Compositor）」節點中。點選「Edit」後啟用「Timeline」，你的圖層就會顯示為時間軸上的圖層。你可以：點選時長欄位調整影片長度、手動修改數值調整影格率、選取圖層上下拖曳來重新排序、拖曳影片頭尾來裁剪片段、用眼睛圖示切換圖層顯示或隱藏、點選鎖頭圖示鎖定圖層、點選聲音圖示將圖層靜音，並透過畫面右側面板調整圖層的透明度、混合模式、位置、縮放與對齊方式。</p>
+<h3 id='15-weave-新功能亮點-2new-figma-weave-delights-2'>15. Weave 新功能亮點 #2（New Figma Weave Delights #2）</h3>
+<p><strong>拆解節點（Unpack a Node）</strong>：當同一個節點內用同一個節點生成了多個結果時，你可以切換顯示模式來檢視單一結果、全部結果，或是使用疊代器時的特定批次。如果想把這些結果拆成各自獨立的節點，點選結果節點右側的三個點，選擇「Unpack」，所有結果就會被拆成一個群組內的獨立節點，方便你逐一處理。</p>
+<p><strong>從既有節點建立疊代器（Creating Iterators from Existing Node）</strong>：如果你已經用某個圖片模型生成了多個結果，可以把這些結果直接當作新「圖片疊代器」節點的輸入。點選節點右上角三個點，選擇「Create Iterator」，系統就會建立一個包含原節點所有結果的新疊代器。</p>
+<p><strong>刪除節點並保留連線（Delete Node and Maintain Flow）</strong>：選取要刪除的節點，按下 Shift + Delete，該節點就會從工作流程中移除，但前後的連線關係會自動保留。</p>
+<h3 id='16-weave-新功能亮點-3new-figma-weave-delights-3'>16. Weave 新功能亮點 #3（New Figma Weave Delights #3）</h3>
+<p><strong>複製並保留連線（Duplicate with Connections）</strong>：用框選方式選取節點後，按下 Cmd/Ctrl + Shift + D，或是按住 Alt 拖曳，就能複製節點並同時保留原本的所有連線關係。</p>
+<p><strong>單選節點（Handpick Node Selection）</strong>：不需要用框選抓取所有東西，可以直接點選單一節點；按住 Shift 再點選其他節點，就能把它們逐一加入選取範圍。</p>
+<p><strong>CSV 匯入文字疊代器（CSV to Text Iterator）</strong>：疊代器可以同時容納多組文字輸入，現在可以直接把 CSV 檔案拖放到畫布上，系統會依照每一欄自動產生對應的疊代器節點；選擇想要建立疊代器的欄位，點選「Import」，該欄位所有的內容就會被建立成一個疊代器，不用再手動複製貼上。</p>
+<h3 id='17-weave-新功能亮點-4new-figma-weave-delights-4'>17. Weave 新功能亮點 #4（New Figma Weave Delights #4）</h3>
+<p><strong>多節點同時連線（Multi-Connect Selection）</strong>：用框選或按住 Shift 逐一點選多個節點後，從其中任一節點邊緣拖曳出連線並放到目標節點上，就能一次連接所有被選取的節點。</p>
+<p><strong>智慧拖曳連線（Smart Edge Dragging）</strong>：拖曳連線時按住 Shift，只要把線移到目標節點上方懸停，就能立即連接。</p>
+<p><strong>從輸入接點直接建立提示詞節點（Prompt Node from Handle）</strong>：在任何節點的文字輸入接點上雙擊，就會自動建立一個新的提示詞節點並直接連接在旁邊。</p>
+<h3 id='18-使用已儲存區塊using-the-saved-section'>18. 使用「已儲存」區塊（Using the Saved section）</h3>
+<p>左側面板的「Saved」區塊可以讓你儲存模型、節點與節點群組，方便在不同工作流程中重複使用。<strong>「已儲存」的項目會在整個工作空間內共用，任何成員都能看到與使用你儲存的內容</strong>。</p>
+<p><strong>儲存模型</strong>：把任何模型連同自訂設定儲存成一個具名的預設集（這個功能取代了原本的「My Models」區塊）。在畫布上設定好模型後，替它取個名稱、加上選填的說明文字即可儲存，之後就能在「Saved」區塊中把它拖曳到任何畫布上使用。</p>
+<p><strong>儲存節點</strong>：把設定好的工具節點存成預設集，之後同樣能從「Saved」區塊拖曳到任何工作流程中重複使用。</p>
+<p><strong>儲存群組</strong>：在畫布上選取兩個以上的節點，按右鍵選擇「Save group」，替它命名、加上選填說明，並選擇一張代表縮圖（可以擷取群組本身或整個工作流程的畫面），之後就會出現在「Saved」區塊中可供拖曳使用。</p>
+<p><strong>編輯與刪除已儲存項目</strong>：點選「Saved」區塊標題旁的鉛筆圖示進入編輯模式，即可重新命名或修改說明；在編輯模式中也能刪除已儲存的項目。</p>
+<p><strong>從畫布直接存取</strong>：所有已儲存的項目也能透過畫布右鍵選單中的「Saved」直接取用，不需要特地打開左側面板。</p>
+<hr />
+<h2 id='四匯入模型import-models'>四、匯入模型（Import Models）</h2>
+<h3 id='19-匯入模型importing-models'>19. 匯入模型（Importing Models）</h3>
+<p><strong>注意</strong>：匯入模型功能目前僅開放給 Starter、Pro、Team 與 Enterprise 方案使用。</p>
+<p><strong>從 Fal 匯入</strong>：開啟工具箱面板，把「Import Model」節點拖曳到畫布上（或按 Tab 鍵搜尋「Import Model」）；在 Fal 上選擇想匯入的模型並複製該頁面網址，把網址直接貼到 Weave 畫布上就會自動匯入，或是貼到「Import Model」節點裡手動匯入。匯入後，模型的所有參數會顯示在畫面右側的工具列中；點選節點底部的「Save model」，即可讓這個模型在你所有的工作流程中都能使用，儲存後會出現在左側面板的「Saved」區塊裡。</p>
+<p><strong>從 Replicate 匯入</strong>：步驟與從 Fal 匯入相同——拖曳或搜尋「Import Model」節點，複製 Replicate 上該模型頁面的網址並貼上（直接貼到畫布上會自動匯入，或貼進節點手動匯入），接著同樣可用「Save model」儲存以供未來使用。</p>
+<p><strong>從 CivitAI 匯入</strong>：步驟同上——拖曳或搜尋「Import Model」節點，複製 CivitAI 上該模型的網址並貼上匯入，再用「Save model」儲存起來。</p>
+<h3 id='20-在-figma-weave-匯入-loraimporting-loras-in-figma-weave'>20. 在 Figma Weave 匯入 LoRA（Importing LoRAs in Figma Weave）</h3>
+<p>LoRA（低秩適應，Low-Rank Adaptation）模型能讓你用特定風格、角色或概念來客製化生成式 AI 模型。匯入步驟如下：</p>
+<ol start='' >
+<li><strong>開啟「匯入 LoRA」節點</strong>：打開左上角的工具箱選單並拖出「Import LoRA」節點；或是在畫布上按右鍵，在搜尋框輸入「LoRA」並選擇該節點。</li>
+<li><strong>上傳你的 LoRA 檔案</strong>：點選節點，按下「Upload」按鈕，從電腦中選擇你的 LoRA 檔案，上傳成功後節點會顯示該 LoRA 的檔名。</li>
+<li><strong>連接到相容的模型</strong>：加入一個支援 LoRA 的模型，例如 FluxDev LoRA（在搜尋框輸入「FluxDev LoRA」即可找到），把你的文字提示詞連到該模型的「prompt」輸入接點，再把「Import LoRA」節點連到「LoRA1」輸入接點。</li>
+<li><strong>控制 LoRA 強度（選用）</strong>：想控制 LoRA 的影響程度，可以加入一個「Number」節點（在資料類型分類，或直接透過快速搜尋找到）。要達到全強度效果，把數值設為 1；想要較細緻的效果，可以打開節點的「show more」按鈕、把類型改成「float」浮點數，設定介於 0 到 1 之間的小數（例如 0.7），再把這個 Number 節點連到 FluxDev LoRA 模型的「LoRA1 scale」輸入接點。</li>
+<li><strong>同時使用多個 LoRA</strong>：用另一個「Import LoRA」節點匯入第二個 LoRA 檔案，把它連到模型的「LoRA2」輸入接點，並用另一個 Number 節點連到「LoRA2 scale」來控制強度。</li>
+
+</ol>
+<p>你匯入的 LoRA 會隨著工作流程一併儲存，之後的工作階段也能重複使用。</p>
+<p><strong>使用自訂模型的小技巧</strong>：</p>
+<ul>
+<li><strong>多測試幾種強度數值</strong>：找出 LoRA 風格與基礎模型之間最理想的平衡點。</li>
+<li><strong>嘗試組合多個 LoRA</strong>：能創造出獨特的效果，但並非所有組合都能相容良好。</li>
+<li><strong>留意模型的輸入需求</strong>：從 Replicate 與 CivitAI 匯入的外部模型可能有特定的輸入格式要求，請參考該模型的說明文件。</li>
+<li><strong>儲存成功的工作流程</strong>：一旦找到效果良好的模型與設定組合，記得儲存起來供之後使用。</li>
+<li><strong>整理你的模型庫</strong>：定期替已儲存的模型取清楚的名稱與說明，方便管理。</li>
+
+</ul>
+<hr />
+<h2 id='五偏好設定preferences'>五、偏好設定（Preferences）</h2>
+<h3 id='21-偏好設定preferences-settings'>21. 偏好設定（Preferences Settings）</h3>
+<p>點選介面左上角的 Weave 圖示，往下捲動並選擇「Preferences」，即可選擇要開啟或關閉哪些選項，可以全部開啟、也可以只開啟部分項目。</p>
+<h3 id='22-更改連接線樣式changing-wire-styles'>22. 更改連接線樣式（Changing Wire Styles）</h3>
+<p>你可以更改工作流程中連接線的呈現方式，這項設定會套用到<strong>你所有的工作流程</strong>，而不只是單一專案。點選畫面左上角的 Weave 圖示，選擇「Preferences」，點選「Wire Style」，就能選擇想使用的線條樣式，共有三種：<strong>轉角樣式（Elbow Style）</strong>、<strong>直線樣式（Line Style）</strong>與<strong>曲線樣式（Bezier Style）</strong>。</p>
+<hr />
+<h1 id='第二部分nodes-and-models-documentations節點與模型說明文件'>第二部分：Nodes and Models Documentations（節點與模型說明文件）</h1>
+<h2 id='六工具節點tools'>六、工具節點（Tools）</h2>
+<h3 id='23-文字工具text-tools'>23. 文字工具（Text Tools）</h3>
+<ul>
+<li><strong>提示詞節點（Prompt Node）</strong>：提供最基本的文字提示詞輸入，可以用自然、自由的語言撰寫任意長度、任意詳細程度的提示詞。</li>
+<li><strong>提示詞串接器節點（Prompt Concatenator Node）</strong>：能把多個節點合併成一個。可以透過節點左下角的「+」按鈕持續加入文字輸入，除了輸入的提示詞之外，也能額外加入文字，全部會合併在一起。</li>
+<li><strong>提示詞優化節點（Prompt Enhancer Node）</strong>：能改善並精煉你的提示詞。把「提示詞節點」連接到這個節點並執行，它會優化你的提示詞，讓圖片與影片節點更容易處理；可以從畫面左側下拉選單選擇要使用的 LLM 模型，也能在下拉選單下方的文字框自訂優化指示。</li>
+<li><strong>任意 LLM 執行節點（Run Any LLM Node）</strong>：可以把文字與圖片輸入送給任何你選擇的 LLM（大型語言模型），並取得文字形式的回應，同樣可在畫面左側用下拉選單選擇想使用的 LLM。</li>
+<li><strong>圖片描述節點（Image Describer Node）</strong>：能分析輸入的任何圖片，並產生一段新的提示詞描述，找出讓這張圖看起來如此的關鍵特徵，你可以拿這些特徵去編輯、再創造新內容。同樣能在左側下拉選單選擇要使用的 LLM，並在「Image Instructions」文字框編輯節點的指引方式。</li>
+<li><strong>影片描述節點（Video Describer Node）</strong>：功能類似圖片描述節點，但用於分析輸入的影片並產生描述，可在「Model Instructions」文字框編輯指引方式。</li>
+
+</ul>
+<h3 id='24-遮罩去背工具matte-tools'>24. 遮罩／去背工具（Matte Tools）</h3>
+<ul>
+<li><strong>遮罩擷取器（Mask Extractor）</strong>：能自動把圖片拆解成不同部分，讓你選取物件或圖片的局部。按住 Shift 可以「加選」某個部分到遮罩中，按住 Alt+Shift 則可以「減選」；可以在節點右上角選擇要預覽原始圖片還是產生的遮罩。輸入節點為圖片節點。</li>
+<li><strong>文字產生遮罩（Mask By Text）</strong>：透過輸入文字提示詞來遮罩圖片中的物件或局部，需要同時提供圖片與文字輸入，並盡可能詳細描述想產生的遮罩。輸入節點為兩個圖片節點。</li>
+<li><strong>遮罩擴張／收縮（Matte Grow / Shrink）</strong>：讓你對遮罩通道有更進一步的控制，可以收縮（choke）或擴張遮罩，取得更乾淨的輸出結果，透過節點底部的滑桿調整，特別適合用來細修與定義遮罩。輸入節點為圖片／影片／遮罩節點。</li>
+<li><strong>合併 Alpha 通道（Merge Alpha）</strong>：能替圖片加上 Alpha 透明通道，把輸入圖片與你為它建立的遮罩一起連進這個節點，就能得到依照該遮罩產生 Alpha 通道的圖片。輸入節點為圖片節點與遮罩節點。</li>
+<li><strong>影片遮罩（Video Matte）</strong>：能從影片中擷取遮罩通道，輸入影片後，從畫面右側下拉選單選擇想產生的遮罩類型。輸入節點為影片節點。</li>
+<li><strong>文字產生影片遮罩（Video Mask by Text）</strong>：透過提示詞遮罩影片中的物件或元素，描述想遮罩的內容後執行模型即可自動產生遮罩。輸入節點為影片節點與文字節點。</li>
+
+</ul>
+<h3 id='25-編輯工具editing-tools'>25. 編輯工具（Editing Tools）</h3>
+<ul>
+<li><strong>色階節點（Levels node）</strong>：透過直方圖調整圖片的亮度、對比與色調範圍，可個別控制陰影、中間調與亮部，能校正曝光、增強對比並調整黑點、灰點、白點以修正色彩平衡。輸入節點為圖片／影片節點。</li>
+<li><strong>合成器節點（Compositor node）</strong>：透過圖層系統把多張圖片、影片與圖形合併成單一輸出，詳見前面〈合成器節點〉的完整說明。</li>
+<li><strong>繪圖節點（Painter node）</strong>：讓你在輸入的圖片或空白畫布上繪圖，主要用來手繪遮罩或素描、供草圖轉圖片模型使用。設定分為「筆刷」「橡皮擦」「畫布」三個分頁，各自能獨立調整尺寸、硬度與顏色，輸出同時包含圖片與遮罩。輸入節點為圖片節點。</li>
+<li><strong>裁切節點（Crop node）</strong>：可選擇預設長寬比或自訂尺寸，裁切並調整輸入內容的大小。輸入節點為圖片／影片節點。</li>
+<li><strong>縮放節點（Resize node）</strong>：透過伸縮或壓縮方式調整圖片的長寬比至自訂尺寸，適合用來符合模型的輸入需求，或調整參考圖片的尺寸。輸入節點為圖片／影片節點。</li>
+<li><strong>模糊節點（Blur node）</strong>：可選擇「快速方框模糊」或「高斯模糊」，並完整控制模糊強度。輸入節點為圖片／影片節點。</li>
+<li><strong>反轉節點（Invert node）</strong>：能反轉輸入內容的色彩，特別適合用在需要反轉遮罩的情境。輸入節點為圖片／影片節點。</li>
+<li><strong>色版節點（Channels）</strong>：能讓你分別取得輸入內容的紅、綠、藍、Alpha 各色版，主要用於進階合成工作。輸入節點為圖片／影片節點。</li>
+<li><strong>擷取影片影格節點（Extract Video Frame node）</strong>：能從影片中選取特定影格並擷取為單一圖片，可透過節點的時間軸選取，或直接輸入影格編號／時間碼。輸入節點為影片節點。</li>
+
+</ul>
+<h3 id='26-資料類型datatypes'>26. 資料類型（Datatypes）</h3>
+<ul>
+<li><strong>數字（Number）</strong>：以視覺化方式呈現會影響不同模型的數值屬性，可設定最小值、最大值與小數位數，點選屬性旁的「Set as Output」即可把它顯示在畫布上。</li>
+<li><strong>文字（Text）</strong>：與提示詞節點類似，可以輸入任意文字並作為任何節點的提示詞輸入，是文字屬性的視覺化呈現方式。</li>
+<li><strong>切換開關（Toggle）</strong>：以視覺化方式呈現會影響不同模型的「是／否」屬性，可設定為 True 或 False，同樣透過「Set as Output」顯示在畫布上。</li>
+<li><strong>清單選擇器（List Selector）</strong>：可用多種方式建立清單——手動輸入數值、用陣列節點自動產生清單，或視覺化呈現會影響模型的清單屬性，會產生一個下拉選單讓你從不同輸入選項中選擇。</li>
+<li><strong>種子碼（Seed）</strong>：呈現模型的 Seed 屬性，Seed 會影響生成結果，每次生成的輸出都會帶有一個種子碼，可以是隨機產生，也可以手動指定。</li>
+<li><strong>陣列（Array）</strong>：能輸入多組文字並將它們分成不同群組，可以直接手動輸入陣列項目，也可以連接任何文字輸入、並指定一個鍵盤符號來分隔內容，適合用來替清單節點或文字疊代器節點建立各自獨立的輸入。</li>
+
+</ul>
+<h3 id='27-合成器節點the-compositor-node'>27. 合成器節點（The Compositor node）</h3>
+<p>合成器節點能讓你把圖片、影片與其他媒體用圖層方式疊加、套用混合模式、調整順序，並修改位置、縮放、旋轉等變形設定，合併成單一輸出，是在畫布上直接建構複雜合成畫面的主要工具。合成器內建時間軸功能可處理影片圖層（詳見前面〈時間軸編輯器〉）。</p>
+<p><strong>圖層</strong>：合成器採用圖層式系統，每個輸入都會變成一個獨立圖層。點選圖層即可選取，拖曳框選可選取多個圖層，按住 Cmd/Ctrl 或 Shift 可以加選或取消選取。每個圖層都能個別重新排序、變形、套用樣式與混合模式。</p>
+<p><strong>背景</strong>：可在屬性面板用「Fill」選項加入自訂背景色，隨時可以移除以回復透明背景。</p>
+<p><strong>形狀圖層</strong>：不需要外部輸入即可直接在合成畫面中加入形狀，從工具列選擇矩形、橢圓形、三角形或星形，點選以預設大小放置、或拖曳自訂大小，放置後可用屬性面板調整。</p>
+<p><strong>文字圖層</strong>：用工具列的文字按鈕直接在合成器內加入文字；把文字貼到畫布上也會自動建立文字圖層。點選圖層選取、再次點選進入編輯模式即可修改文字內容，文字圖層同樣能像其他圖層一樣進行變形與樣式調整。</p>
+<hr />
+<h2 id='七輔助節點helpers'>七、輔助節點（Helpers）</h2>
+<h3 id='28-輔助節點總覽helpers-overview'>28. 輔助節點總覽（Helpers Overview）</h3>
+<ul>
+<li><strong>匯入節點（Import Node）</strong>：能將檔案匯入 Weave，可以點選節點上傳檔案、拖放檔案，或貼上檔案連結。支援大部分圖片與影片格式，3D 檔案僅支援 GLB 格式；Figma Weave 不支援直接從 Google Drive 與 iCloud 上傳。支援格式：圖片（JPEG、JPG、PNG、HEIC、WEBP）、影片（MP4、QUICKTIME）、音訊（MP3、WAV、OGG）、3D（GLB）。</li>
+<li><strong>匯出節點（Export Node）</strong>：能匯出檔案，把節點連接到匯出節點後選擇下載資料夾即可，匯出檔案會維持原始生成格式（例如生成 PNG 就會匯出 PNG），支援圖片與影片節點。</li>
+<li><strong>預覽節點（Preview Node）</strong>：能在乾淨的新節點中預覽生成的圖片或影片，只要把生成結果連進去即可。</li>
+<li><strong>匯入模型節點（Import Model Node）</strong>：能從 Fal、Replicate 與 CivitAI 匯入模型，貼上模型網址即可，詳見前述〈匯入模型〉說明。</li>
+<li><strong>匯入 LoRA 節點（Import LoRA Node）</strong>：能匯入自己的 LoRA，從電腦上傳檔案即可使用，詳見前述〈匯入 LoRA〉說明。</li>
+<li><strong>匯入多個 LoRA 節點（Import Multiple LoRA&#39;s Node）</strong>：能同時匯入多個 LoRA，先選擇第一個要匯入的 LoRA，再透過畫面右側的 LoRA 清單按「+」加入更多。</li>
+<li><strong>路由節點（Router Node）</strong>：能讓工作流程更有條理、更有效率，可以把一個輸入節點連到多個輸出節點，方便你快速套用變更。例如有多個圖片模型都連到同一個提示詞節點，就不用手動替換提示詞節點再逐一重新連接，只要把提示詞重新連到路由節點即可。在想連接的輸出上雙擊，就會自動建立路由節點。</li>
+<li><strong>輸出節點（Output Node）</strong>：能用來建立「工具」，把輸出節點連到你想納入工具的節點，「Tool」分頁只有在加入輸出節點後才會出現。</li>
+<li><strong>比較節點（Compare Node）</strong>：能比較兩張不同的圖片，連接兩個圖片輸入後，即可使用滑桿或切換開關比較兩者差異，詳見下方〈比較節點〉說明。</li>
+
+</ul>
+<h3 id='29-便利貼sticky-notes'>29. 便利貼（Sticky Notes）</h3>
+<p>處理工作流程時，可以用便利貼在畫布上直接留給自己提醒、或給團隊成員補充說明。從畫布底部的動作列拖出便利貼、點選要放置的位置即可新增。選取便利貼後按右鍵開啟選單（選取時會出現外框標示），可以更改顏色、調整文字大小。</p>
+<h3 id='30-比較節點compare-node'>30. 比較節點（Compare Node）</h3>
+<p>比較節點能讓你比較兩張圖片輸入，輕鬆看出兩者的差異，提供「滑桿（Slider）」與「切換（Toggle）」兩種比較方式。連接兩個圖片輸入到節點後，比較選項就會出現。</p>
+<p><strong>更改比較方式</strong>：點選節點左下角的「Method」選擇想用的比較方式。</p>
+<p><strong>切換模式</strong>：使用 Toggle 時，節點左上角會出現一個眼睛圖示，點選即可在兩張圖片間切換比較。</p>
+<p><strong>滑桿模式</strong>：使用 Slider 時，左右移動滑桿即可比較兩張圖片。</p>
+<p><strong>把結果當作輸出使用</strong>：如果想繼續延伸工作流程，選擇想採用的那張圖片，從該圖片的輸出接點拖曳連線到下一個節點即可。</p>
+<hr />
+<h2 id='八疊代器iterators'>八、疊代器（Iterators）</h2>
+<h3 id='31-疊代器iterators'>31. 疊代器（Iterators）</h3>
+<ul>
+<li><strong>文字疊代器節點（Text Iterator Node）</strong>：能把多組文字輸入合併，一起送進同一個生成模型，各組提示詞會維持獨立，同時能一次批次生成多張圖片或影片。輸入方式包括：直接在節點內手動輸入多組文字、連接內含多組文字的「陣列節點」，或直接連接「提示詞節點」。連接陣列節點後選擇要用的模型，系統就會自動針對每一組文字輸入分別生成結果。額外還能匯入 CSV 檔案作為文字來源，CSV 輸入也能依名稱排序方便整理。</li>
+<li><strong>圖片疊代器節點（Image Iterator Node）</strong>：能把多張圖片輸入合併，一起送進同一個生成模型，各張圖片會維持獨立輸入，但能同時批次生成多張圖片／影片，只要匯入多張圖片、選擇要使用的模型，系統就會自動針對每張圖片各自產生結果。</li>
+<li><strong>影片疊代器節點（Video Iterator Node）</strong>：功能邏輯與圖片疊代器相同，但用於影片輸入，匯入多支影片並選擇模型後，系統會針對每支影片各自批次生成結果。</li>
+
+</ul>
+<h3 id='32-拆解節點unpack-a-node'>32. 拆解節點（Unpack a Node）</h3>
+<p>同一個節點內若用同一個節點生成了多個結果，可以切換顯示模式檢視單一結果、全部結果，或特定批次（使用疊代器時）。想把結果拆成個別節點，點選結果節點右側三個點、選擇「Unpack」，所有結果就會被拆成同一個群組內的獨立節點，方便逐一處理。</p>
+<h3 id='33-從既有節點建立疊代器creating-iterators-from-existing-node'>33. 從既有節點建立疊代器（Creating Iterators from Existing Node）</h3>
+<p>疊代器可以透過匯入自己的媒體或文字建立，也能直接從內含多個結果的節點產生圖片或影片疊代器。例如你已用圖片模型生成了多個結果，就能把這些結果當作新「圖片疊代器」節點的輸入：點選節點右上角三個點、選擇「Create Iterator」，系統會建立一個包含原節點所有結果的新疊代器。</p>
+<hr />
+<h2 id='九模型比較models-comparison'>九、模型比較（Models Comparison）</h2>
+<blockquote><p>以下比較表為官方文件在 2026 年 3～4 月間的資料快照，模型名稱與規格數值以英文原文呈現（皆為專有名詞或技術規格），列標題已翻譯成中文。<strong>價格（點數）與規格會持續更新，正式使用請以 Figma Weave 網站當下顯示的資料為準。</strong></p>
+</blockquote>
+<h3 id='34-圖片生成模型比較image-models-comparison'>34. 圖片生成模型比較（Image Models Comparison）</h3>
+<p>原文收錄了 ChatGPT Images 2.0、Reve、Higgsfield Image、GPT Image 1、Imagen 4／3／3 Fast、Flux 2 Pro／Flex／Dev LoRA、Flux 1.1 Ultra、Flux Pro 1.1、Flux Fast、Flux Dev LoRA、Recraft V3、Mystic、Ideogram V3／V3 Character、Stable Diffusion 3.5、Minimax Image 01、Bria、Dalle 3、Luma Photon、Nvidia Sana、Nvidia Consistory 共 24 款圖片生成模型，比較欄位包含：必要輸入節點、選用輸入節點、每次執行點數（依原文約 0.2～37 點不等）、輸出格式（多為 PNG，部分支援 JPEG／WEBP）、輸出長寬比選項、是否支援多張參考圖片，以及各模型的額外選項（例如 Ideogram 支援多種風格選項、Recraft V3 支援固定風格、GPT Image 1 支援透明背景與風格模仿）。</p>
+<h3 id='35-影片生成模型比較video-models-comparison'>35. 影片生成模型比較（Video Models Comparison）</h3>
+<p>原文收錄了 Seedance 2.0（含參考版）、Kling 3、Seedance V1.5 Pro、Wan 2.5、Grok Imagine Video、Sora 2、Wan 2.2、LTX 2 Video、Moonvalley、Veo 3.1／3（文字轉圖與圖轉影片版本）、Veo 2、Seedance V1.0、Pixverse V4.5、Runway Gen-4.5／4 Turbo／4／3、Kling 1.6／Kling Video／Kling O1／2.5／2.1（首尾影格版本）、Luma Ray 2／2 Flash、Minimax Video Director／01、Hunyuan、Skyreels、Wan Video、Higgsfield Video 等三十餘款影片生成模型。比較欄位包含必要與選用輸入節點（多數需要提示詞，部分需要首格／尾格圖片）、每次執行點數（依時長與畫質等級浮動，例如 Kling 3 Pro 版 3 秒約 80 點、15 秒約 440 點）、輸出時長（多為 4～15 秒或彈性時長）、輸出長寬比與解析度選項，以及額外功能（例如是否支援生成音訊、鏡頭運鏡控制等）。</p>
+<h3 id='36-圖片編輯模型比較edit-image-models-comparison'>36. 圖片編輯模型比較（Edit Image Models Comparison）</h3>
+<p>原文收錄了 ChatGPT Images 2.0 Edit、Gemini 3.1 Flash（Nano Banana 2）、Gemini 3 Pro、Seedream V5／V4.5／V4 Edit、Reve Edit、Qwen Image Edit 系列、Flux 2 Inpaint／Max、Runway Gen-4 Image、Klux Kontext、Flux Kontext（多圖／LoRA 版本）、GPT Image 1.5／1 Edit、SeedEdit 3.0、Gemini 2.0 Flash、Flux Fill Pro、Flux Dev LoRA Inpaint、Ideogram V3／V2 Inpaint、SD3 系列（Inpaint／Outpaint／去背／內容感知填補）、Bria 系列（去背／內容感知填補／換背景）、Kolors 虛擬試穿、Replace Background、Relight 2.0 等四十款左右的圖片編輯模型。比較欄位包含必要與選用輸入節點（多數需要提示詞搭配圖片，部分需另外提供遮罩）、每次執行點數、輸出格式與長寬比選項、是否支援多張圖片輸入，以及各模型的額外選項（例如部分模型支援「啟用網路搜尋」、多重 LoRA、去背、內容感知填補、換背景等專屬功能）。</p>
+<h3 id='37-以影片生成模型比較generate-from-video-models-comparison'>37. 以影片生成模型比較（Generate From Video Models Comparison）</h3>
+<p>原文收錄了 Kling O1／O3 影片編輯與參考轉換、Kling Motion Control、LTX 2 Video to Video、Runway Aleph／Act-Two、Luma Reframe／Modify、Wan 2.2 Animate（替換／動作模式）、Wan Vace（深度／姿勢／重新取景／外擴）、Hunyuan Video to Video 等十六款「以既有影片為基礎再生成」的模型。比較欄位包含必要與選用輸入節點（多需提示詞搭配原始影片，部分需要角色圖片或驅動影片）、每次執行點數、輸出時長與長寬比選項，以及額外選項（例如保留原始音訊、產生音效、擴展比例等）。</p>
+<h3 id='38-以圖片生成模型比較generate-from-image-models-comparison'>38. 以圖片生成模型比較（Generate from Image Models Comparison）</h3>
+<p>原文收錄了 Flux Dev Redux、Flux ControlNet &amp; LoRA、Flux Canny Pro、Flux Depth Pro、Qwen Edit Multiangle、Image to Image、Stable Diffusion ControlNets、Sketch To Image 共 8 款「以既有圖片為基礎再生成」的模型。比較欄位包含必要輸入節點（多數需要控制圖片或提示詞）、每次執行點數（0.1～10 點不等）、輸出格式與長寬比選項，以及備註（例如 Flux ControlNet &amp; LoRA 需要以連結方式加入 LoRA、Qwen Edit Multiangle 在工具列提供鏡頭控制選項）。</p>
+<h3 id='39-影片畫質增強模型比較enhance-video-models-comparison'>39. 影片畫質增強模型比較（Enhance Video Models Comparison）</h3>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>項目</th><th>Bria Video Upscale</th><th>Topaz Video Upscaler</th><th>Real-ESRGAN Video Upscaler</th><th>Video Smoother</th></tr></thead>
+<tbody><tr><td>必要輸入節點</td><td>影片</td><td>影片</td><td>影片</td><td>影片</td></tr><tr><td>每次執行點數</td><td>154</td><td>12</td><td>71</td><td>5</td></tr><tr><td>輸出長寬比</td><td>與原始相同</td><td>與原始相同</td><td>與原始相同</td><td>與原始相同</td></tr><tr><td>輸出解析度</td><td>—</td><td>—</td><td>2K／4K</td><td>—</td></tr><tr><td>額外選項</td><td>—</td><td>—</td><td>—</td><td>可設定輸出影片幀率</td></tr><tr><td>備註</td><td>—</td><td>—</td><td>不支援帶 Alpha 通道的 MOV 檔</td><td>—</td></tr></tbody>
+</table></figure>
+<h3 id='40-圖片畫質增強模型比較enhance-images-models-comparison'>40. 圖片畫質增強模型比較（Enhance Images Models Comparison）</h3>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>項目</th><th>Topaz Upscale</th><th>Topaz Sharpen</th><th>Recraft Crisp Upscale</th><th>Magnific Skin Enhancer</th><th>Magnific Upscale</th><th>Magnific Precision Upscale</th><th>Magnific Precision Upscale V2</th><th>Enhancor Image Upscale</th><th>Enhancor Realistic Skin</th></tr></thead>
+<tbody><tr><td>必要輸入節點</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td></tr><tr><td>選用輸入節點</td><td>—</td><td>—</td><td>—</td><td>提示詞</td><td>提示詞</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>每次執行點數</td><td>19</td><td>19</td><td>5</td><td>18</td><td>12</td><td>18</td><td>18</td><td>36</td><td>36</td></tr><tr><td>額外選項</td><td>—</td><td>—</td><td>—</td><td>皮膚細節調整</td><td>風格選項</td><td>細節與銳化調整</td><td>細節與顆粒感調整</td><td>多種放大模式</td><td>增強模式與皮膚細節</td></tr></tbody>
+</table></figure>
+<h3 id='41-對嘴同步模型比較lip-sync-models-comparison'>41. 對嘴同步模型比較（Lip Sync Models Comparison）</h3>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>項目</th><th>Omnihuman V1.5</th><th>Sync 2 Pro</th><th>Pixverse Lipsync</th><th>Kling AI Avatar Pro</th></tr></thead>
+<tbody><tr><td>必要輸入節點</td><td>音訊＋圖片</td><td>音訊＋影片</td><td>影片網址</td><td>圖片＋音訊</td></tr><tr><td>選用輸入節點</td><td>—</td><td>—</td><td>音訊、文字</td><td>提示詞</td></tr><tr><td>每次執行點數</td><td>352</td><td>184</td><td>66</td><td>253</td></tr><tr><td>輸出格式</td><td>MP4</td><td>MP4</td><td>MP4</td><td>MP4</td></tr><tr><td>額外選項</td><td>—</td><td>—</td><td>可指定語音 ID</td><td>—</td></tr></tbody>
+</table></figure>
+<h3 id='42-3d-模型比較3d-models-comparison'>42. 3D 模型比較（3D Models Comparison）</h3>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>項目</th><th>Sam 3D Objects</th><th>Rodin</th><th>Rodin V2</th><th>Trellis 3D V2</th><th>Meshy V6</th><th>Hunyuan 3D V3</th><th>Hunyuan 3D</th><th>Hunyuan 3D V2.1</th><th>Trellis</th></tr></thead>
+<tbody><tr><td>必要輸入節點</td><td>圖片＋提示詞</td><td>圖片</td><td>圖片</td><td>圖片</td><td>圖片</td><td>輸入圖片</td><td>正面圖片</td><td>圖片</td><td>圖片</td></tr><tr><td>每次執行點數</td><td>3</td><td>48</td><td>36</td><td>30</td><td>96</td><td>80</td><td>18</td><td>25</td><td>2</td></tr><tr><td>額外選項</td><td>—</td><td>材質、T-pose 模式</td><td>材質、網格品質選項</td><td>拓樸與重新網格化</td><td>拓樸與重新網格化</td><td>多邊形類型</td><td>目標面數</td><td>帶紋理網格</td><td>紋理尺寸、網格簡化</td></tr></tbody>
+</table></figure>
+<h3 id='43-向量圖模型比較vector-models-comparison'>43. 向量圖模型比較（Vector Models Comparison）</h3>
+<figure class='table-figure'><table>
+<thead>
+<tr><th>項目</th><th>Vectorizer</th><th>Recraft V3 SVG</th><th>Text To Vector</th></tr></thead>
+<tbody><tr><td>必要輸入節點</td><td>圖片</td><td>提示詞</td><td>提示詞</td></tr><tr><td>選用輸入節點</td><td>—</td><td>—</td><td>負向提示詞</td></tr><tr><td>每次執行點數</td><td>24</td><td>10</td><td>6</td></tr><tr><td>輸出格式</td><td>SVG、EPS、PDF、DXF、PNG</td><td>PNG</td><td>PNG</td></tr></tbody>
+</table></figure>
+<hr />
+<h2 id='結語'>結語</h2>
+<p>以上共 43 篇文章，涵蓋 Weave 編輯器操作（媒體、文字提示詞、畫布導覽、匯入模型、偏好設定）與節點／模型技術文件（工具節點、輔助節點、疊代器、各類模型比較），依原站分類順序整理翻譯完成。若後續官方文件內容更新，建議直接對照 help.weavy.ai/en 站上的最新版本。</p>
+</body>
+</html>
