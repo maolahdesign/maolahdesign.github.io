@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>數位相框</title>
+<style>
+  :root{ color-scheme: dark; }
+  html,body{
+    margin:0; padding:0; width:100%; height:100%;
+    background:#000; overflow:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;
+  }
+  body{
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* 16:9 相框，置中，其餘畫面以黑色填滿 */
+  #frame{
+    position:relative;
+    background:#000;
+    overflow:hidden;
+  }
+
+  .slide{
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    object-fit:contain;
+    object-position:50% 50%;
+    opacity:0;
+    transform:scale(1);
+    transform-origin:center center;
+    transition:opacity 1s ease;
+    will-change:opacity;
+  }
+  .slide.active{ opacity:1; }
+  .slide.portrait{ transform:scale(1.2); }
+
+  /* 齒輪設定鈕 */
+  #gear{
+    position:fixed; right:16px; bottom:16px;
+    width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    color:rgba(255,255,255,0.55);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; z-index:50; font-size:18px;
+    transition:background .2s, color .2s;
+    user-select:none;
+  }
+  #gear:hover{ background:rgba(255,255,255,0.18); color:#fff; }
+
+  #overlay{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(0,0,0,0.75);
+    display:none; align-items:center; justify-content:center;
+  }
+  #overlay.show{ display:flex; }
+
+  #panel{
+    width:min(440px, 90vw);
+    background:#161616; color:#eee;
+    border-radius:14px; padding:24px 26px 20px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  #panel h1{ font-size:17px; margin:0 0 4px; font-weight:600; }
+  #panel p.hint{ font-size:12.5px; color:#999; line-height:1.6; margin:0 0 16px; }
+  #panel label{ display:block; font-size:12.5px; color:#bbb; margin:14px 0 6px; }
+  #panel input{
+    width:100%; box-sizing:border-box; padding:9px 11px;
+    background:#0e0e0e; border:1px solid #333; border-radius:8px;
+    color:#fff; font-size:13.5px; outline:none;
+  }
+  #panel input:focus{ border-color:#6aa9ff; }
+  #panel details{ margin-top:14px; }
+  #panel summary{ font-size:12px; color:#888; cursor:pointer; }
+  #panel details p{ font-size:12px; color:#888; line-height:1.7; margin:8px 0 0; }
+  #panel details a{ color:#6aa9ff; }
+  #panel .actions{ display:flex; gap:10px; margin-top:20px; }
+  #panel button{
+    flex:1; padding:10px 0; border:none; border-radius:8px;
+    font-size:13.5px; cursor:pointer; font-weight:600;
+  }
+  #btnStart{ background:#3d7eff; color:#fff; }
+  #btnStart:hover{ background:#2d6ae8; }
+  #btnCancel{ background:#2a2a2a; color:#ccc; }
+  #btnCancel:hover{ background:#333; }
+  #errMsg{ color:#ff6b6b; font-size:12.5px; margin-top:12px; min-height:0; display:none; }
+  #errMsg.show{ display:block; }
+
+  #status{
+    position:fixed; left:50%; top:50%; transform:translate(-50%,-50%);
+    color:#666; font-size:13px; z-index:40; text-align:center; letter-spacing:.03em;
+  }
+</style>
+</head>
+<body>
+
+<div id="frame">
+  <img class="slide" id="layerA">
+  <img class="slide" id="layerB">
+</div>
+
+<div id="status"></div>
+<div id="gear" title="設定">⚙</div>
+
+<div id="overlay">
+  <div id="panel">
+    <h1>數位相框設定</h1>
+    <p class="hint">貼上 Google Drive「共用資料夾」的連結，資料夾內所有圖片會隨機輪播。</p>
+
+    <label>Google Drive 資料夾連結（或資料夾 ID）</label>
+    <input id="inFolder" placeholder="https://drive.google.com/drive/folders/xxxxxxxx">
+
+    <label>Google API 金鑰</label>
+    <input id="inKey" placeholder="AIza...">
+
+    <details>
+      <summary>如何取得資料夾連結與 API 金鑰？</summary>
+      <p>
+        1. 在 Google Drive 建立資料夾，把照片放進去，設定共用權限為「知道連結的任何人 - 檢視者」，複製資料夾連結。<br>
+        2. 到 <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">Google Cloud Console</a> 建立專案 → 啟用「Google Drive API」→ 建立「API 金鑰」。<br>
+        3. 建議將金鑰限制為「HTTP 引用網址」，只允許本網站網域使用，避免被盜用。<br>
+        金鑰只會存在你目前這台裝置的瀏覽器（localStorage），不會被送到其他地方。
+      </p>
+    </details>
+
+    <div id="errMsg"></div>
+
+    <div class="actions">
+      <button id="btnCancel">取消</button>
+      <button id="btnStart">開始播放</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var DWELL_MS = 5000;   // 每張照片停留時間（不含轉場）
+  var FADE_MS  = 1000;   // fade in 轉場時間
+
+  var frame = document.getElementById('frame');
+  var layerA = document.getElementById('layerA');
+  var layerB = document.getElementById('layerB');
+  var layers = [layerA, layerB];
+  var current = 0;
+
+  var gear = document.getElementById('gear');
+  var overlay = document.getElementById('overlay');
+  var panel = document.getElementById('panel');
+  var inFolder = document.getElementById('inFolder');
+  var inKey = document.getElementById('inKey');
+  var btnStart = document.getElementById('btnStart');
+  var btnCancel = document.getElementById('btnCancel');
+  var errMsg = document.getElementById('errMsg');
+  var statusEl = document.getElementById('status');
+
+  var order = [];
+  var pos = 0;
+  var files = [];
+  var timer = null;
+  var playToken = 0;
+
+  function layoutFrame(){
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var w, h;
+    if (vw / vh > 16 / 9) { h = vh; w = h * 16 / 9; }
+    else { w = vw; h = w * 9 / 16; }
+    frame.style.width = w + 'px';
+    frame.style.height = h + 'px';
+  }
+  window.addEventListener('resize', layoutFrame);
+  layoutFrame();
+
+  function setStatus(text){ statusEl.textContent = text || ''; }
+  function showError(text){ errMsg.textContent = text; errMsg.classList.add('show'); }
+  function clearError(){ errMsg.textContent = ''; errMsg.classList.remove('show'); }
+
+  function extractFolderId(input){
+    input = (input || '').trim();
+    var m = input.match(/[-\w]{25,}/);
+    return m ? m[0] : input;
+  }
+
+  function fetchDriveImages(folderId, apiKey){
+    var q = encodeURIComponent("'" + folderId + "' in parents and mimeType contains 'image/' and trashed = false");
+    var url = 'https://www.googleapis.com/drive/v3/files?q=' + q +
+      '&fields=files(id,name)&pageSize=1000&orderBy=name&key=' + encodeURIComponent(apiKey);
+    return fetch(url).then(function(res){
+      if (!res.ok){
+        return res.json().catch(function(){ return {}; }).then(function(err){
+          var msg = (err && err.error && err.error.message) || ('Google Drive API 錯誤 (' + res.status + ')');
+          throw new Error(msg);
+        });
+      }
+      return res.json();
+    }).then(function(data){ return data.files || []; });
+  }
+
+  function imageUrl(id){ return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1920'; }
+  function imageUrlFallback(id){ return 'https://lh3.googleusercontent.com/d/' + id + '=w1920'; }
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function buildOrder(){
+    var lastId = order.length ? order[order.length - 1] : null;
+    order = shuffle(files.map(function(f){ return f.id; }));
+    if (order.length > 1 && order[0] === lastId){
+      var swapWith = 1 + Math.floor(Math.random() * (order.length - 1));
+      var t = order[0]; order[0] = order[swapWith]; order[swapWith] = t;
+    }
+    pos = 0;
+  }
+
+  function preload(id){
+    return new Promise(function(resolve){
+      var img = new Image();
+      img.onload = function(){ resolve(img); };
+      img.onerror = function(){
+        var img2 = new Image();
+        img2.onload = function(){ resolve(img2); };
+        img2.onerror = function(){ resolve(null); };
+        img2.src = imageUrlFallback(id);
+      };
+      img.src = imageUrl(id);
+    });
+  }
+
+  function showNext(myToken){
+    if (myToken !== playToken) return;
+    if (pos >= order.length) buildOrder();
+    if (!order.length) return;
+    var id = order[pos++];
+
+    preload(id).then(function(img){
+      if (myToken !== playToken) return;
+      if (!img){ showNext(myToken); return; }
+
+      var nextLayer = layers[1 - current];
+      var curLayer = layers[current];
+
+      nextLayer.src = img.src;
+      nextLayer.classList.toggle('portrait', img.naturalHeight > img.naturalWidth);
+
+      requestAnimationFrame(function(){
+        if (myToken !== playToken) return;
+        nextLayer.classList.add('active');
+        curLayer.classList.remove('active');
+      });
+
+      current = 1 - current;
+      timer = setTimeout(function(){ showNext(myToken); }, DWELL_MS + FADE_MS);
+    });
+  }
+
+  function startSlideshow(){
+    playToken++;
+    var myToken = playToken;
+    if (timer) clearTimeout(timer);
+    layers.forEach(function(l){ l.classList.remove('active', 'portrait'); l.removeAttribute('src'); });
+    current = 0;
+    buildOrder();
+    showNext(myToken);
+  }
+
+  function openSettings(){
+    clearError();
+    overlay.classList.add('show');
+  }
+  function closeSettings(){
+    overlay.classList.remove('show');
+  }
+
+  gear.addEventListener('click', openSettings);
+  btnCancel.addEventListener('click', function(){
+    if (files.length) closeSettings();
+  });
+
+  btnStart.addEventListener('click', function(){
+    var folderId = extractFolderId(inFolder.value);
+    var apiKey = inKey.value.trim();
+    clearError();
+
+    if (!folderId){ showError('請輸入 Google Drive 資料夾連結。'); return; }
+    if (!apiKey){ showError('請輸入 Google API 金鑰。'); return; }
+
+    btnStart.disabled = true;
+    btnStart.textContent = '讀取中…';
+    setStatus('正在讀取相片清單…');
+
+    fetchDriveImages(folderId, apiKey).then(function(list){
+      if (!list.length){
+        throw new Error('這個資料夾裡沒有找到圖片，請確認連結與共用權限（知道連結的任何人）。');
+      }
+      files = list;
+      localStorage.setItem('pf_folderId', folderId);
+      localStorage.setItem('pf_apiKey', apiKey);
+      setStatus('');
+      closeSettings();
+      startSlideshow();
+    }).catch(function(err){
+      showError(err.message || String(err));
+      setStatus('');
+    }).then(function(){
+      btnStart.disabled = false;
+      btnStart.textContent = '開始播放';
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') openSettings();
+    if (e.key === 'f' || e.key === 'F'){
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function(){});
+      else document.exitFullscreen().catch(function(){});
+    }
+  });
+
+  frame.addEventListener('dblclick', function(){
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function(){});
+    else document.exitFullscreen().catch(function(){});
+  });
+
+  // 自動帶入上次設定
+  var savedFolder = localStorage.getItem('pf_folderId');
+  var savedKey = localStorage.getItem('pf_apiKey');
+  if (savedFolder) inFolder.value = savedFolder;
+  if (savedKey) inKey.value = savedKey;
+
+  if (savedFolder && savedKey){
+    setStatus('正在讀取相片清單…');
+    fetchDriveImages(savedFolder, savedKey).then(function(list){
+      if (!list.length) throw new Error('empty');
+      files = list;
+      setStatus('');
+      startSlideshow();
+    }).catch(function(){
+      setStatus('');
+      openSettings();
+    });
+  } else {
+    openSettings();
+  }
+})();
+</script>
+</body>
+</html>
