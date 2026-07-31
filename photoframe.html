@@ -174,7 +174,21 @@
   layoutFrame();
 
   function setStatus(text){ statusEl.textContent = text || ''; }
-  function showError(text){ errMsg.textContent = text; errMsg.classList.add('show'); }
+
+  function showError(text){
+    var hint = '';
+    if (/API key not valid/i.test(text)){
+      hint = ' 常見原因：① 金鑰複製不完整（前後有空白）② 這個專案尚未啟用 Google Drive API ' +
+             '③ 金鑰設了 HTTP referrer 限制，用 file:// 本機開啟會被擋，可先暫時改成「無限制」測試。';
+    } else if (/referer|referrer/i.test(text)){
+      hint = ' 這是金鑰的 HTTP referrer 限制擋下的，請在 Cloud Console 把目前的網址（或 file:// 測試環境）加入允許清單，或先暫時移除限制。';
+    } else if (/has not been used in project|is not enabled/i.test(text)){
+      hint = ' 請到 Google Cloud Console 的 APIs & Services → Library，搜尋並啟用「Google Drive API」。';
+    }
+    errMsg.textContent = text + hint;
+    errMsg.classList.add('show');
+  }
+
   function clearError(){ errMsg.textContent = ''; errMsg.classList.remove('show'); }
 
   function extractFolderId(input){
