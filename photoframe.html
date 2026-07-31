@@ -37,7 +37,7 @@
     will-change:opacity;
   }
   .slide.active{ opacity:1; }
-  .slide.portrait{ transform:scale(1.2); }
+  .slide.portrait{ transform:scale(1.3); }
 
   /* 齒輪設定鈕 */
   #gear{
@@ -109,7 +109,7 @@
 <div id="overlay">
   <div id="panel">
     <h1>數位相框設定</h1>
-    <p class="hint">貼上 Google Drive「共用資料夾」的連結，資料夾內所有圖片會隨機輪播。</p>
+    <p class="hint">貼上 Google Drive「共用資料夾」的連結，資料夾內所有圖片會依加入時間先後順序輪播。</p>
 
     <label>Google Drive 資料夾連結（或資料夾 ID）</label>
     <input id="inFolder" placeholder="https://drive.google.com/drive/folders/xxxxxxxx">
@@ -203,7 +203,7 @@
   function fetchDriveImages(folderId, apiKey){
     var q = encodeURIComponent("'" + folderId + "' in parents and mimeType contains 'image/' and trashed = false");
     var url = 'https://www.googleapis.com/drive/v3/files?q=' + q +
-      '&fields=files(id,name)&pageSize=1000&orderBy=name&key=' + encodeURIComponent(apiKey);
+      '&fields=files(id,name,createdTime)&pageSize=1000&orderBy=createdTime&key=' + encodeURIComponent(apiKey);
     return fetch(url).then(function(res){
       if (!res.ok){
         return res.json().catch(function(){ return {}; }).then(function(err){
@@ -218,22 +218,10 @@
   function imageUrl(id){ return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1920'; }
   function imageUrlFallback(id){ return 'https://lh3.googleusercontent.com/d/' + id + '=w1920'; }
 
-  function shuffle(arr){
-    var a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--){
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-
   function buildOrder(){
-    var lastId = order.length ? order[order.length - 1] : null;
-    order = shuffle(files.map(function(f){ return f.id; }));
-    if (order.length > 1 && order[0] === lastId){
-      var swapWith = 1 + Math.floor(Math.random() * (order.length - 1));
-      var t = order[0]; order[0] = order[swapWith]; order[swapWith] = t;
-    }
+    order = files.slice()
+      .sort(function(a, b){ return (a.createdTime || '').localeCompare(b.createdTime || ''); })
+      .map(function(f){ return f.id; });
     pos = 0;
   }
 
