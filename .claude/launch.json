@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lamel",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "/Users/troie/Library/CloudStorage/SynologyDrive-sync/projects/lamel",
+        "run",
+        "dev"
+      ],
+      "port": 4321
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>東京旅費記帳 - 首頁</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --red: #C41230;
+    --red-dark: #A80E28;
+    --ring-track: rgba(255,255,255,0.88);
+    --panel-bg: #F2F1EF;
+    --card-bg: #FFFFFF;
+    --text-dark: #1C1C1E;
+    --text-gray: #9A9A9E;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+    background: #E5E5E5;
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 40px 20px;
+  }
+
+  .phone{
+    width: 390px;
+    height: 844px;
+    background: var(--red);
+    border-radius: 55px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* status bar */
+  .status-bar{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 32px 0 32px;
+    color:#000;
+    font-weight:700;
+    font-size:17px;
+    flex-shrink:0;
+  }
+  .status-bar .time{ letter-spacing: 0.3px; }
+  .dynamic-island{
+    position:absolute;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    width:120px;
+    height:34px;
+    background:#000;
+    border-radius:20px;
+  }
+  .status-icons{ display:flex; align-items:center; gap:6px; }
+  .status-icons svg{ display:block; }
+
+  /* header */
+  .header{
+    flex-shrink:0;
+    padding: 28px 24px 0 24px;
+  }
+  .header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .location{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+  }
+  .location .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background:#fff;
+  }
+  .avatar-btn{
+    width:44px; height:44px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .avatar-btn svg{ display:block; }
+
+  .ring-wrap{
+    position:relative;
+    width:360px;
+    height:360px;
+    margin: 20px auto 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ring-wrap svg{ transform: rotate(-90deg); }
+  .ring-center{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    text-align:center;
+    color:#fff;
+  }
+  .ring-label{
+    font-size:15px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom:6px;
+  }
+  .ring-amount{
+    font-size:40px;
+    font-weight:700;
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:6px;
+    letter-spacing:0.5px;
+  }
+  .ring-amount .yen{
+    font-size:22px;
+    font-weight:600;
+    align-self:flex-start;
+    margin-top:6px;
+  }
+  .ring-percent{
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.3;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* panel */
+  .panel{
+    flex:1;
+    background: var(--panel-bg);
+    border-radius: 28px 28px 0 0;
+    margin-top: -34px;
+    position: relative;
+    z-index: 2;
+    display:flex;
+    flex-direction:column;
+    min-height: 0;
+    overflow:hidden;
+  }
+  .handle{
+    width:36px; height:5px;
+    border-radius:3px;
+    background:#D2D1CE;
+    margin: 10px auto 6px auto;
+    flex-shrink:0;
+  }
+  .panel-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 10px 20px 14px 20px;
+    flex-shrink:0;
+  }
+  .nav-arrow{
+    width:30px; height:30px;
+    border-radius:50%;
+    border:none;
+    background: rgba(0,0,0,0.06);
+    color:#8A8A8E;
+    font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .nav-arrow:active{ background: rgba(0,0,0,0.12); }
+  .panel-title{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-size:19px;
+    font-weight:700;
+    color: var(--text-dark);
+  }
+  .panel-title span{
+    font-size:14px;
+    font-weight:400;
+    color: var(--text-gray);
+  }
+  .panel-summary{
+    font-size:13px;
+    color: var(--text-gray);
+    margin-left:auto;
+    margin-right:12px;
+  }
+
+  .list{
+    flex:1;
+    overflow-y:auto;
+    padding: 0 20px 20px 20px;
+    -webkit-mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 88%, transparent 100%);
+  }
+  .list-item{
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 16px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom: 12px;
+  }
+  .list-item .info .title{
+    font-size:16px;
+    font-weight:600;
+    color: var(--text-dark);
+    margin-bottom:5px;
+  }
+  .list-item .info .time{
+    font-size:13px;
+    color: var(--text-gray);
+  }
+  .list-item .amount{
+    font-size:17px;
+    font-weight:700;
+    color: var(--text-dark);
+  }
+
+  /* tab bar */
+  .tabbar{
+    position:relative;
+    flex-shrink:0;
+    background: var(--panel-bg);
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    padding: 10px 0 6px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    z-index: 3;
+  }
+  .tab{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    width:70px;
+  }
+  .tab .icon{ width:24px; height:24px; }
+  .tab.active .icon{ background: var(--red); border-radius:7px; }
+  .tab.active .label{ color: var(--red); font-weight:600; }
+  .tab:nth-child(2) .icon{ border:2px solid #B9B9BC; border-radius:6px; background:none; }
+  .tab:nth-child(4) .icon{ border:2px solid #B9B9BC; border-radius:50%; background:none; }
+  .tab:nth-child(5) .icon{ background:#B9B9BC; border-radius:50%; }
+  .tab .label{
+    font-size:11px;
+    color:#B9B9BC;
+  }
+
+  .fab{
+    position:absolute;
+    left:50%;
+    top:-24px;
+    transform: translateX(-50%);
+    width:60px; height:60px;
+    border-radius:50%;
+    background: var(--red);
+    border: 5px solid var(--panel-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 8px 20px rgba(196,18,48,0.45);
+    cursor:pointer;
+  }
+  .fab::before, .fab::after{
+    content:"";
+    position:absolute;
+    background:#fff;
+    border-radius:2px;
+  }
+  .fab::before{ width:22px; height:3px; }
+  .fab::after{ width:3px; height:22px; }
+
+  .home-indicator{
+    flex-shrink:0;
+    display:flex;
+    justify-content:center;
+    padding: 8px 0 10px 0;
+    background: var(--panel-bg);
+  }
+  .home-indicator .bar{
+    width:134px; height:5px;
+    border-radius:3px;
+    background:#000;
+    opacity:0.85;
+  }
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="dynamic-island"></div>
+    <div class="status-icons">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="0.8" fill="#000"/><rect x="5" y="5" width="3" height="7" rx="0.8" fill="#000"/><rect x="10" y="3" width="3" height="9" rx="0.8" fill="#000"/><rect x="15" y="0" width="3" height="12" rx="0.8" fill="#000"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 10.2C8.66 10.2 9.2 9.66 9.2 9C9.2 8.34 8.66 7.8 8 7.8C7.34 7.8 6.8 8.34 6.8 9C6.8 9.66 7.34 10.2 8 10.2Z" fill="#000"/><path d="M4.8 6.6C5.7 5.7 6.82 5.2 8 5.2C9.18 5.2 10.3 5.7 11.2 6.6" stroke="#000" stroke-width="1.4" stroke-linecap="round"/><path d="M2 3.8C3.6 2.2 5.7 1.3 8 1.3C10.3 1.3 12.4 2.2 14 3.8" stroke="#000" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="#000"/><rect x="2" y="2" width="15" height="8" rx="1.3" fill="#000"/><rect x="23" y="4" width="1.5" height="4" rx="0.7" fill="#000"/></svg>
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="header-top">
+      <div class="location"><span class="dot"></span>東京・第 2 天</div>
+      <div class="avatar-btn">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+    </div>
+
+    <div class="ring-wrap">
+      <svg width="220" height="220" viewBox="0 0 220 220">
+        <circle cx="110" cy="110" r="98" fill="none" stroke="var(--ring-track)" stroke-width="16"
+          stroke-linecap="round"
+          stroke-dasharray="615.75"
+          stroke-dashoffset="55.4" />
+      </svg>
+      <div class="ring-center">
+        <div class="ring-label">身上現金</div>
+        <div class="ring-amount"><span class="yen">¥</span>54,540</div>
+        <div class="ring-percent">剩<br>91%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="handle"></div>
+    <div class="panel-header">
+      <button class="nav-arrow">‹</button>
+      <div class="panel-title">今天 <span>8/30</span></div>
+      <div class="panel-summary">¥3,100 · 2 筆</div>
+      <button class="nav-arrow">›</button>
+    </div>
+
+    <div class="list">
+      <div class="list-item">
+        <div class="info">
+          <div class="title">JR 車票</div>
+          <div class="time">8/30 13:33</div>
+        </div>
+        <div class="amount">¥1,500</div>
+      </div>
+      <div class="list-item">
+        <div class="info">
+          <div class="title">地鐵一日券 × 2</div>
+          <div class="time">8/30 13:33</div>
+        </div>
+        <div class="amount">¥1,600</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tab active"><div class="icon"></div><div class="label">首頁</div></div>
+    <div class="tab"><div class="icon"></div><div class="label">帳本</div></div>
+    <div class="fab"></div>
+    <div class="tab"><div class="icon"></div><div class="label">統計</div></div>
+    <div class="tab"><div class="icon"></div><div class="label">設定</div></div>
+  </div>
+
+  <div class="home-indicator"><div class="bar"></div></div>
+
+</div>
+
+</body>
+</html>
